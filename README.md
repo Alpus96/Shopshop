@@ -2,7 +2,7 @@
 This README file contains information about the project file structure.
 
 # Project root
-In the root directory
+The root directory only contains the node required package.json file and the server.js file with contains the code for running the server and passing requests to the web application.
 
 ## Features directory
 Put the files for cucumber with the Gherkin scenarios in ./features, these should have the file ending .feature and in turn run their corresponding file (file with the same name ending with .js) in the step_definition directory.
