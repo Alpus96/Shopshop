@@ -27,3 +27,7 @@ In ./app/views there should be the .ejs files to render views from in the contro
 
 ## Node_modules directory
 In ./node_modules contain the dependencies for the web application. Node_modules is put on the .gitignore list.
+
+## Commands
+* "npm start", will run server.js in root.
+* "npm test", will run the cucumber scripts.
