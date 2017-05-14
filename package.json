@@ -4,6 +4,7 @@
   "description": "jason",
   "main": "index.js",
   "dependencies": {
+    "cucumber": "^2.1.0",
     "jsonfile": "^3.0.0"
   },
   "devDependencies": {},
