@@ -20,7 +20,37 @@ module.exports = class GroceryList {
     if(typeof itemName !== "string" || itemName === ""){
       throw new Error("An item must have a name that is an non-empty string.");
     }
+     for(let item of this.items){
+          if(item.name === itemName){
+            if( itemName.quantity === " "){
+          throw new Error("An item must have a name that is an non-empty string.");
+        }
+      }
+    }
+    
     this.items.push(new GroceryListItem(itemName));
+  }
+  getItemsInTheList(){
+     for(let item of this.items){
+       let listItem =[];
+        listItem.push(item);
+        return listItem;
+      
+    }
+  }
+//Update the selected item
+  getItemNameInList(itemName){
+     for(let item of this.items){
+      if(item.name === itemName.name){
+        let index = array.indexOf(item);
+        if (index > -1) {
+          array.splice(index, 1);
+          this.items.splice(index, 0, new GroceryListItem(itemName));
+        }
+
+        return item;
+      }
+    }
   }
 
   buy(itemName){

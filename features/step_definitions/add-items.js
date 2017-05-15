@@ -9,28 +9,33 @@ let GroceryListItem = require('../../grocery-list-items.js');
 defineSupportCode(function({Given, When, Then}) {
 
 	let theList, runtimeErrorOnNoName;
+		let listOfItems = [];
 
-	Given('that I have an empty grocery list', function (callback) {
+	Given('that I have a grocery list', function (callback) {
 		theList = new GroceryList('Mat');
 		runtimeErrorOnNoName= false;
 	    callback();
 	 });
 
-	 When('I try to add an item without a name', function (callback) {
-	 	try{
-         theList.addToList();
-     	}
-     	catch(e){
-     		runtimeErrorOnNoName= true;
-     	}
-         callback();
-     	
+	 When('I try to add an item called {name}', function (name, callback) {
+		 	try{
+	         theList.addToList(name=this.name, bought=false);
+	     	}
+	     	catch(e){
+	     		runtimeErrorOnNoName= true;
+	     	}
+	     callback();
        });
 
 	  Then('I should get a runtime error.', function (callback) {
            assert(runtimeErrorOnNoName);
          callback();
        });
+
+	 Given('that I have an empty grocery list', function (callback) {
+		theList = new GroceryList('Mat');
+	    callback();
+	 });
 
 	 When('I add {int} item to the list', function (int, callback) {
 	 	for(let i = 0; i<int; i++){
@@ -56,6 +61,38 @@ defineSupportCode(function({Given, When, Then}) {
          		);
          	}
 
+         callback();
+       });
+	  
+
+       Given('that i have a grocery list and a item {name}', function (name, callback) {
+         	theList = new GroceryList('Mat');
+         	theList.addToList(name=name, bought=false);
+         	listOfItems= theList.getItemsInTheList();
+         	console.warn('Lista', listOfItems[0]);
+         	runtimeErrorOnNoName= false;
+         callback();
+       });
+
+        When('I try to add a {number} quantity to a item {name} in grocery list', function (number, name, callback) {
+        	try{
+       			for(let i = 0; i<listOfItems.length; i++){
+       				console.warn('Lista', listOfItems[i].name);
+	 				if(listOfItems[i].name===name){
+	 					listOfItems[i].quantity=number;
+	 					theList.getItemNameInList(listOfItems[i]);
+	 					
+	 				}
+	 			}
+	 		}
+	 		catch(e){
+	     		runtimeErrorOnNoName= true;
+	     	}
+         callback();
+       });
+
+         Then('I should get a runtime error', function (callback) {
+           		assert(runtimeErrorOnNoName);
          callback();
        });
 });
