@@ -38,6 +38,22 @@ module.exports = class GroceryList {
       
     }
   }
+
+  addQuantityToAnItem(itemName , quantity){
+    for(let item of this.items){
+      if(item.name === itemName){
+        item.quantity= quantity;
+        let index = array.indexOf(item);
+        if (index > -1) {
+          array.splice(index, 1);
+          this.items.splice(index, 0, new GroceryListItem(item));
+        }
+
+        return item;
+      }
+    }
+  }
+
 //Update the selected item
   getItemNameInList(itemName){
      for(let item of this.items){
