@@ -4,14 +4,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-<<<<<<< HEAD
-=======
   "dependencies": {
     "cucumber": "^2.1.0",
     "jsonfile": "^3.0.0"
   },
   "devDependencies": {},
->>>>>>> feature/AddingGroceryItem
   "scripts": {
     "test": "node_modules/.bin/cucumber-js",
     "start": "node server.js"
