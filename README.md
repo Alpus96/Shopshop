@@ -20,10 +20,20 @@ In the directory ./app/controllers there should be files containing the business
 In the directory ./app/models there should be files with classes containing logic for handling the database, in our case a .json library.
 
 #### Database directory
-In the directory ./app/models/database there should be the .json files with website database information, ex. users.json, lists.json and categories.json.
+In the directory ./app/models/database there should be the .json files with website database information, ex. usersTable.json, listsTable.json and categoriesTable.json.
 
 ### Views directory
 In ./app/views there should be the .ejs files to render views from in the controllers.
 
+#### Assets directory
+In ./app/views/assets contains files that are sent with the views on rendering, such as .css, client .js, lib (bootstrap, jQuery), etc. separated by directories.
+
+##### Partials directory
+In ./app/views/assets/partials there are parts for the views, such as the standard head, navbar and more.
+
 ## Node_modules directory
 In ./node_modules contain the dependencies for the web application. Node_modules is put on the .gitignore list.
+
+## Commands
+* "npm start", will run server.js in root.
+* "npm test", will run the cucumber scripts.
