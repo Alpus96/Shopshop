@@ -2,8 +2,8 @@
 
 let assert = require('assert');
 let {defineSupportCode} = require('cucumber');
-let GroceryList = require('../../grocery-list.js');
-let GroceryListItem = require('../../grocery-list-items.js');
+let GroceryList = require('../../app/controllers/grocery-list.js');
+let GroceryListItem = require('../../app/controllers/grocery-list-items.js');
 
 
 defineSupportCode(function({Given, When, Then}) {
@@ -41,7 +41,7 @@ defineSupportCode(function({Given, When, Then}) {
 	 	for(let i = 0; i<int; i++){
 	 		theList.addToList('test'+i);
 	 	}
-	   
+
 	     callback();
 	 });
 
@@ -63,7 +63,7 @@ defineSupportCode(function({Given, When, Then}) {
 
          callback();
        });
-	  
+
 
        Given('that i have a grocery list and a item {name}', function (name, callback) {
          	theList = new GroceryList('Mat');
@@ -81,7 +81,7 @@ defineSupportCode(function({Given, When, Then}) {
 	 				if(listOfItems[i].name===name){
 	 					listOfItems[i].quantity=number;
 	 					theList.getItemNameInList(listOfItems[i]);
-	 					
+
 	 				}
 	 			}
 	 		}
