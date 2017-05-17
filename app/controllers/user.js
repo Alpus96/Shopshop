@@ -21,6 +21,7 @@ module.exports = class User {
 
     }
 
+<<<<<<< HEAD
 
 
     removeItemNameFromList(itemName) {
@@ -41,4 +42,6 @@ module.exports = class User {
     }
   }
 
+=======
+>>>>>>> parent of e883a57... Merge remote-tracking branch 'origin/master'
 }

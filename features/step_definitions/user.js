@@ -21,18 +21,19 @@ defineSupportCode ( ( { Given, When, Then } ) => {
     When('create a new instance with a cookie', function (callback) {
         //  Create a new instance of User.
         cookie = {id: 0, username: 'testUser', password: 'testPass123'};
-        user = new User(cookie);
+        assert.throws(
+            () => {
+                user = new User(cookie);
+            },
+            'Unexpected success.'
+        );
         callback();
     });
 
     When('I create an instance with an invalid cookie', function (callback) {
         //  Create a new instance of User.
-        error = true;
         cookie = {id: 'testUser', username: -2, password: 'testPass123'};
-        assert.throws(
-            function () { user = new User(cookie); error = false; },
-            'Unexpected success.'
-        );
+        user = new User(cookie);
         callback();
     });
 
