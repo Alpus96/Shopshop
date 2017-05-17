@@ -107,7 +107,7 @@ defineSupportCode(function({Given, When, Then}) {
 
     When('I try to add an item without a category selected', function (callback) {
         	try{
-         		theList.addToList(name="Vindruvor", quantity=2, category="Fisk");
+         		theList.addToList(name="Vindruvor", quantity=2, category="");
         	}
         	catch(e){
 	     		runtimeErrorOnNoName= true;
