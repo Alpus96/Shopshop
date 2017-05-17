@@ -16,20 +16,17 @@ module.exports = class GroceryList {
     this.items = [];
   }
 
-  addToList(itemName){
+  addToList(itemName, quantity, catagory){
     if(typeof itemName !== "string" || itemName === ""){
       throw new Error("An item must have a name that is an non-empty string.");
     }
-     for(let item of this.items){
-          if(item.name === itemName){
-            if( itemName.quantity === " "){
-          throw new Error("An item must have a name that is an non-empty string.");
+     if( quantity === " "){
+          throw new Error("quantity can't be empty");
         }
-      }
-    }
     
-    this.items.push(new GroceryListItem(itemName));
+    this.items.push(new GroceryListItem(itemName, quantity, catagory));
   }
+  
   getItemsInTheList(){
      for(let item of this.items){
        let listItem =[];
@@ -43,9 +40,10 @@ module.exports = class GroceryList {
     for(let item of this.items){
       if(item.name === itemName){
         item.quantity= quantity;
-        let index = array.indexOf(item);
+        let index = items.indexOf(item);
         if (index > -1) {
           array.splice(index, 1);
+
           this.items.splice(index, 0, new GroceryListItem(item));
         }
 
@@ -56,12 +54,16 @@ module.exports = class GroceryList {
 
 //Update the selected item
   getItemNameInList(itemName){
+    console.warn('Lista namn1', itemName);
      for(let item of this.items){
+      console.warn('Index', this.items.indexOf(itemName.name));
       if(item.name === itemName.name){
-        let index = array.indexOf(item);
+        let index = this.items.indexOf(itemName);
+         console.warn('Index', index);
         if (index > -1) {
-          array.splice(index, 1);
-          this.items.splice(index, 0, new GroceryListItem(itemName));
+          this.items.splice(index, 1);
+          console.warn('Lista namn2', itemName.name, itemName.quantity, itemName.category);
+          this.items.push(new GroceryListItem(itemName.name, itemName.quantity, itemName.category));
         }
 
         return item;

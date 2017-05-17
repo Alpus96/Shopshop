@@ -3,6 +3,7 @@ Feature: A visitor should be able to view the site.
 
  Scenario Outline: Add items to a groceryList as a visitor. 
     Given that I am visiting the page as a User
+    And I have an empty list
     When I add an <amount> of groceryItems to my groceryList 
     Then I should have an <amount> items in my groceryList
     And every item should be an instance of groceryItem
