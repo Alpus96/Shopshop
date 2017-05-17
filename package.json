@@ -1,17 +1,16 @@
 {
-
   "name": "shopshop",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-<<<<<<< HEAD
-=======
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
     "cucumber": "^2.1.0",
-    "jsonfile": "^3.0.0"
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
   },
   "devDependencies": {},
->>>>>>> feature/AddingGroceryItem
   "scripts": {
     "test": "node_modules/.bin/cucumber-js",
     "start": "node server.js"
@@ -25,12 +24,5 @@
   "bugs": {
     "url": "https://github.com/Alpus96/Shopshop/issues"
   },
-  "homepage": "https://github.com/Alpus96/Shopshop#readme",
-  "dependencies": {
-      "bcryptjs": "^2.4.3",
-      "body-parser": "^1.17.1",
-      "cucumber": "^2.0.0-rc.9",
-      "express": "^4.15.2",
-      "ejs": "^2.5.6"
-  }
+  "homepage": "https://github.com/Alpus96/Shopshop#readme"
 }

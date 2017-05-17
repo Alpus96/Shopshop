@@ -4,7 +4,8 @@ let assert = require('assert');
 let {defineSupportCode} = require('cucumber');
 let GroceryList = require('../../app/controllers/grocery-list.js');
 let GroceryListItem = require('../../app/controllers/grocery-list-items.js');
-
+/*let GroceryList = require('\app\controllers\grocery-list-items.js');
+let GroceryListItem = require('C:\Users\Bharathi\Desktop\Shopshop\app\controllers\grocery-list.js');*/
 
 defineSupportCode(function({Given, When, Then}) {
 
