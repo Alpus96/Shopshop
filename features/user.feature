@@ -1,4 +1,4 @@
-Feature: A visitor should be able to view the site.
+
 
 Scenario: The user class should throw error on cookie when not logged in.
     Given I am not logged in
@@ -19,3 +19,8 @@ Scenario: The user class should handle users.
         |            status   |
         | I am not logged in  |
         |    I am logged in   |
+
+        |            status   |
+        | I am not logged in  |
+        |    I am logged in   |
+
