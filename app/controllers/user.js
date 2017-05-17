@@ -13,7 +13,6 @@ module.exports = class User {
                 return cookie;
             }
         }
-        return null;
         throw new Error('Invalid cookie recieved.');
     }
 
