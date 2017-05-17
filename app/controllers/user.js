@@ -22,7 +22,7 @@ module.exports = class User {
 
 
 
-    removeItemNameFromList(itemName){
+    removeItemNameFromList(itemName) {
     console.warn('Lista namn1', itemName);
      for(let item of this.items){
       console.warn('Index', this.items.indexOf(itemName.name));
