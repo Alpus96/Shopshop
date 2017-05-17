@@ -27,8 +27,12 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     When('I create an instance with an invalid cookie', function (callback) {
         //  Create a new instance of User.
+        error = true;
         cookie = {id: 'testUser', username: -2, password: 'testPass123'};
-        user = new User(cookie);
+        assert.throws(
+            function () { user = new User(cookie); error = false; },
+            'Unexpected success.'
+        );
         callback();
     });
 

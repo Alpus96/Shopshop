@@ -7,7 +7,7 @@ defineSupportCode(function({Given, When, Then}) {
 
 	let theList,runTimeErroronEmptyList,items;
 
-	Given('that I have empty grocery list', function (callback) {
+	Given('that I have no items in grocery list', function (callback) {
          theList = new GroceryList('Mat');
 		runTimeErroronEmptyList= false;
          callback();
@@ -23,7 +23,7 @@ defineSupportCode(function({Given, When, Then}) {
 
     When('I try to remove an item from empty list', function (callback) {
          try{
-         theList.removeItem();
+         theList.getItemNameInList();
      	}
      	catch(e){
      		runTimeErroronEmptyList= true;
@@ -34,16 +34,11 @@ defineSupportCode(function({Given, When, Then}) {
 
        When('I remove {int} item to the list', function (int,callback) {
           for(let i=0;i<int;i++){
-             theList.removeItem(items[i]);
+             theList.getItemNameInList(items[i]);
          }
          callback();
        });
          
-    Then('I should get runtime error.', function (callback) {
-         assert(runTimeErroronEmptyList);
-         callback();
-       });
-
        Then('I should not have {int} item in my grocery list.', function (int,callback) {
          assert(theList.items.length === int);
          callback();
