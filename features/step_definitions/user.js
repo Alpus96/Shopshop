@@ -1,66 +1,67 @@
 const { defineSupportCode } = require('cucumber');
 const assert = require('assert');
 
-// Require the User Class to test.
-const User = require('../../app/controllers/user.js');
-
 defineSupportCode ( ( { Given, When, Then } ) => {
-    //  Variable to ceep the user instance in.
-    let user, cookie;
 
-    Given('I am not logged in', function (callback) {
-        //  Create a new instance of a user that is not logged in.
+    let User, user, cookie, error;
+
+    Given('I have required the User Class', function (callback) {
+        // Require the User Class to test.
+        User = require('../../app/controllers/user.js');
+        callback();
+    });
+
+    When('create a new instance without a cookie', function (callback) {
+        //  Create a new instance of User.
+        cookie = null;
         user = new User();
-        // End action.
         callback();
     });
 
-    Given('I am logged in', function (callback) {
-        //  Create a new instance of a user.
-        user = new User();
-        //  Then loggin.
-        user.loggin({username: 'testUser', password: 'testPass123'});
-        // End action.
+    When('create a new instance with a cookie', function (callback) {
+        //  Create a new instance of User.
+        cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+        user = new User(cookie);
         callback();
     });
 
-    When('I make a request with a cookie', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    When('I create an instance with an invalid cookie', function (callback) {
+        //  Create a new instance of User.
+        cookie = {id: 'testUser', username: -2, password: 'testPass123'};
+        user = new User(cookie);
         callback();
     });
 
-    When('I make a request', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    Then('logged in status should be set to false', function (callback) {
+        assert(
+            user.loggedIn === false,
+            'Incorrect logged in status.'
+        );
         callback();
     });
 
-    Then('the user class should throw an error', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    Then('logged in status should be set to true', function (callback) {
+        assert(
+            user.loggedIn === true,
+            'Incorrect logged in status.'
+        );
         callback();
     });
 
-    Then('the user class should handle that cookie', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    Then('an object holding the cookie', function (callback) {
+        assert(
+            user.cookie === cookie,
+            'Incorrect cookie.'
+        );
         callback();
     });
 
-    Then('the user class should handle that request', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
 
-
-        // End action.
+    Then('I should get an error', function (callback) {
+        assert(
+            error,
+            'Unexpected success.'
+        );
         callback();
     });
 
