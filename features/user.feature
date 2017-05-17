@@ -16,6 +16,6 @@ Scenario: The user class should handle users.
     Then the user class should handle that request
 
     Examples:
-        |            status           |
-        | I am not logged in |
-        |    I am logged in     |
+        |            status   |
+        | I am not logged in  |
+        |    I am logged in   |
