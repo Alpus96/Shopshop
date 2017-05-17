@@ -3,4 +3,8 @@ module.exports = class User {
 
     }
 
+    loggin (cridentials) {
+        
+    }
+
 }
