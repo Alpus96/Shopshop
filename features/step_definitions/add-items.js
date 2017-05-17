@@ -27,7 +27,7 @@ defineSupportCode(function({Given, When, Then}) {
 	     callback();
     });
 
-	Then('I should get a runtime error.', function (callback) {
+	Then('I should get a runtime errores.', function (callback) {
            assert(runtimeErrorOnNoName);
          callback();
     });
@@ -92,13 +92,13 @@ defineSupportCode(function({Given, When, Then}) {
          callback();
     });
 
-    Then('I should get a runtime error', function (callback) {
+    Then('I should get a runtime errors', function (callback) {
            		assert(runtimeErrorOnNoName);
         	callback();
     });
          //category
 
-	Given('that I have a new grocery list', function (callback) {
+	Given('that I have a new grocery list item', function (callback) {
 				theList = new GroceryList('Mat');
 				runtimeErrorOnNoName= false;
 			    callback();
