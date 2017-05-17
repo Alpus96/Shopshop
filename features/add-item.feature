@@ -39,6 +39,12 @@ Feature: Adding an item to the grocery-list
  			| "gar"    ||"Potatis" 	|
  			| " /" 	   ||"Applen" 	|
 			| " *" 	   ||"Bananer"  |
+
+	Scenario: User should choose category.
+		Given that I have a grocery list
+		When I try to add an item to a grocery list without a category selected
+		Then I should get a runtime error
+
  			
  			
 			
