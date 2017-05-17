@@ -17,43 +17,43 @@ defineSupportCode(function({Given, When, Then}) {
 	    callback();
 	 });
 
-	 When('I try to add an item called {name}', function (name, callback) {
+	When('I try to add an item called {name}', function (name, callback) {
 		 	try{
-	         theList.addToList(name=this.name, bought=false);
+	         theList.addToList(name=name, quantity=10, category="Grönsaker");
 	     	}
 	     	catch(e){
 	     		runtimeErrorOnNoName= true;
 	     	}
 	     callback();
-       });
+    });
 
-	  Then('I should get a runtime error.', function (callback) {
+	Then('I should get a runtime error.', function (callback) {
            assert(runtimeErrorOnNoName);
          callback();
-       });
+    });
 
-	 Given('that I have an empty grocery list', function (callback) {
+	Given('that I have an empty grocery list', function (callback) {
 		theList = new GroceryList('Mat');
 	    callback();
-	 });
+	});
 
-	 When('I add {int} item to the list', function (int, callback) {
+	When('I add {int} item to the list', function (int, callback) {
 	 	for(let i = 0; i<int; i++){
-	 		theList.addToList('test'+i);
+	 		theList.addToList('test'+i, quantity=10, category="Grönsaker");
 	 	}
 
 	     callback();
-	 });
+	});
 
-	  Then('I should have {int} item in my grocery list.', function (int, callback) {
+	Then('I should have {int} item in my grocery list.', function (int, callback) {
 		     assert(theList.items.length === int,
 		     	'After adding 1 item to GroceryList it remember the item.'
 		     );
 
 	     callback();
-	 });
+	});
 
-	  Then('the item shoud be a grocery list item.', function (callback) {
+	Then('the item shoud be a grocery list item.', function (callback) {
 	  		for(let item of theList.items){
          	assert(
          		theList.items[0] instanceof GroceryListItem,
@@ -62,24 +62,25 @@ defineSupportCode(function({Given, When, Then}) {
          	}
 
          callback();
-       });
+    });
 
 
-       Given('that i have a grocery list and a item {name}', function (name, callback) {
+    Given('that i have a grocery list and a item {name}', function (name, callback) {
          	theList = new GroceryList('Mat');
-         	theList.addToList(name=name, bought=false);
+         	theList.addToList(name=name, quantity=10, category="Grönsaker");
          	listOfItems= theList.getItemsInTheList();
          	console.warn('Lista', listOfItems[0]);
          	runtimeErrorOnNoName= false;
          callback();
-       });
+    });
 
-        When('I try to add a {number} quantity to a item {name} in grocery list', function (number, name, callback) {
+    When('I try to add a {number} quantity to a item {name} in grocery list', function (number, name, callback) {
         	try{
        			for(let i = 0; i<listOfItems.length; i++){
        				console.warn('Lista', listOfItems[i].name);
 	 				if(listOfItems[i].name===name){
 	 					listOfItems[i].quantity=number;
+	 					listOfItems[i].category="Frukt";
 	 					theList.getItemNameInList(listOfItems[i]);
 
 	 				}
@@ -89,10 +90,32 @@ defineSupportCode(function({Given, When, Then}) {
 	     		runtimeErrorOnNoName= true;
 	     	}
          callback();
-       });
+    });
 
-         Then('I should get a runtime error', function (callback) {
+    Then('I should get a runtime error', function (callback) {
            		assert(runtimeErrorOnNoName);
+        	callback();
+    });
+         //category
+
+	Given('that I have a new grocery list', function (callback) {
+				theList = new GroceryList('Mat');
+				runtimeErrorOnNoName= false;
+			    callback();
+	});
+
+    When('I try to add an item without a category selected', function (callback) {
+        	try{
+         		theList.addToList(name="Vindruvor", quantity=2, category="Fisk");
+        	}
+        	catch(e){
+	     		runtimeErrorOnNoName= true;
+	     	}
          callback();
-       });
+    });
+
+    Then('I should get a runtime error', function (callback) {
+           		assert(runtimeErrorOnNoName);
+        callback();
+    });
 });
