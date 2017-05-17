@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+ HEAD
 Feature: description text.
 
 Scenario: description text.
@@ -15,7 +15,7 @@ Scenario Outline: description text.
     |  var1  |  var2  |
     |     4    | "four" |
     |     5    | "five"  |
-=======
+
 Feature: Scenario for grocery item 
 
 Scenario: Verify if the grocery item is created or not
