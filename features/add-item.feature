@@ -42,7 +42,7 @@ Feature: Adding an item to the grocery-list
 
 	Scenario: User should choose category.
 		Given that I have a grocery list
-		When I try to add an item to a grocery list without a category selected
+		When I try to add an item to a grocery list and catagory is undefined
 		Then I should get a runtime error
 
  			
