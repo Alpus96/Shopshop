@@ -26,7 +26,6 @@ module.exports = class GroceryList {
     
     this.items.push(new GroceryListItem(itemName, quantity, catagory));
   }
-  
   getItemsInTheList(){
      for(let item of this.items){
        let listItem =[];

@@ -1,67 +1,137 @@
 const { defineSupportCode } = require('cucumber');
 const assert = require('assert');
 
-// Require the User Class to test.
-const User = require('../../app/controllers/user.js');
+const User = require("../../app/controllers/user.js");
+const List = require("../../app/controllers/grocery-list.js")
+const GroceryItem = require("../../app/controllers/grocery-list-items.js")
 
 defineSupportCode ( ( { Given, When, Then } ) => {
-    //  Variable to ceep the user instance in.
-    let user, cookie;
 
-    Given('I am not logged in', function (callback) {
-        //  Create a new instance of a user that is not logged in.
+    let User, user, cookie, error, listName, items;
+
+    Given('I have required the User Class', function (callback) {
+        // Require the User Class to test.
+        User = require('../../app/controllers/user.js');
+        callback();
+    });
+
+    Given('that I am visiting the page as a User', function (callback) {
+        //  Code for testing goes here.
         user = new User();
-        // End action.
         callback();
     });
 
-    Given('I am logged in', function (callback) {
-        //  Create a new instance of a user.
+    Given('I have an empty list', function (callback) {
+        //  Code for testing goes here.
+        listName = "testList";
+        user.addList(listName);
+        callback();
+    });
+
+    When('create a new instance without a cookie', function (callback) {
+        //  Create a new instance of User.
+        cookie = null;
         user = new User();
-        //  Then loggin.
-        user.loggin({username: 'testUser', password: 'testPass123'});
-        // End action.
         callback();
     });
 
-    When('I make a request with a cookie', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    When('create a new instance with a cookie', function (callback) {
+        //  Create a new instance of User.
+        cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+        user = new User(cookie);
         callback();
     });
 
-    When('I make a request', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    When('I create an instance with an invalid cookie', function (callback) {
+        //  Create a new instance of User.
+        error = true;
+        cookie = {id: 'testUser', username: -2, password: 'testPass123'};
+        assert.throws(
+            () => {
+                user = new User(cookie);
+                error = false;
+            },
+            'Unexpected success.'
+        );
         callback();
     });
 
-    Then('the user class should throw an error', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    When('I add an {int} of groceryItems to my groceryList', function (int, callback) {
+        //  Code for testing goes here.
+        for(var i = 0; i <int; i++) {
+            items.push(makeString());
+            user.lists[listName].addToList(items[i], 5,"morrot");
+        }
         callback();
     });
 
-    Then('the user class should handle that cookie', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    Then('logged in status should be set to false', function (callback) {
+        assert(
+            user.loggedIn === false,
+            'Incorrect logged in status.'
+        );
         callback();
     });
 
-    Then('the user class should handle that request', function (callback) {
-        // Write code here that turns the phrase above into concrete actions
-
-
-        // End action.
+    Then('logged in status should be set to true', function (callback) {
+        assert(
+            user.loggedIn === true,
+            'Incorrect logged in status.'
+        );
         callback();
     });
+
+    Then('an object holding the cookie', function (callback) {
+        assert(
+            user.cookie === cookie,
+            'Incorrect cookie.'
+        );
+        callback();
+    });
+
+
+    Then('I should get an error', function (callback) {
+        assert(
+            error,
+            'Unexpected success.'
+        );
+        callback();
+    });
+
+    Then('I should have an {int} items in my groceryList', function (int, callback) {
+        assert(user.lists[listName].items.length === int);
+        callback();
+
+    });
+
+    Then('every item should be an instance of groceryItem', function (callback) {
+        //  Code for testing goes here.
+        for (let item of user.lists[listName].items){
+            assert(item instanceof GroceryItem);
+       }
+        callback();
+    });
+
+    Then('the groceryItems should not remain after the page is reloaded', function (callback) {
+        user= new User();
+        callback();
+    });
+
+    Then('there should be no groceryList remaining after the page is reloaded', function (callback) {
+        //  Code for testing goes here.
+        assert(user.lists.length ===0)
+        callback();
+    });
+
+    function makeString () {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for ( var i=0; i <= 4; i++ ) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+
+        return text;
+    }
 
 });
