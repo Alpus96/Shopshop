@@ -30,7 +30,7 @@ defineSupportCode(function({Given, When, Then}) {
        });
 
 
-       Then('I should get runtime error.', function (callback) {
+       Then('I should get runtime errors.', function (callback) {
          assert(runTimeErroronSelectedEmptyList);
          callback();
         

@@ -93,7 +93,7 @@ defineSupportCode(function({Given, When, Then}) {
          callback();
     });
 
-    Then('I should get a runtime error', function (callback) {
+    Then('I should get a runtime errors', function (callback) {
            		assert(runtimeErrorOnNoName);
         	callback();
     });
