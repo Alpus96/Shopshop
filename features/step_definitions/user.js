@@ -28,6 +28,18 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
+    Given('I am not logged in', function (callback) {
+        cookie = {};
+        user = new User();
+        callback();
+    });
+
+    Given('I am logged in', function (callback) {
+        cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+        user = new User(cookie);
+        callback();
+    });
+
     When('create a new instance without a cookie', function (callback) {
         //  Create a new instance of User.
         cookie = null;
@@ -65,6 +77,24 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
+    When('I create {int} lists', function (int, callback) {
+        callback(null);
+        for (var i = 0; i < int; i++) {
+            user.addList(makeString());
+        }
+        callback();
+    });
+
+    When('I save the lists', function (callback) {
+        user.saveLists();
+        callback();
+    });
+
+    When('I reload the page', function (callback) {
+        user = new User(cookie.id ? cookie : null);
+        callback();
+    });
+
     Then('logged in status should be set to false', function (callback) {
         assert(
             user.loggedIn === false,
@@ -94,6 +124,14 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         assert(
             error,
             'Unexpected success.'
+        );
+        callback();
+    });
+
+    Then('I should have {int} lists', function (int, callback) {
+        assert(
+            user.lists.length === int,
+            'Invalid amount of lists.'
         );
         callback();
     });

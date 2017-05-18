@@ -16,7 +16,29 @@ Scenario: Create an instance of user with an invalid cookie
     When I create an instance with an invalid cookie
     Then I should get an error
 
+Scenario Outline: A user should be able to create new lists
+    Given I am <status>
+    When I create <amount> lists
+    Then I should have <amount> lists
 
+    Examples:
+        |       status       | amount |
+        | not logged in |       1       |
+        | not logged in |       3       |
+        |    logged in     |       1       |
+        |    logged in     |       3       |
+
+Scenario Outline: Saving lists.
+    Given I am <status>
+    When I create <amount> lists
+    And I save the lists
+    And I reload the page
+    Then I should have <saved> lists
+
+    Examples:
+        |       status       | amount | saved |
+        | not logged in |       4       |     0     |
+        |    logged in     |       4       |     4     |
 
 Scenario Outline: Add items to a groceryList as a visitor.
     Given that I am visiting the page as a User
