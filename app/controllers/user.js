@@ -22,7 +22,19 @@ module.exports = class User {
     authenticate (cridentials) {
 
     }
+    
+    addToList(itemName, quantity, catagory){
+    if(typeof itemName !== "string" || itemName === ""){
+      throw new Error("An item must have a name that is an non-empty string.");
+    }
+     if( quantity === " "){
+          throw new Error("quantity can't be empty");
+        }
+    
+    this.items.push(new GroceryListItem(itemName, quantity, catagory));
+  }
 
+  
 
 
     removeItemNameFromList(itemName) {
