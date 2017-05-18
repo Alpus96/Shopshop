@@ -1,4 +1,4 @@
-const { defineSupportCode } = require('cucumber');
+/*const { defineSupportCode } = require('cucumber');
 const assert = require('assert');
 
 defineSupportCode ( ( { Given, When, Then } ) => {
@@ -17,4 +17,4 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback(null, "pending");
     });
 
-});
+});*/
