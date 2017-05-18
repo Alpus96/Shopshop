@@ -16,6 +16,8 @@ Scenario: Create an instance of user with an invalid cookie
     When I create an instance with an invalid cookie
     Then I should get an error
 
+
+
 Scenario Outline: Add items to a groceryList as a visitor.
     Given that I am visiting the page as a User
     When I add an <amount> of groceryItems to my groceryList
@@ -25,9 +27,9 @@ Scenario Outline: Add items to a groceryList as a visitor.
     And there should be no groceryList remaining after the page is reloaded
 
     Examples:
-    | amount |
-    |      1 |
-    |      3 |
+        | amount |
+        |      1 |
+        |      3 |
 
  Scenario Outline: Add items to a groceryList as a user.
     Given that I am logged in as a User to the page
@@ -37,6 +39,6 @@ Scenario Outline: Add items to a groceryList as a visitor.
     And <amount> of groceryItems should remain in my groceryList after the page is reloaded
 
     Examples:
-    | amount |
-    |      1 |
-    |      3 |
+        | amount |
+        |      1 |
+        |      3 |
