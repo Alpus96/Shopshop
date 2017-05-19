@@ -101,7 +101,7 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     When('I delete my account', function (callback) {
         cookie = user.login(cridentials);
-        user.deleteAccount(cookie, cridentals);
+        user.deleteAccount(cridentals);
         callback();
     });
 

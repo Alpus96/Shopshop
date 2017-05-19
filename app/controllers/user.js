@@ -42,16 +42,22 @@ module.exports = class User {
         delete this.lists[name];
     }
 
-    authenticate (cridentials) {
+    // cridentials = {username: '', password: ''}
+    login (cridentials) {
 
     }
-    
-   
+
+
     removeItemFromUserList(listName,itemName) {
       let itemSelector = this.lists[listName] ? this.lists[listName].indexOf(itemName) : null;
       if (itemSelector) {
-        this.lists[listName].items.splice(itemSelector,1); 
-      } 
+        this.lists[listName].items.splice(itemSelector,1);
+      }
     }
 
+    deleteAccount (cridentials) {
+        if (this.login(cridentials)) {
+            UserModel.deleteById(this.cookie.id);
+        }
+    }
 };
