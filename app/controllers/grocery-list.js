@@ -14,42 +14,51 @@ module.exports = class GroceryList {
     }
     this.name = name;
     this.items = [];
+    this.categoryList=[
+    'Fisk',
+    'Kött',
+    'Godis',
+    'Grönsaker',
+    'Frukt'
+
+    ];
   }
 
   addToList(itemName, quantity, catagory){
     if(typeof itemName !== "string" || itemName === ""){
       throw new Error("An item must have a name that is an non-empty string.");
     }
-     if( quantity === " "){
+    console.warn('Lista test10 ',itemName, quantity, category);
+    if( quantity === " "){
           throw new Error("quantity can't be empty");
-        }
+    }
     
     this.items.push(new GroceryListItem(itemName, quantity, catagory));
   }
   getItemsInTheList(){
-     for(let item of this.items){
-       let listItem =[];
-        listItem.push(item);
-        return listItem;
+     
+        return this.items;
       
-    }
   }
-
-  addQuantityToAnItem(itemName , quantity){
-    for(let item of this.items){
-      if(item.name === itemName){
-        item.quantity= quantity;
-        let index = items.indexOf(item);
-        if (index > -1) {
-          array.splice(index, 1);
-
-          this.items.splice(index, 0, new GroceryListItem(item));
-        }
-
-        return item;
-      }
-    }
+  getSortedList(sort){
+    let swapped;
+   
+      
+          for(let i=0;i<this.items.length;i++){
+        
+              if (this.items[i].category !== sort) {
+                  let temp =  this.items.splice(i,1);
+ 
+                    this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category));
+                   
+                    
+                }
+           }
+        
+      
+    return this.items;
   }
+ 
 
 //Update the selected item
   getItemNameInList(itemName){
@@ -60,9 +69,8 @@ module.exports = class GroceryList {
         let index = this.items.indexOf(itemName);
          console.warn('Index', index);
         if (index > -1) {
-          this.items.splice(index, 1);
+          this.items.splice(index, 1, new GroceryListItem(itemName.name, itemName.quantity, itemName.category));
           console.warn('Lista namn2', itemName.name, itemName.quantity, itemName.category);
-          this.items.push(new GroceryListItem(itemName.name, itemName.quantity, itemName.category));
         }
 
         return item;

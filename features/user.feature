@@ -22,7 +22,7 @@ Scenario Outline: The user class should handle users.
     Then the user class should handle that request
 
     Examples:
-        |                      createInstance                       | loggedIn |
+        |    createInstance                       | loggedIn |
         | create a new instance without a cookie |     false    |
         |    create a new instance with a cookie    |     true      |
 
