@@ -7,7 +7,7 @@ const GroceryItem = require("../../app/controllers/grocery-list-items.js")
 
 defineSupportCode ( ( { Given, When, Then } ) => {
 
-    let User, user, cookie, error, listName, items;
+    let User, user, cookie, error, listName, items, cridentials;
 
     /*
     *   Given. In scenario order.
@@ -28,6 +28,12 @@ defineSupportCode ( ( { Given, When, Then } ) => {
     Given('I am logged in', function (callback) {
         cookie = {id: 0, username: 'testUser', password: 'testPass123'};
         user = new User(cookie);
+        callback();
+    });
+
+    Given('I have an account', function (callback) {
+        cridentials = {username: 'accountTest', password: 'accountPass123'}
+        user.createAccount(cridentials);
         callback();
     });
 
@@ -90,6 +96,12 @@ defineSupportCode ( ( { Given, When, Then } ) => {
             items.push(makeString());
             user.lists[listName].addToList(items[i], 5,"morrot");
         }
+        callback();
+    });
+
+    When('I delete my account', function (callback) {
+        cookie = user.login(cridentials);
+        user.deleteAccount(cookie, cridentals);
         callback();
     });
 
@@ -162,6 +174,11 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     Then('{int} items should remain in my groceryList after the page is reloaded', function (callback) {
         user= new User();
+        callback();
+    });
+
+    Then('I should no longer have an account', function (callback) {
+        assert(user.login(cridentials) === false);
         callback();
     });
 

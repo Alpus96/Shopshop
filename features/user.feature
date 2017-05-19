@@ -62,3 +62,8 @@ Feature: A visitor should be able to view the site.
             |       status       | amount | saved |
             |     logged in    |       6       |     6     |
             | not logged in |       6       |     0     |
+
+    Scenario: Delete user.
+        Given I have an account
+        When I delete my account
+        Then I should no longer have an account
