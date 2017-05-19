@@ -10,10 +10,13 @@ Feature: Removing an item from the grocery-list
 	Scenario Outline: Removing an item from grocery list
 		Given that I have an grocery list
 		And I have <amount> items in grocery list
-		When I remove <itemsInList> item to the list
-		Then I should not have <itemsInList> item in my grocery list.
+		When I remove <item> item to the list
+		Then I should not have <item> item in my grocery list.
+		And I should have <newAmount> items in the list
 		
 
 	    Examples:
-	     | amount | itemsToRemove | remainingItems |
-	     | 5      | 2             |              3 | 
+
+
+	     | amount | newAmount | item    |
+	     | 5      |         4 | "sugar" |
