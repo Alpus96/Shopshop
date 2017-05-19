@@ -7,14 +7,14 @@ Feature: A visitor should be able to view the site.
         And an object holding the cookie
 
         Examples:
-            |                      createInstance                       | loggedIn |
+            |                      createInstance    | loggedIn     |
             | create a new instance without a cookie |     false    |
             |    create a new instance with a cookie    |     true     |
 
     Scenario: Create an instance of user with an invalid cookie
         Given I have required the User Class
         When I create an instance with an invalid cookie
-        Then I should get an error
+        Then I should get an error.
 
     Scenario Outline: A user should be able to create new lists
         Given I am <status>
@@ -22,9 +22,9 @@ Feature: A visitor should be able to view the site.
         Then I should have <amount> lists
 
         Examples:
-            |       status       | amount |
-            | not logged in |       1       |
-            | not logged in |       3       |
+            |       status     | amount        |
+            | not logged in    |       1       |
+            | not logged in    |       3       |
             |    logged in     |       1       |
             |    logged in     |       3       |
 
@@ -37,8 +37,8 @@ Feature: A visitor should be able to view the site.
         And they should disappear when I delete them
 
         Examples:
-            |       status       | amount | saved |
-            | not logged in |       4       |     0     |
+            |       status     | amount        | saved     |
+            | not logged in    |       4       |     0     |
             |    logged in     |       4       |     4     |
 
     Scenario Outline: Add items to a groceryList as a visitor.
