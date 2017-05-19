@@ -1,6 +1,7 @@
 const UserModel = require('../models/user-model.js');
 const ListModel = require('../models/list-model.js');
 const GroceryList = require('./grocery-list.js');
+const bcrypt = require('bcryptjs');
 
 module.exports = class User {
     //  To validate logged in send cookie as an object:
@@ -19,6 +20,32 @@ module.exports = class User {
         throw new Error('Invalid cookie recieved.');
     }
 
+    //  Remenber to hash passwords
+    // cridentials = {username: <String>, password: <String>}
+    registerAccount(cridentials) {
+        bcrypt.genSalt(saltRounds, function(err, salt) {
+            bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
+                // Store hash in your password DB.
+            });
+        });
+    }
+
+    // cridentials = {username: '', password: ''}
+    login (cridentials) {
+        const user = UserModel.getByUsername(cridentials.username);
+        if (user) {
+            return bcrypt.compare(user.password, cridentials.password);
+        } else {
+            return false;
+        }
+    }
+
+    deleteAccount (cridentials) {
+        if (this.login(cridentials)) {
+            UserModel.deleteById(this.cookie.id);
+        }
+    }
+
     getLists (callback) {
         return ListModel.getUsersLists(this.cookie.id);
     }
@@ -29,18 +56,18 @@ module.exports = class User {
 
     saveLists () {
         if (this.loggedIn) {
-            for (let i = 0; i < this.lists.length; i++) {
-                ListModel.saveList(this.cookie.id, this.lists[i]);
+            for (let save in this.lists) {
+                ListModel.saveList(this.cookie.id, this.lists[save]);
             }
         }
     }
 
-    authenticate (cridentials) {
-
+    deleteList (name) {
+        if (this.cookie){
+            ListModel.deleteList(this.cookie.id, name);
+        }
+        delete this.lists[name];
     }
-
-
-    
    
     removeItemFromUserList(listName,itemName) {
       let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
