@@ -26,6 +26,7 @@ module.exports = class GroceryList {
     
     this.items.push(new GroceryListItem(itemName, quantity, catagory));
   }
+
   getItemsInTheList(){
      for(let item of this.items){
        let listItem =[];
@@ -35,6 +36,8 @@ module.exports = class GroceryList {
     }
   }
 
+
+// Below function is not working
   addQuantityToAnItem(itemName , quantity){
     for(let item of this.items){
       if(item.name === itemName){

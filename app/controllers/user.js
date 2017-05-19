@@ -38,13 +38,33 @@ module.exports = class User {
     authenticate (cridentials) {
 
     }
+
+
     
    
     removeItemFromUserList(listName,itemName) {
-      let itemSelector = this.lists[listName] ? this.lists[listName].indexOf(itemName) : null;
-      if (itemSelector) {
+      let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
+      if (itemSelector >= 0) {
         this.lists[listName].items.splice(itemSelector,1); 
       } 
     }
+
+    changeQuantityOfItem(listName,itemName,quantity){
+        
+        for (let i=0; i<this.lists[listName].items.length;i++){
+            if(this.lists[listName].items[i].name === itemName){
+                this.lists[listName].items[i].quantity = quantity;
+                return (this.lists[listName].items[i].quantity);
+            }
+            else if(this.lists[listName].items[i].quantity <= -1){
+                let msg = "Item doesn't exist";
+                console.log(msg);
+                throw new Error(msg);
+            }
+    
+        }          
+    }
+
+
 
 };
