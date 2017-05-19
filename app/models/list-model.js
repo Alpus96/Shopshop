@@ -7,11 +7,12 @@ class ListModel {
     constructor() {}
 
     getUsersLists (userId, callback) {
-        const table = fs.existsSync(ListTable) ? fs.readFileSync(ListTable, 'utf8') : null;
+        const jsonFile = fs.readFileSync(ListTable, 'utf8');
+        const table = JSON.parse(jsonFile);
         const existingLists = table.index ? table.index[userId].split(', ') : [];
-        let usersLists = [];
+        let usersLists = {};
         for (let i = 0; i < existingLists.length; i++) {
-            usersLists.push(table.lists[existingLists[i]]);
+            usersLists[table.lists[existingLists[i]].name] = table.lists[existingLists[i]];
         }
         return usersLists;
 

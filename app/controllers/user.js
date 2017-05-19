@@ -8,7 +8,7 @@ module.exports = class User {
     constructor(cookie) {
         this.cookie = cookie ? this.validateCookie(cookie) : null;
         this.loggedIn = this.cookie ? true : false;
-        this.lists = this.loggedIn ? this.getLists() : [];
+        this.lists = this.loggedIn ? this.getLists() : {};
     }
 
     validateCookie (cookie) {
@@ -24,7 +24,7 @@ module.exports = class User {
     }
 
     addList (name) {
-        this.lists.push(new GroceryList(name));
+        this.lists[name] = new GroceryList(name);
     }
 
     saveLists () {
@@ -39,36 +39,12 @@ module.exports = class User {
 
     }
     
-    addToList(itemName, quantity, catagory){
-    if(typeof itemName !== "string" || itemName === ""){
-      throw new Error("An item must have a name that is an non-empty string.");
+   
+    removeItemFromUserList(listName,itemName) {
+      let itemSelector = this.lists[listName] ? this.lists[listName].indexOf(itemName) : null;
+      if (itemSelector) {
+        this.lists[listName].items.splice(itemSelector,1); 
+      } 
     }
-     if( quantity === " "){
-          throw new Error("quantity can't be empty");
-        }
-    
-    this.items.push(new GroceryListItem(itemName, quantity, catagory));
-  }
 
-  
-
-
-    removeItemNameFromList(itemName) {
-    console.warn('Lista namn1', itemName);
-     for(let item of this.items){
-      console.warn('Index', this.items.indexOf(itemName.name));
-      if(item.name === itemName.name){
-        let index = this.items.indexOf(itemName);
-         console.warn('Index', index);
-        if (index > -1) {
-          this.items.splice(index, 1);
-          console.warn('Lista namn2', itemName.name, itemName.quantity, itemName.category);
-          this.items.push(new GroceryListItem(itemName.name, itemName.quantity, itemName.category));
-        }
-
-        return item;
-      }
-    }
-  }
-
-}
+};

@@ -3,9 +3,10 @@ let {defineSupportCode} = require('cucumber');
 let GroceryList = require('../../app/controllers/grocery-list.js');
 let GroceryItem = require('../../app/controllers/grocery-list-items.js');
 
+
 defineSupportCode(function({Given, When, Then}) {
 
-	let theList,runTimeErroronEmptyList,listOfitems,quantity,category,itemName;
+	let theList,runTimeErroronEmptyList = false,listOfitems,quantity,category,itemName;
   items = ["sugar","milk","Tea","fish","rice","cake"];
   
   

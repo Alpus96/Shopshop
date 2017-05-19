@@ -1,37 +1,42 @@
 
-let assert = require('assert');
-let {defineSupportCode} = require('cucumber');
-let GroceryUserRemove = require('../../app/controllers/grocery-list.js');
-let GroceryItem = require('../../app/controllers/grocery-list-items.js');
+const { defineSupportCode } = require('cucumber');
+const assert = require('assert');
 
-defineSupportCode(function({Given, When, Then}) {
+const User = require("../../app/controllers/user.js");
+const List = require("../../app/controllers/grocery-list.js")
+const GroceryItem = require("../../app/controllers/grocery-list-items.js")
 
-       let theItem,runTimeErroronSelectedEmptyList,quantity,category,itemName;
+defineSupportCode ( ( { Given, When, Then } ) => {
+
+
+       let theUser,runTimeErroronSelectedEmptyList,itemName,listName,items;
        items = ["sugar","milk","Tea","fish","rice","cake"];
+       itemName = "sugar";
 
        Given('that I have no items in the selected grocery list', function (callback) {
-           theItem = new GroceryUserRemove('Mat');
+           theUser = new User();
+           cookie = null;
   		     runTimeErroronSelectedEmptyList= false;
            callback();
        });
 
        Given('that I have selected grocery list', function (callback) {
-         theItem = new GroceryUserRemove('Mat');
-          runTimeErroronSelectedEmptyList= false;
-         callback();
+          listName = "testList";
+          theUser.addList(listName);
+          callback();
        });
 
-       Given('I have {amount} items in selected grocery list', function (amount, callback) {
-           for(let i = 0; i < amount-1; i++){
-             theItem.addToList("Test " + i, 10, "Grönsaker");
-         }
-         callback();
+       Given('I have {int} items in selected grocery list', function (int, callback) {
+          for(var i = 0; i <int-1; i++) {
+            theUser.lists[listName].addToList(items[i],10,"Grosöker");
+          }
+
+          callback();
        });
 
-
-        When('I try to remove an item from empty selected list', function (callback) {
+       When('I try to remove an item from empty selected list', function (callback) {
            try{
-             theItem.removeItemNameInList(itemName);
+             theUser.removeItemFromUserList(listName,itemName);
            }
            catch(e){
               runTimeErroronSelectedEmptyList= true;
@@ -39,33 +44,44 @@ defineSupportCode(function({Given, When, Then}) {
            callback();
       
        });
-
-         When('I remove {item} item from the selected grocery list', function (item, callback) {
-         theItem.addToList(item,10,"Grönsaker");
-         theItem.removeItemNameInList(item);
-         callback();
+       
+      When('I remove {item} item from the selected grocery list', function (item, callback) {
+          let listindex =2;
+           
+           /*for(var i = 0; i <int; i++) {
+            items.push(makeString());
+            theUser.lists[listName].addToList(items[i], 5,"morrot");
+        }*/
+           theUser.removeItemFromUserList(listindex,item);
+           callback();
        });
+   
 
 
+        
 
+       Then('I should not have {stringInDoubleQuotes} item in my selected grocery list.', function (stringInDoubleQuotes, callback) {
+          for(let item of theUser.lists[listName].items){
+            assert(item.name !== stringInDoubleQuotes);
+         }
+         
+          callback();
+        });
+       
+
+
+      
        Then('I should get runtime errors.', function (callback) {
          assert(runTimeErroronSelectedEmptyList);
          callback();
         
        });
 
-       Then('I should not have {stringInDoubleQuotes} item in my selected grocery list.', function (itemName,callback) {
-         for(let item of theItem.items){
-            assert(item.name !== itemName);
-         }
-         callback();
-       });
-
+       /*
         Then('I should have {int} items in the selected grocery list', function (int, callback) {
-          assert(theItem.items.length = int);
+          assert(theUser.items.length = int);
          callback();
-       });
-
+       });*/
 
 
  });
