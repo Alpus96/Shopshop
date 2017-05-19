@@ -1,6 +1,7 @@
 const UserModel = require('../models/user-model.js');
 const ListModel = require('../models/list-model.js');
 const GroceryList = require('./grocery-list.js');
+const bcrypt = require('bcryptjs');
 
 module.exports = class User {
     //  To validate logged in send cookie as an object:
@@ -17,6 +18,28 @@ module.exports = class User {
             return (user.username === cookie.username && user.password === cookie.password) ? cookie : null;
         }
         throw new Error('Invalid cookie recieved.');
+    }
+
+    //  Remenber to hash passwords
+    // cridentials = {username: <String>, password: <String>}
+    registerAccount(cridentials) {
+
+    }
+
+    // cridentials = {username: '', password: ''}
+    login (cridentials) {
+        const user = UserModel.getByUsername(cridentials.username);
+        if (user) {
+            return bcrypt.compare(user.password, cridentials.password);
+        } else {
+            return false;
+        }
+    }
+
+    deleteAccount (cridentials) {
+        if (this.login(cridentials)) {
+            UserModel.deleteById(this.cookie.id);
+        }
     }
 
     getLists (callback) {
@@ -42,12 +65,6 @@ module.exports = class User {
         delete this.lists[name];
     }
 
-    // cridentials = {username: '', password: ''}
-    login (cridentials) {
-
-    }
-
-
     removeItemFromUserList(listName,itemName) {
       let itemSelector = this.lists[listName] ? this.lists[listName].indexOf(itemName) : null;
       if (itemSelector) {
@@ -55,9 +72,4 @@ module.exports = class User {
       }
     }
 
-    deleteAccount (cridentials) {
-        if (this.login(cridentials)) {
-            UserModel.deleteById(this.cookie.id);
-        }
-    }
 };

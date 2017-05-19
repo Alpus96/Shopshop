@@ -7,6 +7,14 @@ const jsonPath = path.join(__dirname, 'database/UserTable.json');
         return UserTable.users[userId];
     }
 
+    getByUsername (username) {
+        for (let id in UserTable.users) {
+            if (UserTable.users[id].username = username) {
+                return UserTable.users[id];
+            }
+        }
+    }
+
     deleteById (userId) {
         let editable = UserTable;
         delete editable.users[userId];
