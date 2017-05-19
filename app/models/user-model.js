@@ -3,6 +3,11 @@ const path = require('path')
 const jsonPath = path.join(__dirname, 'database/UserTable.json');
 
  class UserModel {
+    //  data = {username: '', password: ''}
+     saveUser (data) {
+         
+     }
+
     getById (userId) {
         return UserTable.users[userId];
     }
