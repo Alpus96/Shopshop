@@ -14,7 +14,7 @@ Feature: A visitor should be able to view the site.
     Scenario: Create an instance of user with an invalid cookie
         Given I have required the User Class
         When I create an instance with an invalid cookie
-        Then I should get an error.
+        Then I should get an error
 
     Scenario Outline: A user should be able to create new lists
         Given I am <status>
