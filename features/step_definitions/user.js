@@ -9,22 +9,13 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     let User, user, cookie, error, listName, items;
 
+    /*
+    *   Given. In scenario order.
+    * */
+
     Given('I have required the User Class', function (callback) {
         // Require the User Class to test.
         User = require('../../app/controllers/user.js');
-        callback();
-    });
-
-    Given('that I am visiting the page as a User', function (callback) {
-        //  Code for testing goes here.
-        user = new User();
-        callback();
-    });
-
-    Given('I have an empty list', function (callback) {
-        //  Code for testing goes here.
-        listName = "testList";
-        user.addList(listName);
         callback();
     });
 
@@ -39,6 +30,10 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         user = new User(cookie);
         callback();
     });
+
+    /*
+    *   When. In scenario order.
+    * */
 
     When('create a new instance without a cookie', function (callback) {
         //  Create a new instance of User.
@@ -68,19 +63,13 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
-    When('I add an {int} of groceryItems to my groceryList', function (int, callback) {
-        //  Code for testing goes here.
-        for(var i = 0; i <int; i++) {
-            items.push(makeString());
-            user.lists[listName].addToList(items[i], 5,"morrot");
-        }
-        callback();
-    });
-
     When('I create {int} lists', function (int, callback) {
         callback(null);
         for (var i = 0; i < int; i++) {
             user.addList(makeString());
+        }
+        for (let list in user.lists) {
+            user.lists[list].addToList('Beaf', 2, 'meat');
         }
         callback();
     });
@@ -91,9 +80,22 @@ defineSupportCode ( ( { Given, When, Then } ) => {
     });
 
     When('I reload the page', function (callback) {
-        user = new User(cookie.id ? cookie : null);
+        user = new User(cookie.id >= 0 ? cookie : null);
         callback();
     });
+
+    When('I add {int} groceryItems to my groceryList', function (int, callback) {
+        //  Code for testing goes here.
+        for(var i = 0; i <int; i++) {
+            items.push(makeString());
+            user.lists[listName].addToList(items[i], 5,"morrot");
+        }
+        callback();
+    });
+
+    /*
+    *   Then. In scenario order.
+    * */
 
     Then('logged in status should be set to false', function (callback) {
         assert(
@@ -130,19 +132,27 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     Then('I should have {int} lists', function (int, callback) {
         assert(
-            user.lists.length === int,
+            Object.keys(user.lists).length === int,
             'Invalid amount of lists.'
         );
         callback();
     });
 
-    Then('I should have an {int} items in my groceryList', function (int, callback) {
-        assert(user.lists[listName].items.length === int);
+    Then('they should disappear when I delete them', function (callback) {
+        for (let listName in user.lists) {
+            user.deleteList(listName);
+        }
+        user = new User(typeof cookie != 'object' ? cookie : null);
+        assert(Object.keys(user.lists).length === 0);
         callback();
-
     });
 
-    Then('every item should be an instance of groceryItem', function (callback) {
+    Then('I should have {int} items in my groceryList', function (int, callback) {
+        assert(user.lists[listName].items.length === int);
+        callback();
+    });
+
+    Then('every item should be a groceryItem', function (callback) {
         //  Code for testing goes here.
         for (let item of user.lists[listName].items){
             assert(item instanceof GroceryItem);
@@ -150,14 +160,8 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
-    Then('the groceryItems should not remain after the page is reloaded', function (callback) {
+    Then('{int} items should remain in my groceryList after the page is reloaded', function (callback) {
         user= new User();
-        callback();
-    });
-
-    Then('there should be no groceryList remaining after the page is reloaded', function (callback) {
-        //  Code for testing goes here.
-        assert(user.lists.length ===0)
         callback();
     });
 
