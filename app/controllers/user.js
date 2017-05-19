@@ -8,7 +8,7 @@ module.exports = class User {
     constructor(cookie) {
         this.cookie = cookie ? this.validateCookie(cookie) : null;
         this.loggedIn = this.cookie ? true : false;
-        this.lists = this.loggedIn ? this.getLists() : [];
+        this.lists = this.loggedIn ? this.getLists() : {};
     }
 
     validateCookie (cookie) {
@@ -24,15 +24,22 @@ module.exports = class User {
     }
 
     addList (name) {
-        this.lists.push(new GroceryList(name));
+        this.lists[name] = new GroceryList(name);
     }
 
     saveLists () {
         if (this.loggedIn) {
-            for (let i = 0; i < this.lists.length; i++) {
-                ListModel.saveList(this.cookie.id, this.lists[i]);
+            for (let save in this.lists) {
+                ListModel.saveList(this.cookie.id, this.lists[save]);
             }
         }
+    }
+
+    deleteList (name) {
+        if (this.cookie){
+            ListModel.deleteList(this.cookie.id, name);
+        }
+        delete this.lists[name];
     }
 
     authenticate (cridentials) {
