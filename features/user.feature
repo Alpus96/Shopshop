@@ -63,6 +63,13 @@ Feature: A visitor should be able to view the site.
             |     logged in    |       6       |     6     |
             | not logged in |       6       |     0     |
 
+    Scenario: Registering visitor as a user.
+        Given I am visitor of the page
+        When I create my account
+        Then I should have an account.
+
+      
+
     Scenario: Delete user.
         Given I have an account
         When I delete my account

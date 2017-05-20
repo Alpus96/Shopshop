@@ -23,24 +23,45 @@ module.exports = class User {
     //  Remenber to hash passwords
     // cridentials = {username: <String>, password: <String>}
     registerAccount(cridentials) {
-        bcrypt.genSalt(saltRounds, function(err, salt) {
-            bcrypt.hash(myPlaintextPassword, salt, function(err, hash) {
-                // Store hash in your password DB.
-            });
-        });
+        const salt = bcrypt.genSaltSync(12);
+        const hash = bcrypt.hashSync(cridentials.password, salt);
+        cridentials.password = hash;
+        UserModel.saveUser(cridentials);
+        // try{
+        // bcrypt.genSalt(12, function(err, salt) {
+        //     if (err){console.log(err)} else {console.log(salt)}
+        //     bcrypt.hash(cridentials.password, salt, function(err, hash) {
+        //         if (err){console.log(err)} else {console.log(hash)}
+        //         // Store hash in your password DB.
+        //         cridentials.password = hash;
+        //         console.log(cridentials);
+        //         UserModel.saveUser(cridentials);
+        //     });
+        // });
+        // } catch (e) {
+        //     console.log(e);
+        //     throw e;
+        // }
     }
 
     // cridentials = {username: '', password: ''}
     login (cridentials) {
+        try {
         const user = UserModel.getByUsername(cridentials.username);
+        console.log(user);
         if (user) {
-            return bcrypt.compare(user.password, cridentials.password);
+            return bcrypt.compare(user.password, cridentials.password) ? user : false;
         } else {
             return false;
+        }
+        }catch (e) {
+            console.log(e);
+            throw e;
         }
     }
 
     deleteAccount (cridentials) {
+        console.log(cridentials);
         if (this.login(cridentials)) {
             UserModel.deleteById(this.cookie.id);
         }
