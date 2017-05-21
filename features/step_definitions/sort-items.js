@@ -20,7 +20,7 @@ defineSupportCode(function({Given, When, Then}) {
 	        theList = new GroceryList(name);
 	        for(let i=0;i<10;i++){
 		        itemsList = items.split(",");
-		        console.log('Adding: ' + itemsList);
+		      
 		        categoriesList = categories.split(",");
 	    	}
 	       
@@ -34,9 +34,9 @@ defineSupportCode(function({Given, When, Then}) {
 	   When('I want to sort the {items} in the lists according to category {sort}', function (items, sort, callback) {
 
 	   		items= theList.getItemsInTheList();
-	   			 console.warn('Lista test1 ', items);
+	   			
 		     listOfItems = theList.getSortedList(sort);
-		     console.warn('Lista test2 ',listOfItems);
+		    
 	         callback();
 	    });
 
@@ -47,7 +47,7 @@ defineSupportCode(function({Given, When, Then}) {
 	        	assert(item.category===sort, '');
 		     }*/
 		      //listOfItems = theList.getSortedList(sort);
-		      console.warn('Lista test20 ', listOfItems);
+		
 		    let foundCategories = [];
 		    for(let item of listOfItems){
 		    	if(foundCategories.indexOf(item.category) < 0){
@@ -62,6 +62,38 @@ defineSupportCode(function({Given, When, Then}) {
 		    	}
 		    }
 	        callback();
-	    });
+	    }); 
+
+	    Given('I have created list a list with name {name} that contains {items}', function (name,items, callback) {
+          theList = new GroceryList(name);
+	        for(let i=0;i<10;i++){
+		        itemsList = items.split(",");
+		      
+	    	}
+	       
+	        for(let i=0;i<itemsList.length;i++){
+	        theList.addToList(itemsList[i],20,"Frukt");
+	        }
+         callback();
+        });
+
+         When('I sort the {items} in the lists according to alfabetic order', function (items,callback) {
+        		 items= theList.getItemsInTheList();
+        		 listOfItems = theList.getListSortedAlfabeticalOrder();
+         callback();
+       });
+
+          Then('I should see <items> in alfabetic order.', function (callback) {
+        			for(let item in listOfItems){
+        				if(it)
+        			}
+        			_.every(arr, function(value, index, listOfItems) {
+					  // either it is the first element, or otherwise this element should 
+					  // not be smaller than the previous element.
+					  // spec requires string conversion
+					  return index === 0 || String(array[index - 1]) <= String(value);
+					});
+         	callback();
+       });
 
 });
