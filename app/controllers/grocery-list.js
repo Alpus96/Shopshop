@@ -133,9 +133,9 @@ module.exports = class GroceryList {
 
     updateCategories () {
         this.categories = [];
-        for (let item in this.items) {
+        for (let item of this.items) {
             let found = false;
-            for (let category in this.categories) {
+            for (let category of this.categories) {
                 if (category === item.category) {
                     found = true;
                 }
