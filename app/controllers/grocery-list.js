@@ -6,25 +6,25 @@ let GroceryListItem = require('./grocery-list-items');
 module.exports = class GroceryList {
 
 
-  // When a new GroceryList is created
-  // set the properties name (from inargument)
-  // and items (an empty array)
-  constructor(name){
-    if(typeof name !== "string" || name === ""){
-      throw new Error("A list must have a name that is an non-empty string.");
+    // When a new GroceryList is created
+    // set the properties name (from inargument)
+    // and items (an empty array)
+    constructor(name){
+        if(typeof name !== "string" || name === ""){
+            throw new Error("A list must have a name that is an non-empty string.");
+        }
+        this.name = name;
+        this.items = [];
+        this.categoryList=[
+            'Fisk',
+            'Kött',
+            'Godis',
+            'Grönsaker',
+            'Frukt'
+        ];
     }
-    this.name = name;
-    this.items = [];
-    this.categoryList=[
-    'Fisk',
-    'Kött',
-    'Godis',
-    'Grönsaker',
-    'Frukt'
-    ];
-  }
 
-  
+
     addToList(itemName, quantity, catagory){
         if(typeof itemName !== "string" || itemName === ""){
             throw new Error("An item must have a name that is an non-empty string.");
@@ -32,43 +32,32 @@ module.exports = class GroceryList {
         if( quantity === " "){
             throw new Error("quantity can't be empty");
         }
-        
+        if( quantity === " "){
+            throw new Error("quantity can't be empty");
+        }
+
         this.items.push(new GroceryListItem(itemName, quantity, catagory));
         this.updateCategories();
+    }
 
-      
-   // console.warn('Lista test10 ',itemName, quantity, category);
-        if( quantity === " "){
-              throw new Error("quantity can't be empty");
-        }
-    
-    this.items.push(new GroceryListItem(itemName, quantity, catagory));
-  }
-  getItemsInTheList(){
-     
-        return this.items;
-      
-  }
-  getSortedList(sort){
-    let swapped;
-   
-      
-          for(let i=0;i<this.items.length;i++){
-        
-              if (this.items[i].category !== sort) {
-                  let temp =  this.items.splice(i,1);
- 
-                    this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category));
-                   
-                    
-                }
-           }
-        
-      
+    // Use .items instead
+    /*getItemsInTheList(){
+
     return this.items;
-  }
- 
-        
+    }*/
+
+    getSortedList(sort){
+        let swapped;
+        for(let i=0;i<this.items.length;i++){
+            if (this.items[i].category !== sort) {
+                let temp =  this.items.splice(i,1);
+                this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category));
+            }
+        }
+        return this.items;
+    }
+
+
 
     //Update the selected item
     getItemNameInList(itemName){
@@ -89,9 +78,9 @@ module.exports = class GroceryList {
     }
 
     removeItemNameInList(itemName){
-    //console.warn('Lista namn1', itemName);
+        //console.warn('Lista namn1', itemName);
         for(let item of this.items){
-        //console.warn('Index', this.items.indexOf(itemName.name));
+            //console.warn('Index', this.items.indexOf(itemName.name));
             if(item.name === itemName.name){
                 let index = this.items.indexOf(itemName);
                 //console.warn('Index', index);
