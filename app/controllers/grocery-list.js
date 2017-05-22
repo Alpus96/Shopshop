@@ -57,7 +57,9 @@ module.exports = class GroceryList {
         return this.items;
     }
 
-
+    getListSortedAlfabeticalOrder () {
+        return this.items.sort();
+    }
 
     //Update the selected item
     getItemNameInList(itemName){

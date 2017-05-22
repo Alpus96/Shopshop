@@ -64,7 +64,7 @@ defineSupportCode(function({Given, When, Then}) {
 	        callback();
 	    });
 
-	    Given('I have created list a list with name {name} that contains {items}', function (name,items, callback) {
+	    Given('I have a list with name {name} that contains {items}', function (name,items, callback) {
           theList = new GroceryList(name);
 	        for(let i=0;i<10;i++){
 		        itemsList = items.split(",");
@@ -72,7 +72,7 @@ defineSupportCode(function({Given, When, Then}) {
 	    	}
 
 	        for(let i=0;i<itemsList.length;i++){
-	        theList.addToList(itemsList[i],20,"Frukt");
+	        theList.addToList(itemsList[i],20,category = "Frukt");
 	        }
          callback();
         });
@@ -84,15 +84,11 @@ defineSupportCode(function({Given, When, Then}) {
        });
 
           Then('I should see <items> in alfabetic order.', function (callback) {
-        			for(let item in listOfItems){
-        				if(it) {}
+        			for(let i = 0; i < listOfItems.length; i++){
+        				if(listOfItems[i] < listOfItems[i+1]) {
+							assert(false);
+						}
         			}
-        			_.every(arr, function(value, index, listOfItems) {
-					  // either it is the first element, or otherwise this element should
-					  // not be smaller than the previous element.
-					  // spec requires string conversion
-					  return index === 0 || String(array[index - 1]) <= String(value);
-					});
          	callback();
        });
 
