@@ -1,7 +1,7 @@
 let assert = require('assert');
 let {defineSupportCode} = require('cucumber');
 let GroceryList = require('../../app/controllers/grocery-list.js');
-let GroceryListItem = require('../../app/controllers/grocery-list-items.js');
+let GroceryListItem = require('../../app/controllers/grocery-items.js');
 
 defineSupportCode(function({Given, When, Then}) {
 
@@ -9,7 +9,7 @@ defineSupportCode(function({Given, When, Then}) {
 		let listOfItems = [];
 		let itemsList = [];
 		let categoriesList =[];
-	
+
 
 	 Given('logged in user', function (callback) {
 	         // Write code here that turns the phrase above into concrete actions
@@ -20,23 +20,23 @@ defineSupportCode(function({Given, When, Then}) {
 	        theList = new GroceryList(name);
 	        for(let i=0;i<10;i++){
 		        itemsList = items.split(",");
-		      
+
 		        categoriesList = categories.split(",");
 	    	}
-	       
+
 	        for(let i=0;i<itemsList.length;i++){
 	        theList.addToList(itemsList[i],20,categoriesList[i]);
 	        }
-	        
+
 	        callback();
 	   });
 
 	   When('I want to sort the {items} in the lists according to category {sort}', function (items, sort, callback) {
 
 	   		items= theList.getItemsInTheList();
-	   			
+
 		     listOfItems = theList.getSortedList(sort);
-		    
+
 	         callback();
 	    });
 
@@ -47,7 +47,7 @@ defineSupportCode(function({Given, When, Then}) {
 	        	assert(item.category===sort, '');
 		     }*/
 		      //listOfItems = theList.getSortedList(sort);
-		
+
 		    let foundCategories = [];
 		    for(let item of listOfItems){
 		    	if(foundCategories.indexOf(item.category) < 0){
@@ -62,15 +62,15 @@ defineSupportCode(function({Given, When, Then}) {
 		    	}
 		    }
 	        callback();
-	    }); 
+	    });
 
 	    Given('I have created list a list with name {name} that contains {items}', function (name,items, callback) {
           theList = new GroceryList(name);
 	        for(let i=0;i<10;i++){
 		        itemsList = items.split(",");
-		      
+
 	    	}
-	       
+
 	        for(let i=0;i<itemsList.length;i++){
 	        theList.addToList(itemsList[i],20,"Frukt");
 	        }
@@ -82,6 +82,7 @@ defineSupportCode(function({Given, When, Then}) {
         		 listOfItems = theList.getListSortedAlfabeticalOrder();
          callback();
        });
+
 
 		Then('I should see {items} in alfabetic order.', function (items, callback) {
 			for(let item in listOfItems){
@@ -95,5 +96,19 @@ defineSupportCode(function({Given, When, Then}) {
 			});*/
 			callback();
 		});
+
+          Then('I should see <items> in alfabetic order.', function (callback) {
+        			for(let item in listOfItems){
+        				if(it) {}
+        			}
+        			_.every(arr, function(value, index, listOfItems) {
+					  // either it is the first element, or otherwise this element should
+					  // not be smaller than the previous element.
+					  // spec requires string conversion
+					  return index === 0 || String(array[index - 1]) <= String(value);
+					});
+         	callback();
+       });
+>>>>>>> 936ea83f6b75f14171c64ed96290683f2ee442e4
 
 });
