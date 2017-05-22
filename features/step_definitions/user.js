@@ -33,9 +33,15 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     Given('I have an account', function (callback) {
         cridentials = {username: 'accountTest', password: 'accountPass123'}
-        user.createAccount(cridentials);
+        user.registerAccount(cridentials);
         callback();
     });
+
+    Given('I am visitor of the page', function (callback) { 
+        user = new User(cookie.id >= 0 ? cookie : null);
+        callback();
+    });
+
 
     /*
     *   When. In scenario order.
@@ -101,9 +107,20 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     When('I delete my account', function (callback) {
         cookie = user.login(cridentials);
-        user.deleteAccount(cridentals);
+        console.log(cookie, cridentials);
+        user = new User(cookie);
+        user.deleteAccount(cridentials);
         callback();
     });
+
+   
+    When('I create my account', function (callback) {
+        cridentials = {username: 'accountTest', password: 'accountPass123'}
+        user.registerAccount(cridentials);
+        callback();
+       });
+
+
 
     /*
     *   Then. In scenario order.
@@ -178,9 +195,15 @@ defineSupportCode ( ( { Given, When, Then } ) => {
     });
 
     Then('I should no longer have an account', function (callback) {
-        assert(user.login(cridentials) === false);
+        //assert.deepStrictEqual(user.login(cridentials), false);
+        assert(!user.login(cridentials));
         callback();
     });
+
+    Then('I should have an account.', function (callback) {
+         assert(user.login(cridentials));
+         callback();
+       });
 
     function makeString () {
         var text = "";
