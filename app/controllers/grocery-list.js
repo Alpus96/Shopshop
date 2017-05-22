@@ -36,22 +36,22 @@ module.exports = class GroceryList {
             throw new Error("quantity can't be empty");
         }
 
-        this.items.push(new GroceryListItem(itemName, quantity, catagory));
+        this.items.push(new GroceryItem(itemName, quantity, catagory));
         this.updateCategories();
     }
 
     // Use .items instead
-    /*getItemsInTheList(){
+    getItemsInTheList(){
 
     return this.items;
-    }*/
+    }
 
     getSortedList(sort){
         let swapped;
         for(let i=0;i<this.items.length;i++){
             if (this.items[i].category !== sort) {
                 let temp =  this.items.splice(i,1);
-                this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category));
+                this.items.push(new GroceryItem(temp[0].name, temp[0].quantity, temp[0].category));
             }
         }
         return this.items;
@@ -70,7 +70,7 @@ module.exports = class GroceryList {
                 if (index > -1) {
                     this.items.splice(index, 1);
                     //console.warn('Lista namn2', itemName.name, itemName.quantity, itemName.category);
-                    this.items.push(new GroceryListItem(itemName.name, itemName.quantity, itemName.category));
+                    this.items.push(new GroceryItem(itemName.name, itemName.quantity, itemName.category));
                 }
                 return item;
             }

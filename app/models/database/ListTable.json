@@ -1,6 +1,212 @@
 {
     "index": [
-        []
+        [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ]
     ],
-    "lists": []
+    "lists": [
+        {
+            "name": "qFM1J",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                },
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "NoGSm",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                },
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "zzWpV",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                },
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "L3ygL",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                },
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null,
+                null
+            ]
+        },
+        {
+            "name": "GIRnn",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null
+            ]
+        },
+        {
+            "name": "vTz9s",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null
+            ]
+        },
+        {
+            "name": "94ucg",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null
+            ]
+        },
+        {
+            "name": "SkGCi",
+            "items": [
+                {
+                    "name": "Beaf",
+                    "bought": false,
+                    "quantity": 2,
+                    "category": "meat"
+                }
+            ],
+            "categoryList": [
+                "Fisk",
+                "Kött",
+                "Godis",
+                "Grönsaker",
+                "Frukt"
+            ],
+            "categories": [
+                null
+            ]
+        }
+    ]
 }
