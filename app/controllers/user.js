@@ -27,41 +27,19 @@ module.exports = class User {
         const hash = bcrypt.hashSync(cridentials.password, salt);
         cridentials.password = hash;
         UserModel.saveUser(cridentials);
-        // try{
-        // bcrypt.genSalt(12, function(err, salt) {
-        //     if (err){console.log(err)} else {console.log(salt)}
-        //     bcrypt.hash(cridentials.password, salt, function(err, hash) {
-        //         if (err){console.log(err)} else {console.log(hash)}
-        //         // Store hash in your password DB.
-        //         cridentials.password = hash;
-        //         console.log(cridentials);
-        //         UserModel.saveUser(cridentials);
-        //     });
-        // });
-        // } catch (e) {
-        //     console.log(e);
-        //     throw e;
-        // }
     }
 
     // cridentials = {username: '', password: ''}
     login (cridentials) {
-        try {
         const user = UserModel.getByUsername(cridentials.username);
-        console.log(user);
         if (user) {
             return bcrypt.compare(user.password, cridentials.password) ? user : false;
         } else {
             return false;
         }
-        }catch (e) {
-            console.log(e);
-            throw e;
-        }
     }
 
     deleteAccount (cridentials) {
-        console.log(cridentials);
         if (this.login(cridentials)) {
             UserModel.deleteById(this.cookie.id);
         }
@@ -89,16 +67,16 @@ module.exports = class User {
         }
         delete this.lists[name];
     }
-   
+
     removeItemFromUserList(listName,itemName) {
       let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
       if (itemSelector >= 0) {
-        this.lists[listName].items.splice(itemSelector,1); 
-      } 
+        this.lists[listName].items.splice(itemSelector,1);
+      }
     }
 
     changeQuantityOfItem(listName,itemName,quantity){
-        
+
         for (let i=0; i<this.lists[listName].items.length;i++){
             if(this.lists[listName].items[i].name === itemName){
                 this.lists[listName].items[i].quantity = quantity;
@@ -109,8 +87,8 @@ module.exports = class User {
                 console.log(msg);
                 throw new Error(msg);
             }
-    
-        }          
+
+        }
     }
 
 

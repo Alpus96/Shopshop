@@ -3,7 +3,7 @@ const assert = require('assert');
 
 const User = require("../../app/controllers/user.js");
 const List = require("../../app/controllers/grocery-list.js")
-const GroceryItem = require("../../app/controllers/grocery-list-items.js")
+const GroceryItem = require("../../app/controllers/grocery-items.js")
 
 defineSupportCode ( ( { Given, When, Then } ) => {
 
@@ -22,12 +22,12 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         for(var i = 0; i <6; i++) {
             groceryQuantity.lists[listNam].addToList(itemsQ[i],10,"Grosöker");
             console.log(itemsQ[i]);
-          }  
+          }
 	    error =false;
 		    callback();
     });
 
-    
+
        When('I try to change the quantity of a nonexisting item from the selected list', function (callback) {
        		error = true;
 			assert.throws(
@@ -51,7 +51,7 @@ defineSupportCode ( ( { Given, When, Then } ) => {
     Then('I should have {int} in quantity on the item.', function (int, callback) {
 
     	/*let itemSelector = groceryQuantity.lists[listNam].items.indexOf(itemName);
-    	
+
 	    assert(groceryQuantity.lists[listNam].items[itemSelector].quantity === int);*/
 	    assert(itemQuantity === int);
 
@@ -63,6 +63,6 @@ defineSupportCode ( ( { Given, When, Then } ) => {
          assert(error);
          callback();
        });
-		    
+
 
  });

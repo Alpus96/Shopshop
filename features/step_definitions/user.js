@@ -3,7 +3,7 @@ const assert = require('assert');
 
 const User = require("../../app/controllers/user.js");
 const List = require("../../app/controllers/grocery-list.js")
-const GroceryItem = require("../../app/controllers/grocery-list-items.js")
+const GroceryItem = require("../../app/controllers/grocery-items.js")
 
 defineSupportCode ( ( { Given, When, Then } ) => {
 
@@ -37,7 +37,7 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
-    Given('I am visitor of the page', function (callback) { 
+    Given('I am visitor of the page', function (callback) {
         user = new User(cookie.id >= 0 ? cookie : null);
         callback();
     });
@@ -113,7 +113,7 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
-   
+
     When('I create my account', function (callback) {
         cridentials = {username: 'accountTest', password: 'accountPass123'}
         user.registerAccount(cridentials);

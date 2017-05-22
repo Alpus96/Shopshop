@@ -3,7 +3,7 @@
 let assert = require('assert');
 let {defineSupportCode} = require('cucumber');
 let GroceryList = require('../../app/controllers/grocery-list.js');
-let GroceryListItem = require('../../app/controllers/grocery-list-items.js');
+let GroceryListItem = require('../../app/controllers/grocery-items.js');
 
 defineSupportCode(function({Given, When, Then}) {
 
@@ -31,9 +31,9 @@ defineSupportCode(function({Given, When, Then}) {
          callback();
     });
 
-	
 
-	
+
+
 
     Given('that i have a grocery list and a item {name}', function (name, callback) {
          	theList = new GroceryList('Mat');

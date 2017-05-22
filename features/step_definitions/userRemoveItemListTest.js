@@ -4,7 +4,7 @@ const assert = require('assert');
 
 const User = require("../../app/controllers/user.js");
 const List = require("../../app/controllers/grocery-list.js")
-const GroceryItem = require("../../app/controllers/grocery-list-items.js")
+const GroceryItem = require("../../app/controllers/grocery-items.js")
 
 defineSupportCode ( ( { Given, When, Then } ) => {
 
@@ -42,12 +42,12 @@ defineSupportCode ( ( { Given, When, Then } ) => {
               runTimeErroronSelectedEmptyList= true;
            }
            callback();
-      
+
        });
-       
+
       When('I remove {item} item from the selected grocery list', function (item, callback) {
           let listindex =2;
-           
+
            /*for(var i = 0; i <int; i++) {
             items.push(makeString());
             theUser.lists[listName].addToList(items[i], 5,"morrot");
@@ -55,26 +55,26 @@ defineSupportCode ( ( { Given, When, Then } ) => {
            theUser.removeItemFromUserList(listindex,item);
            callback();
        });
-   
 
 
-        
+
+
 
        Then('I should not have {stringInDoubleQuotes} item in my selected grocery list.', function (stringInDoubleQuotes, callback) {
           for(let item of theUser.lists[listName].items){
             assert(item.name !== stringInDoubleQuotes);
          }
-         
+
           callback();
         });
-       
 
 
-      
+
+
        Then('I should get runtime errors.', function (callback) {
          assert(runTimeErroronSelectedEmptyList);
          callback();
-        
+
        });
 
        /*
@@ -85,6 +85,3 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
 
  });
-
-
-

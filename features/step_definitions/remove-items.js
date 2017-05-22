@@ -1,15 +1,15 @@
 let assert = require('assert');
 let {defineSupportCode} = require('cucumber');
 let GroceryList = require('../../app/controllers/grocery-list.js');
-let GroceryItem = require('../../app/controllers/grocery-list-items.js');
+let GroceryItem = require('../../app/controllers/grocery-items.js');
 
 
 defineSupportCode(function({Given, When, Then}) {
 
 	let theList,runTimeErroronEmptyList = false,listOfitems,quantity,category,itemName;
   items = ["sugar","milk","Tea","fish","rice","cake"];
-  
-  
+
+
   Given('that I have no items in grocery list', function (callback) {
          theList = new GroceryList('Mat');
          runTimeErroronEmptyList= false;
@@ -24,7 +24,7 @@ defineSupportCode(function({Given, When, Then}) {
 
 	Given('I have {amount} items in grocery list', function (amount, callback) {
 
-         // add amount-1 of items because we will add an additional named item later 
+         // add amount-1 of items because we will add an additional named item later
          for(let i = 0; i < amount-1; i++){
            theList.addToList("Test " + i, 10, "Grönsaker");
          }
@@ -32,7 +32,7 @@ defineSupportCode(function({Given, When, Then}) {
          callback();
        });
 
-    
+
     When('I try to remove an item from empty list', function (callback) {
          try{
            theList.removeItemNameInList(itemName);
@@ -41,7 +41,7 @@ defineSupportCode(function({Given, When, Then}) {
      	    	runTimeErroronEmptyList= true;
      	   }
          callback();
-     	
+
        });
 
        When('I remove {item} item to the list', function (item,callback) {
@@ -49,7 +49,7 @@ defineSupportCode(function({Given, When, Then}) {
          theList.removeItemNameInList(item);
          callback();
        });
-         
+
        Then('I should get runtime error.', function (callback) {
          assert(runTimeErroronEmptyList);
          callback();
@@ -68,7 +68,7 @@ defineSupportCode(function({Given, When, Then}) {
        });
 
 
-    
+
 });
 
 
@@ -86,7 +86,7 @@ defineSupportCode(function({Given, When, Then}) {
 		 theItem = new GroceryItem(name, quantity);
 		callback();
 	});
-	
+
 		Then('the item name should be {name}', function (name, callback) {
 			assert(
 	           theItem.getItemName() === name,
@@ -96,11 +96,11 @@ defineSupportCode(function({Given, When, Then}) {
        	});
 
        	 Then('the quantity should be {int}', function (int, callback) {
-         
+
           theItem.getQuantity() === int;
          callback();
        });
-       
+
       Then('then bought set to true.', function (callback) {
          // Write code here that turns the phrase above into concrete actions
          callback();
@@ -111,4 +111,3 @@ defineSupportCode(function({Given, When, Then}) {
 
 
 */
-	

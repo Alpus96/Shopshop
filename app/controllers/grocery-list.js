@@ -1,6 +1,6 @@
 // Import GroceryListItem
 // so that it can be used in this file
-let GroceryListItem = require('./grocery-list-items');
+let GroceryItem = require('./grocery-items');
 
 // Export the class GroceryList as a node module
 module.exports = class GroceryList {
