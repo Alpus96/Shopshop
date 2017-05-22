@@ -58,7 +58,7 @@ module.exports = class GroceryList {
               if (this.items[i].category !== sort) {
                   let temp =  this.items.splice(i,1);
  
-                    this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category));
+                    this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category)); // why 0 here instead of i.
                    
                     
                 }
@@ -123,7 +123,7 @@ module.exports = class GroceryList {
         let bought = [];
         for(let item of this.items){
             if(item.bought === true){
-                bought.push(item);
+                bought.push(item); //
             }
         }
         return bought;

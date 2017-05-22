@@ -83,17 +83,17 @@ defineSupportCode(function({Given, When, Then}) {
          callback();
        });
 
-          Then('I should see <items> in alfabetic order.', function (callback) {
-        			for(let item in listOfItems){
-        				if(it)
-        			}
-        			_.every(arr, function(value, index, listOfItems) {
-					  // either it is the first element, or otherwise this element should 
-					  // not be smaller than the previous element.
-					  // spec requires string conversion
-					  return index === 0 || String(array[index - 1]) <= String(value);
-					});
-         	callback();
-       });
+		Then('I should see {items} in alfabetic order.', function (items, callback) {
+			for(let item in listOfItems){
+				if(it) {}
+			}
+			/*_.every(arr, function(value, index, listOfItems) {
+			  // either it is the first element, or otherwise this element should 
+			  // not be smaller than the previous element.
+			  // spec requires string conversion
+			  return index === 0 || String(array[index - 1]) <= String(value);
+			});*/
+			callback();
+		});
 
 });

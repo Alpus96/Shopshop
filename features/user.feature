@@ -134,3 +134,7 @@ Scenario Outline: Add items to a groceryList as a visitor.
         When I delete my account
         Then I should no longer have an account
 
+    Scenario: As user I should be able to know the items that are bought in a selected list.
+        Given I have a bought items in a selected list
+        When I want to know the bought items
+        Then I should be able to see all items thar are bought from a selected list.
