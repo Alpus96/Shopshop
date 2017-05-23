@@ -6,13 +6,12 @@ defineSupportCode(function({Given, When, Then}) {
 
 	let theItem;
 
-
 	Given('I create a new grocery item as {name} and quantity {quantity}', function (name, quantity, callback) {
 		// console.log("this is the first line. ....");
 		// console.log(name);
 		// console.log(quantity);
 		// console.log('Now creating the object of the ')
-		 theItem = new GroceryItem(name, quantity);
+		 theItem = new GroceryItem(name, Number(quantity), 'baking');
 		callback();
 	});
 

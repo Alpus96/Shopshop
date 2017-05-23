@@ -69,10 +69,10 @@ module.exports = class User {
     }
 
     removeItemFromUserList(listName,itemName) {
-      let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
-      if (itemSelector >= 0) {
-        this.lists[listName].items.splice(itemSelector,1);
-      }
+        let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
+        if (itemSelector >= 0) {
+            this.lists[listName].items.splice(itemSelector, 1);
+        }
     }
 
     changeQuantityOfItem(listName,itemName,quantity){
