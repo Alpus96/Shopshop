@@ -1,3 +1,9 @@
+/*
+*       TODO: Improve comments.
+*
+*       TODO: Review code.
+* */
+
 const UserModel = require('../models/user-model.js');
 const ListModel = require('../models/list-model.js');
 const GroceryList = require('./grocery-list.js');
@@ -9,7 +15,7 @@ module.exports = class User {
     constructor(cookie) {
         this.cookie = cookie ? this.validateCookie(cookie) : null;
         this.loggedIn = this.cookie ? true : false;
-        this.lists = this.loggedIn ? this.getLists() : {};
+        this.lists = this.loggedIn ? this.getSavedLists() : {};
     }
 
     validateCookie (cookie) {
@@ -45,7 +51,7 @@ module.exports = class User {
         }
     }
 
-    getLists (callback) {
+    getSavedLists (callback) {
         return ListModel.getUsersLists(this.cookie.id);
     }
 
@@ -62,12 +68,13 @@ module.exports = class User {
     }
 
     deleteList (name) {
-        if (this.cookie){
+        if (this.loggedIn){
             ListModel.deleteList(this.cookie.id, name);
         }
         delete this.lists[name];
     }
 
+    //  Remove and use list function instead.
     removeItemFromUserList(listName,itemName) {
         let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
         if (itemSelector >= 0) {
@@ -75,22 +82,18 @@ module.exports = class User {
         }
     }
 
+    //  Remove and use list function instead.
     changeQuantityOfItem(listName,itemName,quantity){
-
-        for (let i=0; i<this.lists[listName].items.length;i++){
-            if(this.lists[listName].items[i].name === itemName){
+        for (let i=0; i<this.lists[listName].items.length;i++) {
+            if (this.lists[listName].items[i].name === itemName) {
                 this.lists[listName].items[i].quantity = quantity;
                 return (this.lists[listName].items[i].quantity);
-            }
-            else if(this.lists[listName].items[i].quantity <= -1){
+            } else if (this.lists[listName].items[i].quantity <= -1) {
                 let msg = "Item doesn't exist";
                 console.log(msg);
                 throw new Error(msg);
             }
-
         }
     }
-
-
 
 };

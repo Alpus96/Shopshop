@@ -5,12 +5,11 @@ Feature: Adding an item to the grocery-list
 
 	Scenario Outline: An user should not be able to add unnamed items.
 		Given that I have a grocery list
-		When I try to add an item called <name> 
+		When I try to add an item called <name>
 		Then I should get a runtime error.
 		Examples:
 			| name |
 			| " "  |
- 			| "909"|
  			| " /" |
 			| " *" |
 
@@ -31,7 +30,3 @@ Feature: Adding an item to the grocery-list
 		Given that I have a grocery list
 		When I try to add an item to a grocery list and catagory is undefined
 		Then I should get a runtime error
-
- 			
- 			
-			

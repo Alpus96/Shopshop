@@ -1,3 +1,11 @@
+/*
+*       TODO: Review code.
+*
+*       TODO: Improve comments.
+*
+*       TODO: Remove console logs.
+* */
+
 // Import GroceryListItem
 // so that it can be used in this file
 let GroceryItem = require('./grocery-items');
@@ -40,12 +48,12 @@ module.exports = class GroceryList {
         this.updateCategories();
     }
 
-    // Use .items instead
+    // Remove and use user.items instead
     getItemsInTheList(){
-
-    return this.items;
+        return this.items;
     }
 
+    //  TODO: Imprive function name.
     getSortedList(sort){
         let swapped;
         for(let i=0;i<this.items.length;i++){
@@ -57,6 +65,7 @@ module.exports = class GroceryList {
         return this.items;
     }
 
+    //  TODO: Make work.
     getListSortedAlfabeticalOrder () {
         return this.items.sort();
     }

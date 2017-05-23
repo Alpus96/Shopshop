@@ -1,14 +1,18 @@
-const fs = require('fs');
+/*
+*       TODO: Improve comments.
+*
+*       TODO: Replace all fs reads with one require.
+* */
+
 const path = require('path');
 const ListTable = path.join(__dirname, 'database/ListTable.json');
+const fs = require('fs');
 const GroceryList = require('../controllers/grocery-list.js');
 
 class ListModel {
-    constructor() {}
-
     getUsersLists (userId, callback) {
-        const jsonFile = fs.readFileSync(ListTable, 'utf8');
-        let jsonObj = JSON.parse(jsonFile);
+        let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));
+
         if (jsonObj.index[userId]) {
             let existingLists = Object.keys(jsonObj.index[userId]).map((e) => {
                 return Number(e);
@@ -28,13 +32,14 @@ class ListModel {
         } else {
             return {};
         }
+
+        //  Not saving file since no chages are made.
     }
 
     saveList (userId, list) {
-        let found = false;
-        const jsonFile = fs.readFileSync(ListTable, 'utf8');
-        let jsonObj = JSON.parse(jsonFile);
+        let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));
 
+        let found = false;
         const existingLists = jsonObj.index.length > 0 ? jsonObj.index[userId]: [];
         for (let i = 0; i < existingLists.length; i++) {
             const listToCheck = jsonObj.lists[existingLists[i]] ? jsonObj.lists[existingLists[i]] : {name: ''};
@@ -57,13 +62,11 @@ class ListModel {
             }
         }
 
-        const json = JSON.stringify(jsonObj, null, 4);
-        fs.writeFileSync(ListTable, json, 'utf8');
+        fs.writeFileSync(ListTable, JSON.stringify(jsonObj, null, 4), 'utf8');
     }
 
     deleteList (userId, listName) {
-        const jsonFile = fs.readFileSync(ListTable, 'utf8');
-        let jsonObj = JSON.parse(jsonFile);
+        let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));
 
         if (jsonObj.index[userId]) {
             let existingLists = Object.keys(jsonObj.index[userId]).map((e) => {
@@ -78,12 +81,11 @@ class ListModel {
             }
         }
 
-        const json = JSON.stringify(jsonObj, null, 4);
-        fs.writeFileSync(ListTable, json, 'utf8');
-        this.reIndexTable();
+        fs.writeFileSync(ListTable, JSON.stringify(jsonObj, null, 4), 'utf8');
+        this.reindexTable();
     }
 
-    reIndexTable () {
+    reindexTable () {
         let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));
 
         let markedHoles = [];
