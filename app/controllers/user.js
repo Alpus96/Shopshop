@@ -96,4 +96,13 @@ module.exports = class User {
         }
     }
 
+    boughtitemsinList(listname){
+
+       for (let i=0; i<this.lists[listName].items.length;i++){
+            if(this.lists[listName].items[i].bought === true){
+                console.log(this.lists[listName].items[i].name)
+            }
+        }
+    }
+
 };
