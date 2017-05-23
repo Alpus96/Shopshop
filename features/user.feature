@@ -70,14 +70,15 @@ Feature: A visitor should be able to view the site.
         And every item should be an instance of groceryItem
         And <amount> of groceryItems should remain in my groceryList after the page is reloaded
 
-
-    Scenario: As user I should be able to know the items that are bought in a selected list.
-        Given I have a bought items in a selected list
-        When I want to know the bought items
-        Then I should be able to see all items thar are bought from a selected list.
-
         Examples:
             | amount |
             |      1 |
             |      3 |
 
+        
+    Scenario: As user I should be able to know the items that are bought in a selected list.
+        Given I have a bought items in a selected list
+        When I want to know the bought items
+        Then I should be able to see all items thar are bought from a selected list.
+
+        
