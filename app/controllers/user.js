@@ -1,3 +1,9 @@
+/*
+*       TODO: Improve comments.
+*
+*       TODO: Review code.
+* */
+
 const UserModel = require('../models/user-model.js');
 const ListModel = require('../models/list-model.js');
 const GroceryList = require('./grocery-list.js');
@@ -9,7 +15,7 @@ module.exports = class User {
     constructor(cookie) {
         this.cookie = cookie ? this.validateCookie(cookie) : null;
         this.loggedIn = this.cookie ? true : false;
-        this.lists = this.loggedIn ? this.getLists() : {};
+        this.lists = this.loggedIn ? this.getSavedLists() : {};
     }
 
     validateCookie (cookie) {
@@ -27,47 +33,25 @@ module.exports = class User {
         const hash = bcrypt.hashSync(cridentials.password, salt);
         cridentials.password = hash;
         UserModel.saveUser(cridentials);
-        // try{
-        // bcrypt.genSalt(12, function(err, salt) {
-        //     if (err){console.log(err)} else {console.log(salt)}
-        //     bcrypt.hash(cridentials.password, salt, function(err, hash) {
-        //         if (err){console.log(err)} else {console.log(hash)}
-        //         // Store hash in your password DB.
-        //         cridentials.password = hash;
-        //         console.log(cridentials);
-        //         UserModel.saveUser(cridentials);
-        //     });
-        // });
-        // } catch (e) {
-        //     console.log(e);
-        //     throw e;
-        // }
     }
 
     // cridentials = {username: '', password: ''}
     login (cridentials) {
-        try {
         const user = UserModel.getByUsername(cridentials.username);
-        console.log(user);
         if (user) {
             return bcrypt.compare(user.password, cridentials.password) ? user : false;
         } else {
             return false;
         }
-        }catch (e) {
-            console.log(e);
-            throw e;
-        }
     }
 
     deleteAccount (cridentials) {
-        console.log(cridentials);
         if (this.login(cridentials)) {
             UserModel.deleteById(this.cookie.id);
         }
     }
 
-    getLists (callback) {
+    getSavedLists (callback) {
         return ListModel.getUsersLists(this.cookie.id);
     }
 
@@ -84,35 +68,41 @@ module.exports = class User {
     }
 
     deleteList (name) {
-        if (this.cookie){
+        if (this.loggedIn){
             ListModel.deleteList(this.cookie.id, name);
         }
         delete this.lists[name];
     }
-   
+
+    //  Remove and use list function instead.
     removeItemFromUserList(listName,itemName) {
-      let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
-      if (itemSelector >= 0) {
-        this.lists[listName].items.splice(itemSelector,1); 
-      } 
+        let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
+        if (itemSelector >= 0) {
+            this.lists[listName].items.splice(itemSelector, 1);
+        }
     }
 
+    //  Remove and use list function instead.
     changeQuantityOfItem(listName,itemName,quantity){
-        
-        for (let i=0; i<this.lists[listName].items.length;i++){
-            if(this.lists[listName].items[i].name === itemName){
+        for (let i=0; i<this.lists[listName].items.length;i++) {
+            if (this.lists[listName].items[i].name === itemName) {
                 this.lists[listName].items[i].quantity = quantity;
                 return (this.lists[listName].items[i].quantity);
-            }
-            else if(this.lists[listName].items[i].quantity <= -1){
+            } else if (this.lists[listName].items[i].quantity <= -1) {
                 let msg = "Item doesn't exist";
                 console.log(msg);
                 throw new Error(msg);
             }
-    
-        }          
+        }
     }
 
+    boughtitemsinList(listname){
 
+       for (let i=0; i<this.lists[listName].items.length;i++){
+            if(this.lists[listName].items[i].bought === true){
+                console.log(this.lists[listName].items[i].name)
+            }
+        }
+    }
 
 };

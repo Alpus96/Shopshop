@@ -1,21 +1,20 @@
 let assert = require ('assert');
 var {defineSupportCode} = require('cucumber');
-let GroceryItem = require('../../app/controllers/GroceryItem.js');
+let GroceryItem = require('../../app/controllers/grocery-items.js');
 
 defineSupportCode(function({Given, When, Then}) {
 
 	let theItem;
-	
 
 	Given('I create a new grocery item as {name} and quantity {quantity}', function (name, quantity, callback) {
 		// console.log("this is the first line. ....");
 		// console.log(name);
 		// console.log(quantity);
 		// console.log('Now creating the object of the ')
-		 theItem = new GroceryItem(name, quantity);
+		 theItem = new GroceryItem(name, Number(quantity), 'baking');
 		callback();
 	});
-	
+
 		Then('the item name should be {name}', function (name, callback) {
 			// console.log('name expected is : ' + name);
 			// console.log('name actual found is : ' + theItem.getItemName() );
@@ -34,7 +33,3 @@ defineSupportCode(function({Given, When, Then}) {
        });
 
 });
-
-
-	
-

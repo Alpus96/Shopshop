@@ -3,11 +3,12 @@ const assert = require('assert');
 
 const User = require("../../app/controllers/user.js");
 const List = require("../../app/controllers/grocery-list.js")
-const GroceryItem = require("../../app/controllers/grocery-list-items.js")
+const GroceryItem = require("../../app/controllers/grocery-items.js")
 
 defineSupportCode ( ( { Given, When, Then } ) => {
 
-    let User, user, cookie, error, listName, items, cridentials;
+    let User, user, cookie, error, listName = "Grönsoker", items, cridentials;
+    //let items = ["sugar","milk","Tea","fish","rice","cake"];
 
     /*
     *   Given. In scenario order.
@@ -37,12 +38,34 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
-    Given('I am visitor of the page', function (callback) { 
+    Given('I am visitor of the page', function (callback) {
         user = new User(cookie.id >= 0 ? cookie : null);
         callback();
     });
 
+     Given('I have a bought items in a selected list', function (callback) {
+         let itemName = "Gurka";
+         listOfBoughtItems = new List();
+         listOfBoughtItems.buy(itemName);
+         listOfBoughtItems.boughtItems(itemName);
+         listOfBoughtItems.addToList(itemName,10,"Grönsoker");
+         callback();
+       });
 
+     When('I want to know the bought items', function (callback) {
+          user.boughtitemsinList(listName);
+         callback();
+       });
+
+      Given('I make a request', function (callback) {
+         // Write code here that turns the phrase above into concrete actions
+         callback();
+       });
+     When('<status>', function (callback) {
+         // Write code here that turns the phrase above into concrete actions
+         callback(null, 'pending');
+       });
+     
     /*
     *   When. In scenario order.
     * */
@@ -113,13 +136,14 @@ defineSupportCode ( ( { Given, When, Then } ) => {
         callback();
     });
 
-   
+
     When('I create my account', function (callback) {
         cridentials = {username: 'accountTest', password: 'accountPass123'}
         user.registerAccount(cridentials);
         callback();
        });
-
+    
+    
 
 
     /*
@@ -202,6 +226,11 @@ defineSupportCode ( ( { Given, When, Then } ) => {
 
     Then('I should have an account.', function (callback) {
          assert(user.login(cridentials));
+         callback();
+       });
+
+     Then('I should be able to see all items thar are bought from a selected list.', function (callback) {
+         // Write code here that turns the phrase above into concrete actions
          callback();
        });
 
