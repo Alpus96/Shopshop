@@ -10,7 +10,6 @@ const User = require('./user.js');
 // Server requests are passed to this file.
 class Router {
     get (request, response) {
-        console.log(request.body);
         const user = new User(typeof request.body.cookie !== 'undefined' ? request.body.cookie : null);
 
         if (request.url === '/') {
@@ -31,7 +30,6 @@ class Router {
     }
 
     post (request, response) {
-        console.log(request.body);
         const user = new User(request.body.cookie ? request.body.cookie : null);
 
         if (request.url === '/savelist') {

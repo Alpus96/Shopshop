@@ -6,6 +6,7 @@ $(document).ready(() => {
 class Page {
     constructor() {
         // Add listeners etc. here.
+        this.switchPage();
         window.onhashchange = this.switchPage();
 
         this.Load = new Get();
@@ -54,6 +55,7 @@ class Page {
         let l;
          $('.page').hide();
         if (location.hash) {
+            console.log(location.hash);
             l = location.hash;
         } else if (!location.hash) {
             l = '#lists';
