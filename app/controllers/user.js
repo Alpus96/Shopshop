@@ -16,6 +16,14 @@ module.exports = class User {
         this.cookie = cookie ? this.validateCookie(cookie) : null;
         this.loggedIn = this.cookie ? true : false;
         this.lists = this.loggedIn ? this.getSavedLists() : {};
+
+        this.categoryList=[
+            'Fisk',
+            'Kött',
+            'Godis',
+            'Grönsaker',
+            'Frukt'
+        ];
     }
 
     validateCookie (cookie) {
