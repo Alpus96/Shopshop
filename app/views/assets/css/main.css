@@ -1,1 +1,31 @@
 /* Main CSS file */
+
+.bed-img {
+  height:200px !important;
+  /*width:100%;*/
+}
+
+footer h4, footer p {
+  text-align:center;
+}
+
+main, footer {
+  margin-top:40px;
+}
+
+header {
+  margin-top:25px;
+}
+
+.no-top-margin {
+  margin-top:0;
+}
+
+footer h4 {
+  color:white;
+}
+
+.page {
+  display:none;
+}
+
