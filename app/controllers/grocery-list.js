@@ -23,13 +23,6 @@ module.exports = class GroceryList {
         }
         this.name = name;
         this.items = [];
-        this.categoryList=[
-            'Fisk',
-            'Kött',
-            'Godis',
-            'Grönsaker',
-            'Frukt'
-        ];
     }
 
 
