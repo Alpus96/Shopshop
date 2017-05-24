@@ -89,7 +89,7 @@ defineSupportCode(function({Given, When, Then}) {
 				if(it) {}
 			}
 			/*_.every(arr, function(value, index, listOfItems) {
-			  // either it is the first element, or otherwise this element should 
+			  // either it is the first element, or otherwise this element should
 			  // not be smaller than the previous element.
 			  // spec requires string conversion
 			  return index === 0 || String(array[index - 1]) <= String(value);
@@ -105,6 +105,5 @@ defineSupportCode(function({Given, When, Then}) {
         			}
          	callback();
        });
->>>>>>> 936ea83f6b75f14171c64ed96290683f2ee442e4
 
 });
