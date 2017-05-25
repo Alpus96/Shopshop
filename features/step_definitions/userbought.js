@@ -3,8 +3,8 @@ const assert = require('assert');
 
 const User = require("../../app/controllers/user.js");
 const List = require("../../app/controllers/grocery-list.js")
-const GroceryItem = require("../../app/controllers/grocery-list-items.js")
-const 
+const GroceryItem = require("../../app/controllers/grocery-items.js")
+
 
 defineSupportCode ( ( { Given, When, Then } ) => {
 

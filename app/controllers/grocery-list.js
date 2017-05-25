@@ -23,13 +23,6 @@ module.exports = class GroceryList {
         }
         this.name = name;
         this.items = [];
-        this.categoryList=[
-            'Fisk',
-            'Kött',
-            'Godis',
-            'Grönsaker',
-            'Frukt'
-        ];
     }
 
 
@@ -50,7 +43,15 @@ module.exports = class GroceryList {
 
     // Remove and use user.items instead
     getItemsInTheList(){
-        return this.items;
+        return this.items.sort(function(a,b){
+            if(a.name > b.name){
+                return 1
+            }
+            else{
+                return -1;
+            }
+        });
+        
     }
 
     //  TODO: Imprive function name.
@@ -60,10 +61,7 @@ module.exports = class GroceryList {
             if (this.items[i].category !== sort) {
                 let temp =  this.items.splice(i,1);
 
-                this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category)); // why 0 here instead of i.
-
-
-                this.items.push(new GroceryItem(temp[0].name, temp[0].quantity, temp[0].category));
+                this.items.push(new GroceryItem(temp[0].name, temp[0].quantity, temp[0].category)); // why 0 here instead of i.
 
             }
         }

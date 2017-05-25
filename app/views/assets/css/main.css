@@ -13,10 +13,6 @@ main, footer {
   margin-top:40px;
 }
 
-header {
-  margin-top:25px;
-}
-
 .no-top-margin {
   margin-top:0;
 }
@@ -29,3 +25,21 @@ footer h4 {
   display:none;
 }
 
+.scale-brand-img {
+	height: 50px;
+	margin-left:1px;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.top-pad-brand-name {
+	padding-top:15px;
+	padding-left:15px;
+	display:inline-block;
+}
+
+.logout-btn {
+	margin-top:6px;
+}

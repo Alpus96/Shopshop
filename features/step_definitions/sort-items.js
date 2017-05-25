@@ -23,9 +23,9 @@ defineSupportCode(function({Given, When, Then}) {
 
 		        categoriesList = categories.split(",");
 	    	}
-
 	        for(let i=0;i<itemsList.length;i++){
-	        theList.addToList(itemsList[i],20,categoriesList[i]);
+
+	        theList.addToList(itemsList[i],20,category=categoriesList[i]);
 	        }
 
 	        callback();
@@ -52,7 +52,7 @@ defineSupportCode(function({Given, When, Then}) {
 		    for(let item of listOfItems){
 		    	if(foundCategories.indexOf(item.category) < 0){
 		    		foundCategories.push(item.category);
-		    		 console.warn('Lista test1 ', foundCategories);
+		    		 
 		    	}
 		    	else if(foundCategories.indexOf(item.category) >= 0){
 		    		// if not last in list then not ok - things seems unsorted
@@ -85,25 +85,15 @@ defineSupportCode(function({Given, When, Then}) {
 
 
 		Then('I should see {items} in alfabetic order.', function (items, callback) {
-			for(let item in listOfItems){
-				if(it) {}
-			}
-			/*_.every(arr, function(value, index, listOfItems) {
-			  // either it is the first element, or otherwise this element should
-			  // not be smaller than the previous element.
-			  // spec requires string conversion
-			  return index === 0 || String(array[index - 1]) <= String(value);
-			});*/
+			for(let i = 0; i < listOfItems.length; i++){
+        		if(listOfItems[i] < listOfItems[i+1]) {
+					assert(false);
+				}
+        	}
+			
 			callback();
 		});
 
-          Then('I should see <items> in alfabetic order.', function (callback) {
-        			for(let i = 0; i < listOfItems.length; i++){
-        				if(listOfItems[i] < listOfItems[i+1]) {
-							assert(false);
-						}
-        			}
-         	callback();
-       });
+         
 
 });

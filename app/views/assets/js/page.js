@@ -1,17 +1,25 @@
 // Clientside javascript
 $(document).ready(() => {
-    const page = new Page();
+    try {
+        new Page();
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 class Page {
     constructor() {
+        this.Load = new GetRequests();
+        //this.Send = new PostRequests();
+
         // Add listeners etc. here.
+        this.switchPage();
         window.onhashchange = this.switchPage();
 
-        this.Load = new Get();
-        this.Send = new Post();
+        
+        
 
-        const Page = this;
+        /*const Page = this;
 
         $('#register').submit((formSubmit) => {
             formSubmit.preventDefault();
@@ -47,26 +55,32 @@ class Page {
 
         $('#delete').submit((formSubmit) => {
             formSubmit.preventDefault();
-        });
+        });*/
     }
 
     switchPage () {
         let l;
-         $('.page').hide();
+        $('.page').hide();
         if (location.hash) {
+            console.log(location.hash);
             l = location.hash;
         } else if (!location.hash) {
             l = '#lists';
         }
 
         //  add location specific logic here.
+        if (l === '#lists') {
+            this.Load.categories((resp) => {
+                this.categorySortList(resp);
+            });   
+        }
 
         $('header nav li').removeClass('active');
         $('header nav a[href = "' + l + '"]').parent().addClass('active');
         $(l).show();
     }
 
-    validateInput (input) {
+    /*validateInput (input) {
 
     }
 
@@ -76,6 +90,25 @@ class Page {
 
     loggedIn () {
 
+    }*/
+
+    categorySortList (categories) {
+        const def = $('#categories > #default');
+        let cat = $('#categories');
+        cat.empty();
+
+        let opt = [def];
+
+        for(let item of categories){
+            console.log(item);
+            opt.push("<option>" + item +"</option>");
+        }
+
+        for(let op of opt){
+            cat.append(op);
+        }
+
+        //$('#categories') = cat;
     }
 
 }

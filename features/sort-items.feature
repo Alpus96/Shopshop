@@ -18,5 +18,5 @@ Feature: Sorting an item from the grocery-list
 		Then I should see <items> in alfabetic order.
 
 		Examples:
-		| name             | items
-		| "week 42"        | Kolja,Oxsvans,Torsk,Bacon
+		| name             | items						|
+		| "week 42"        | Kolja,Oxsvans,Torsk,Bacon	|
