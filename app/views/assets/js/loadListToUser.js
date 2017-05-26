@@ -4,14 +4,16 @@ addLists();
  
 });
 
-let varuLista = [];
-function getlist(callback){
-	 ajax.get('/ListTable.json', (error,response) => {
-	 	if (!error) {
-				callback(!response.error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
-			} else {
+let varuListor = [];
+function getlist(){
+	 ajax.get('/categories', (error,response) => {
+	 	if (!error ) {
+			 	varuListor= response.data.replace(/[\[\]'"]+/g, '').split(',');
+			 	console.log(varuListor);
+			} 
+			else  {
 				console.log(error);
-				callback([]);
+				
 			}
 	 });
 	}
