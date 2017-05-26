@@ -1,6 +1,6 @@
 // Clientside javascript
 $(document).ready(() => {
-    const page = new Page();
+    new Page();
 });
 
 const ajax = new Ajax();
@@ -46,6 +46,10 @@ class Page {
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
             $(l).show();
+        } else if (l === '#lists') {
+            ajax.get('/categories', (error, response) => {
+                this.categorySortList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+            });
         }
 
         $('header nav li').removeClass('active');
@@ -107,6 +111,21 @@ class Page {
         }
     }
 
-}
+    categorySortList (categories) {
+        const def = $('#categories > #default');
+        let cat = $('#categories');
+        cat.empty();
 
-//typeof module !== 'undefined' && module.exports && typeof window === 'undefined' && (module.exports = Page);
+        let opt = [def];
+
+        for(let item of categories){
+            console.log(item);
+            opt.push("<option name=\"" + item +"\">" + item +"</option>");
+        }
+
+        for(let op of opt){
+            cat.append(op);
+        }
+    }
+
+}

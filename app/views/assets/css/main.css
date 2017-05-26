@@ -36,12 +36,31 @@ main, footer {
   margin-top:40px;
 }
 
+footer h4 {
+  color:white;
+}
+
+.v-center {
+	height: 90%;
+	margin-bottom: 1%;
+   	margin-top: 1%;
+}
+
+.navbar-fixed-top{
+	margin-top: 0px;
+}
+
 .no-top-margin {
   margin-top:0;
 }
 
-footer h4 {
-  color:white;
+.no-margin {
+  margin:0;
+}
+
+.tiny-text{
+	color: #CCC;
+	font-size: 12px;
 }
 
 .page {

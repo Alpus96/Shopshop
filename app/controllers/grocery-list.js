@@ -10,8 +10,12 @@
 // so that it can be used in this file
 let GroceryItem = require('./grocery-items.js');
 
+
+if(typeof module !== 'undefined'){
+  module.exports = GroceryList;
+}
 // Export the class GroceryList as a node module
-module.exports = class GroceryList {
+ class GroceryList {
 
 
     // When a new GroceryList is created
@@ -44,6 +48,8 @@ module.exports = class GroceryList {
     // Remove and use user.items instead
     getItemsInTheList(){
         return this.items;
+           
+        
     }
 
     //  TODO: Imprive function name.
@@ -53,19 +59,23 @@ module.exports = class GroceryList {
             if (this.items[i].category !== sort) {
                 let temp =  this.items.splice(i,1);
 
-                this.items.push(new GroceryListItem(temp[0].name, temp[0].quantity, temp[0].category)); // why 0 here instead of i.
-
-
-                this.items.push(new GroceryItem(temp[0].name, temp[0].quantity, temp[0].category));
+                this.items.push(new GroceryItem(temp[0].name, temp[0].quantity, temp[0].category)); // why 0 here instead of i.
 
             }
         }
         return this.items;
     }
 
-    //  TODO: Make work.
+   
     getListSortedAlfabeticalOrder () {
-        return this.items.sort();
+         return this.items.sort(function(a,b){
+            if(a.name > b.name){
+                return 1
+            }
+            else{
+                return -1;
+            }
+        });
     }
     //Update the selected item
     getItemNameInList(itemName){
@@ -155,3 +165,5 @@ module.exports = class GroceryList {
     }
 
 }
+
+
