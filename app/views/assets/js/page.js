@@ -3,81 +3,108 @@ $(document).ready(() => {
     const page = new Page();
 });
 
+const ajax = new Ajax();
+const cookies = new Cookies();
+
 class Page {
     constructor() {
-        // Add listeners etc. here.
         this.switchPage();
-        window.onhashchange = this.switchPage();
+        window.onhashchange = this.switchPage;
 
-        this.Load = new Get();
-        this.Send = new Post();
-
+        // Add Listeners with functions.
         const Page = this;
 
-        $('#register').submit((formSubmit) => {
-            formSubmit.preventDefault();
-            const data = formSubmit.serializeArray();
-            if (Page.validateInput(data)) {
-                Page.Send.register(data, (error, result) => {
-                    if (!error) {
-                        Page.showMsg('Du har blivigt registrerad!')
-                    } else {
-                        Page.showMsg('Oops, något gick vist fel, vänligen försök igen senare.');
-                    }
-                });
-            }
-            else { Page.showMsg('Vänligen använd endast A-Ö, a-ö och 0-9.'); }
+        $('#register').submit((event) => {
+            event.preventDefault();
+            Page.register($( this ).serializeArray());
         });
 
-        $('#login').submit((formSubmit) => {
-            formSubmit.preventDefault();
-            const errMsg = 'Fel användarnamn eller lösenord, vänligen försök igen.';
-            const data = formSubmit.serializeArray();
-            if (Page.validateInput(data)) {
-                if (Page.Send.login(data)) {
-                    Page.loggedIn();
-                } else {
-                    Page.showMsg(errMsg);
-                }
-            } else { Page.showMsg(errMsg); }
+        $('#login').submit((event) => {
+            event.preventDefault();
+            Page.login($( this ).serializeArray());
         });
 
         $('#logout').submit((formSubmit) => {
             formSubmit.preventDefault();
+            Page.logout(formSubmit.serializeArray());
         });
 
         $('#delete').submit((formSubmit) => {
             formSubmit.preventDefault();
+            Page.delete(formSubmit.serializeArray());
         });
     }
 
     switchPage () {
-        let l;
-         $('.page').hide();
-        if (location.hash) {
-            console.log(location.hash);
-            l = location.hash;
-        } else if (!location.hash) {
-            l = '#lists';
-        }
+        $('.page').hide();
+        let l = location.hash ? location.hash : '#lists';
 
-        //  add location specific logic here.
+        //  TODO: Add location specific logic here.
+        //  NOTE: loading userLists @ #lists, loading itemlists @ #itemlist
+        //  NOTE: Pass itemlist to load with url, like; /#itemlist_name. Easy to 'split'.
+
+        if (l === '#register' || l === '#login' || l === '#delete') {
+            $('#account').show();
+            $(l).show();
+        }
 
         $('header nav li').removeClass('active');
         $('header nav a[href = "' + l + '"]').parent().addClass('active');
         $(l).show();
     }
 
-    validateInput (input) {
+    register (data) {
+        if (this.validateInput(data)) {
+            ajax.post('/register', data, (error, result) => {
+                if (!error) {
+                    this.showMsg('Du har blivigt registrerad!');
+                } else {
+                    this.showMsg('Oops, något gick vist fel, vänligen försök igen senare.');
+                }
+            });
+        } else { this.showMsg('Vänligen använd endast A-Ö, a-ö och 0-9.'); }
+    }
 
+    login (data) {
+        const errMsg = 'Fel användarnamn eller lösenord, vänligen försök igen.';
+        if (this.validateInput(data)) {
+            const cookieData = ajax.post('/login', data, (error, response) => {
+                if (response.data) {
+                    this.loggedIn(response.data);
+                } else {
+                    this.showMsg(errMsg);
+                }
+            });
+        } else { this.showMsg(errMsg); }
+    }
+
+    logout (data) {}
+
+    delete (data) {}
+
+    validateInput (input) {
+        //  TODO: Add validating minimum length of inputs and that they only contain A-Ö, a-ö and 0-9.
+        for (let val in input) {
+            if (input[val].length < 6 || input[val].match(/\W/g)) {
+                return false;
+            }
+        }
+        return input.length > 0 ? true : false;
     }
 
     showMsg (msg) {
-
+        // NOTE: Modal needed in view first.
+        //  TODO: Add appanding message and title to a modal message.
     }
 
-    loggedIn () {
-
+    loggedIn (cookieData) {
+        //  TODO: Add saving a cookie to send with request.
+        this.crums = this.crums ? this.crums : [];
+        for (let i in cookieData) {
+            console.log(i, cookieData[i], 1000*60*10);
+            //cookies.create(i, cookieData[i], 1000*60*10);
+            this.crums.push(i);
+        }
     }
 
 }

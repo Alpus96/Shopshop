@@ -44,16 +44,16 @@ class Ajax {
     *                                       callback:   (error, response) => {}, a function hadling the
     *                                                           response or error from the request.
     **/
-    get (url, callback) {
+    get (url, data = null, callback) {
         const request = new XMLHttpRequest();
         request.open('GET', url);
         request.responseType = 'json';
-        request.send();
+        request.send(data);
         request.onload = () => {
             callback(false, request.response);
         };
         request.onerror = () => {
-            console.log('Get request to ' + url + 'failed.');
+            console.log('Get request to ' + url + ' failed.');
             callback(true, null);
         };
     }

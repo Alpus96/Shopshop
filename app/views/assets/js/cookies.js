@@ -1,3 +1,8 @@
+/*
+*       TODO: Write comments.
+*
+*       TODO: Review code.
+* */
 class Cookies {
     constructor() {
         this.read('');
@@ -18,20 +23,20 @@ class Cookies {
     }
 
     read (name){
-        if (this.cookies) {
-            return this.cookies[name];
+        if (this.cache) {
+            return this.cache[name];
         }
 
         const c = document.cookie.split('; ');
-        this.cookies = {};
+        this.cache = {};
 
         let C;
         for (let i = c.length - 1; i >= 0; i--) {
            C = c[i].split('=');
-           this.cookies[C[0]] = C[1];
+           this.cache[C[0]] = C[1];
         }
 
-        return this.cookies[name];
+        return this.cache[name];
     }
 
     delete (name) {
