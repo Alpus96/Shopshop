@@ -7,9 +7,11 @@ $(document).ready(() => {
     }
 });
 
+const ajax = new Ajax();
+
 class Page {
     constructor() {
-        this.Load = new GetRequests();
+        //this.Load = new GetRequests();
         //this.Send = new PostRequests();
 
         // Add listeners etc. here.
@@ -62,7 +64,7 @@ class Page {
         let l;
         $('.page').hide();
         if (location.hash) {
-            console.log(location.hash);
+            //console.log(location.hash); get the location of the page with id & class=""
             l = location.hash;
         } else if (!location.hash) {
             l = '#lists';
@@ -70,10 +72,11 @@ class Page {
 
         //  add location specific logic here.
         if (l === '#lists') {
-            this.Load.categories((resp) => {
-                this.categorySortList(resp);
-            });   
-        }
+            ajax.get('/categories', (error, response) => {
+                this.categorySortList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+            });  
+        } 
+
 
         $('header nav li').removeClass('active');
         $('header nav a[href = "' + l + '"]').parent().addClass('active');
@@ -101,7 +104,7 @@ class Page {
 
         for(let item of categories){
             console.log(item);
-            opt.push("<option>" + item +"</option>");
+            opt.push("<option name=\"" + item +"\">" + item +"</option>");
         }
 
         for(let op of opt){
