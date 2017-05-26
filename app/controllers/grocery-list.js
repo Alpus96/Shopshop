@@ -10,8 +10,12 @@
 // so that it can be used in this file
 let GroceryItem = require('./grocery-items.js');
 
+
+if(typeof module !== 'undefined'){
+  module.exports = GroceryList;
+}
 // Export the class GroceryList as a node module
-module.exports = class GroceryList {
+ class GroceryList {
 
 
     // When a new GroceryList is created
@@ -160,3 +164,5 @@ module.exports = class GroceryList {
     }
 
 }
+
+
