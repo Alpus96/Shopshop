@@ -47,14 +47,8 @@ if(typeof module !== 'undefined'){
 
     // Remove and use user.items instead
     getItemsInTheList(){
-        return this.items.sort(function(a,b){
-            if(a.name > b.name){
-                return 1
-            }
-            else{
-                return -1;
-            }
-        });
+        return this.items;
+           
         
     }
 
@@ -72,9 +66,16 @@ if(typeof module !== 'undefined'){
         return this.items;
     }
 
-    //  TODO: Make work.
+   
     getListSortedAlfabeticalOrder () {
-        return this.items.sort();
+         return this.items.sort(function(a,b){
+            if(a.name > b.name){
+                return 1
+            }
+            else{
+                return -1;
+            }
+        });
     }
     //Update the selected item
     getItemNameInList(itemName){

@@ -12,4 +12,14 @@ class GetRequests {
 			}
 		});
 	}
+	Lists (callback) {
+		get('/lists', (error, response) => {
+			if (!error) {
+				callback(!response.error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+			} else {
+				console.log(error);
+				callback([]);
+			}
+		});
+	}
 }
