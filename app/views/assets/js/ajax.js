@@ -42,7 +42,7 @@ class Ajax {
         request.responseType = 'json';
         request.send();
         request.onload = function () {
-            callback(request.response);
+            callback(null, request.response);
         }
     }
 
