@@ -4,16 +4,31 @@ addLists();
  
 });
 
-
-
+let varuListor = [];
+function getlist(){
+	 ajax.get('/categories', (error,response) => {
+	 	if (!error ) {
+			 	varuListor= response.data.replace(/[\[\]'"]+/g, '').split(',');
+			 	console.log(varuListor);
+			} 
+			else  {
+				console.log(error);
+				
+			}
+	 });
+	}
 function addLists(){
+	
+	
 
- 	let varuLista = [];
+	console.log(varuLista);
+
+
+ 	
  	cookie = {id: 0, username: 'testUser', password: 'testPass123'};
-    let user = new User(cookie);
  	let userId = this.cookie.id;
 	 	if(userId !== undefined){
-	 		varuLista = user.getSavedLists(userId);
+
 	 		for(let vl in varuLista){
                   let propertyValeu = varuLista[vl];
                   console.log(propertyValeu);
