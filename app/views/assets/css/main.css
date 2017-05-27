@@ -35,6 +35,14 @@ footer h4 {
   margin:0;
 }
 
+.controltext{
+	width:550px;
+}
+.controlab{
+	margin-left:10px;
+	margin-right: 10px; 
+}
+
 .tiny-text{
 	color: #CCC;
 	font-size: 12px;
@@ -61,4 +69,9 @@ footer h4 {
 
 .logout-btn {
 	margin-top:6px;
+}
+.btn-sm{
+	width:500px;
+	margin-left:100px;
+
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="2">
+        <properties>
+            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am not logged in" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.000448852">
+            <failure message="TypeError: callback.pending is not a function">TypeError: callback.pending is not a function
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\ex-step.js:5:13)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+    at Module.runMain (module.js:607:11)
+    at run (bootstrap_node.js:427:7)</failure>
+        </testcase>
+        <testcase name="When I visit the page" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="2">
+        <properties>
+            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.000711252">
+            <failure message="TypeError: callback.pending is not a function">TypeError: callback.pending is not a function
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\ex-step.js:9:13)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)</failure>
+        </testcase>
+        <testcase name="When I visit the page" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="2">
+        <properties>
+            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am not logged in" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.001047891">
+            <failure message="TypeError: callback.pending is not a function">TypeError: callback.pending is not a function
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\ex-step.js:5:13)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)</failure>
+        </testcase>
+        <testcase name="When I click on plus button" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should be able to add a list." classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="2">
+        <properties>
+            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.000110933">
+            <failure message="TypeError: callback.pending is not a function">TypeError: callback.pending is not a function
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\ex-step.js:9:13)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)</failure>
+        </testcase>
+        <testcase name="When I click on plus button" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should be able to add a list." classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+</testsuites>
