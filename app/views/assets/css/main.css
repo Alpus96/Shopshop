@@ -1,5 +1,28 @@
 /* Main CSS file */
 
+.user-form > label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    padding: 0;
+}
+
+.user-form > input {
+    display: block;
+    margin-top: 2px;
+    margin-bottom: 5px;
+    padding: 0;
+    width: 100%;
+}
+
+.user-form > input.submit {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    padding: 2px;
+    width: 100%;
+}
+
 .bed-img {
   height:200px !important;
   /*width:100%;*/
