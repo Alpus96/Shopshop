@@ -1,8 +1,8 @@
 Feature: As a user i should be able to have lists.
 
 	Scenario Outline:
-		Given I am <status>
-		When I visit the page
+		Given I am <status> navigates to GroceryList page
+		When I click on option button valj-kategory button
 		Then I should see <categories>
 
 		Examples:
@@ -11,12 +11,10 @@ Feature: As a user i should be able to have lists.
 			|   logged in   | 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt' |
 
 
-	Scenario Outline:
-	    Given I am <status>
+	Scenario:
+	    Given I am logged in as a user
 	    When I click on plus button
-	    Then I should be able to add a list.	
+	    Then I should be able to add a list
+	    And save the list.	
 
-	    Examples:
-	        |  status        |
-	        |  not logged in |
-	        |   logged in    |	
+	    
