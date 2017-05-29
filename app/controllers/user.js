@@ -14,7 +14,6 @@ const bcrypt = require('bcryptjs');
     //  To validate logged in send cookie as an object:
     //  {id: <Number>, username: <String>, password: <String>}
     constructor(cookie) {
-        console.log(cookie);
         this.cookie = cookie ? this.validateCookie(cookie) : null;
         this.loggedIn = this.cookie ? true : false;
         this.lists = this.loggedIn ? this.getSavedLists() : {};
@@ -29,7 +28,6 @@ const bcrypt = require('bcryptjs');
     }
 
     validateCookie (cookie) {
-        console.log(cookie);
         if (cookie.id >= 0 && cookie.username && cookie.password && Object.keys(cookie).length === 3) {
             const user = UserModel.getById(cookie.id);
             return (user.username === cookie.username && user.password === cookie.password) ? cookie : null;
@@ -116,9 +114,11 @@ const bcrypt = require('bcryptjs');
         }
     }
 
+
 };
 
 
 if(typeof module !== 'undefined'){
   module.exports = User;
 }
+

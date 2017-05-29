@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am not logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.881074174">
+        </testcase>
+        <testcase name="When I click on option button valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.061474856">
+        </testcase>
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.051255784">
+        </testcase>
+    </testsuite>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.46549106">
+        </testcase>
+        <testcase name="When I click on option button valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.064447436">
+        </testcase>
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.050275306">
+        </testcase>
+    </testsuite>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="4" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given I am logged in as a user" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.09399532">
+        </testcase>
+        <testcase name="When I click on plus button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.113560078">
+        </testcase>
+        <testcase name="Then I should be able to add a list" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.000224852">
+        </testcase>
+        <testcase name="And save the list." classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.000326399">
+        </testcase>
+    </testsuite>
+</testsuites>

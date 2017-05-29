@@ -1,6 +1,10 @@
 // Clientside javascript
 $(document).ready(() => {
-    new Page();
+    try {
+        new Page();
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 const ajax = new Ajax();
@@ -26,12 +30,22 @@ class Page {
 
         $('#logout').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.logout(formSubmit.serializeArray());
+            Page.logout($( this ).serializeArray());
         });
 
         $('#delete').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.delete(formSubmit.serializeArray());
+            Page.delete($( this ).serializeArray());
+        });
+
+        $('#addList').submit((formSubmit) => {
+            formSubmit.preventDefault();
+            Page.addList($( this ).serializeArray());
+        });
+
+        $('#addItem').submit((formSubmit) => {
+            formSubmit.preventDefault();
+            Page.addtem($( this ).serializeArray());
         });
     }
 
@@ -45,11 +59,18 @@ class Page {
 
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
-            $(l).show();
+            //$(l).show();
         } else if (l === '#lists') {
             ajax.get('/categories', (error, response) => {
                 this.categorySortList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
+
+            //  TODO: Get lists and save them to this.lists.
+        } else if (l.match('#itemlist')) {
+            const listName = l.split('_');
+            l = listName[0];
+            console.log(this);
+            this.itemlist(listName[1]);
         }
 
         $('header nav li').removeClass('active');
@@ -126,6 +147,15 @@ class Page {
         for(let op of opt){
             cat.append(op);
         }
+    }
+
+    itemlist (name) {
+        this.lists = {list1: null};
+        if (typeof this.lists[name] === 'undefined') {
+            location.hash = '#lists';
+        }
+        $('#name').text(name);
+
     }
 
 }
