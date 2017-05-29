@@ -18,12 +18,12 @@ class Cookies {
             expires = "";
         }
 
-        document.cookie = name + "=" + value + expires + "; path=/";
+        document.cookie = name + "=" + JSON.stringify(value) + expires + "; path=/";
         this.read(name);
     }
 
     read (name){
-        if (typeof this.cache[name] != 'undefined') {
+        if (this.cache && typeof this.cache[name] != 'undefined') {
             return this.cache[name];
         }
 
@@ -33,7 +33,7 @@ class Cookies {
         let C;
         for (let i = c.length - 1; i >= 0; i--) {
            C = c[i].split('=');
-           this.cache[C[0]] = C[1];
+           this.cache[C[0]] = typeof C[1] != 'undefined' ? JSON.parse(C[1]) : null;
         }
 
         return this.cache[name];
