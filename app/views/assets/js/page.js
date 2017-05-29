@@ -1,6 +1,10 @@
 // Clientside javascript
 $(document).ready(() => {
-    new Page();
+    try {
+        new Page();
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 const ajax = new Ajax();
@@ -26,12 +30,22 @@ class Page {
 
         $('#logout').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.logout(formSubmit.serializeArray());
+            Page.logout($( this ).serializeArray());
         });
 
         $('#delete').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.delete(formSubmit.serializeArray());
+            Page.delete($( this ).serializeArray());
+        });
+
+        $('#addList').submit((formSubmit) => {
+            formSubmit.preventDefault();
+            Page.addList($( this ).serializeArray());
+        });
+
+        $('#addItem').submit((formSubmit) => {
+            formSubmit.preventDefault();
+            Page.addtem($( this ).serializeArray());
         });
 
         this.addEventHandlersForAddingListItems();
@@ -47,11 +61,25 @@ class Page {
 
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
-            $(l).show();
+            //$(l).show();
         } else if (l === '#lists') {
             ajax.get('/categories', (error, response) => {
                 this.categorySortList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
+
+            //  TODO: Get lists and save them to this.lists.
+        } else if (l.match('#itemlist')) {
+            const listName = l.split('_');
+            l = listName[0];
+            console.log(this);
+            console.log("this.itemlist",this.itemlist);
+            // itemlist is not (always at least a function)
+            // for the #itemlist page in turns out to be 
+            // a DOM element. You can't call a DOM element
+            // as if it were a function!!!
+            // SO: Commenting this out for now! Check your code!
+            
+            //this.itemlist(listName[1]);
         }
 
         $('header nav li').removeClass('active');
@@ -192,6 +220,15 @@ class Page {
 
         });
      
+    }
+
+    itemlist (name) {
+        this.lists = {list1: null};
+        if (typeof this.lists[name] === 'undefined') {
+            location.hash = '#lists';
+        }
+        $('#name').text(name);
+
     }
 
 }

@@ -1,5 +1,10 @@
 /* Main CSS file */
 
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
 .user-form > label {
     display: block;
     margin-top: 5px;
@@ -23,21 +28,12 @@
     width: 100%;
 }
 
-.bed-img {
-  height:200px !important;
-  /*width:100%;*/
-}
-
-footer h4, footer p {
-  text-align:center;
+#account {
+    margin-top: 70px;
 }
 
 main, footer {
   margin-top:40px;
-}
-
-footer h4 {
-  color:white;
 }
 
 .v-center {
@@ -100,6 +96,7 @@ footer h4 {
 
 }
 
+
 #additemlist {
   display:none;    
 }
@@ -115,3 +112,24 @@ footer h4 {
 }
 
 
+.kate{
+  padding-left: 20px;
+}
+
+/* Force orientation lock to landscape on phones */
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+.navbar-header {
+ float: left !important;
+}
+>>>>>>> 2ef734faff2113fc950ed80024264e96e4ac2328
