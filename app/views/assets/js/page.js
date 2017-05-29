@@ -30,12 +30,22 @@ class Page {
 
         $('#logout').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.logout(formSubmit.serializeArray());
+            Page.logout($( this ).serializeArray());
         });
 
         $('#delete').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.delete(formSubmit.serializeArray());
+            Page.delete($( this ).serializeArray());
+        });
+
+        $('#addList').submit((formSubmit) => {
+            formSubmit.preventDefault();
+            Page.addList($( this ).serializeArray());
+        });
+
+        $('#addItem').submit((formSubmit) => {
+            formSubmit.preventDefault();
+            Page.addtem($( this ).serializeArray());
         });
     }
 
@@ -49,7 +59,7 @@ class Page {
 
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
-            $(l).show();
+            //$(l).show();
         } else if (l === '#lists') {
             ajax.get('/categories', (error, response) => {
                 this.categorySortList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
