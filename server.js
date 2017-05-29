@@ -33,5 +33,5 @@ console.log(`Server framework request handlers active.`);
 //	Listen for requests.
 console.log(`\nServer setup done, atempting to listen for requests...\n`);
 server.listen(3000, () => {
-	console.log(`Server listening on port 3000:\n`);
+	console.log(`Server listening on port 3000.\n`);
 });
