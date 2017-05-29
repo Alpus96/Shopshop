@@ -1,0 +1,208 @@
+[
+  {
+    "elements": [
+      {
+        "id": "as-a-user-i-should-be-able-to-have-lists.;",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am not logged in navigates to GroceryList page",
+            "result": {
+              "status": "passed",
+              "duration": 3881074174
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:4"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I click on option button valj-kategory button",
+            "result": {
+              "status": "passed",
+              "duration": 61474856
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:12"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'",
+            "result": {
+              "status": "passed",
+              "duration": 51255784
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:16"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 124239949
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\node_modules\\selenium-cucumber-js\\runtime\\world.js:185"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "id": "as-a-user-i-should-be-able-to-have-lists.;",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am logged in navigates to GroceryList page",
+            "result": {
+              "status": "passed",
+              "duration": 3465491060
+            },
+            "line": 4,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:22"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I click on option button valj-kategory button",
+            "result": {
+              "status": "passed",
+              "duration": 64447436
+            },
+            "line": 5,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:12"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'",
+            "result": {
+              "status": "passed",
+              "duration": 50275306
+            },
+            "line": 6,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:16"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 53501326
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\node_modules\\selenium-cucumber-js\\runtime\\world.js:185"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "id": "as-a-user-i-should-be-able-to-have-lists.;",
+        "keyword": "Scenario",
+        "line": 14,
+        "name": "",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "name": "I am logged in as a user",
+            "result": {
+              "status": "passed",
+              "duration": 3093995320
+            },
+            "line": 15,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:32"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "name": "I click on plus button",
+            "result": {
+              "status": "passed",
+              "duration": 113560078
+            },
+            "line": 16,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:37"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should be able to add a list",
+            "result": {
+              "status": "passed",
+              "duration": 224852
+            },
+            "line": 17,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:41"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "name": "save the list.",
+            "result": {
+              "status": "passed",
+              "duration": 326399
+            },
+            "line": 18,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:44"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "After ",
+            "result": {
+              "status": "passed",
+              "duration": 93695800
+            },
+            "hidden": true,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\node_modules\\selenium-cucumber-js\\runtime\\world.js:185"
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "as-a-user-i-should-be-able-to-have-lists.",
+    "keyword": "Feature",
+    "line": 1,
+    "name": "As a user i should be able to have lists.",
+    "tags": [],
+    "uri": "C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature"
+  }
+]

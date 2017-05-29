@@ -54,6 +54,14 @@ main, footer {
   margin:0;
 }
 
+.controltext{
+	width:550px;
+}
+.controlab{
+	margin-left:10px;
+	margin-right: 10px; 
+}
+
 .tiny-text{
 	color: #CCC;
 	font-size: 12px;
@@ -81,3 +89,10 @@ main, footer {
 .logout-btn {
 	margin-top:6px;
 }
+
+.btn-sm{
+	width:500px;
+	margin-left:300px;
+
+}
+
