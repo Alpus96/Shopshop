@@ -25,8 +25,8 @@ class Router {
     post (request, response) {
         const user = new User(request.body ? request.body : null);
 
-        console.log(request.body);
-        console.log(request.url);
+        console.log('body: ', request.body);
+        console.log('url: ', request.url);
         if (request.url === '/savelist') {
             //  TODO: Save the sent lists.
             const res = user.saveList(request.body.data);
