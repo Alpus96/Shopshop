@@ -10,10 +10,6 @@ const GroceryList = require('./grocery-list.js');
 const bcrypt = require('bcryptjs');
 
 
-if(typeof module !== 'undefined'){
-  module.exports = User;
-}
-
  class User {
     //  To validate logged in send cookie as an object:
     //  {id: <Number>, username: <String>, password: <String>}
@@ -66,7 +62,7 @@ if(typeof module !== 'undefined'){
         }
     }
 
-    getSavedLists (callback) {
+    getSavedLists () {
         return ListModel.getUsersLists(this.cookie.id);
     }
 
@@ -121,3 +117,8 @@ if(typeof module !== 'undefined'){
     }
 
 };
+
+
+if(typeof module !== 'undefined'){
+  module.exports = User;
+}

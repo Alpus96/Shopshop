@@ -9,7 +9,6 @@ const User = require('./user.js');
 class Router {
     get (request, response) {
         const user = new User();
-
         if (request.url === '/') {
             response.render('index.ejs');
         } else if (request.url === '/categories') {
@@ -17,6 +16,11 @@ class Router {
             //  TODO: Send JSON response with all the categories.
             response.writeHead(200, {"Content-Type": "application/json"});
             response.end(JSON.stringify( { error: false, data: JSON.stringify( user.categoryList ) } ) );
+        }  else if (request.url === '/lists') {
+            //  TODO: Get lists.
+            //  TODO: Send JSON response with all the lists.
+            response.writeHead(200, {"Content-Type": "application/json"});
+            response.end(JSON.stringify( { error: false, data:  user.getSavedLists()  } ) );
         } else {
             response.render('index.ejs');
         }

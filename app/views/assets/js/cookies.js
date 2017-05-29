@@ -26,17 +26,30 @@ class Cookies {
         if (this.cache) {
             return this.cache[name];
         }
-
-        const c = document.cookie.split('; ');
+        console.log(this.cache)
+        const c = document.cookie.split(';');
         this.cache = {};
 
         let C;
         for (let i = c.length - 1; i >= 0; i--) {
            C = c[i].split('=');
+           console.log(C);
            this.cache[C[0]] = C[1];
         }
 
         return this.cache[name];
+    }
+    getCookie(name) {
+
+         var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        console.log(ca);
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+    return null;
     }
 
     delete (name) {

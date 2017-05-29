@@ -4,6 +4,7 @@ console.log('Server starting...');
 //	Required modules.
 const express = require('express');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
 //	Log modules required.
 console.log('Loaded requierd modules.\n');
@@ -23,13 +24,20 @@ console.log(`Server framework files configuration set.`);
 const Router =  require('./app/controllers/router');
 
 //	Setup request handlers.
+server.use(cookieParser())
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: false}));
 server.get('*', (request, response) => Router.get(request, response));
 server.post('*', (request, response) => Router.post(request, response));
 console.log(`Server framework request handlers active.`);
 
+server.get('/', function (req, res) {
+  // Cookies that have not been signed
+  console.log('Cookies: ', req.cookies)
 
+  // Cookies that have been signed
+  console.log('Signed Cookies: ', req.signedCookies)
+})
 //	Listen for requests.
 console.log(`\nServer setup done, atempting to listen for requests...\n`);
 server.listen(3000, () => {
