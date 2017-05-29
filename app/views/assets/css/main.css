@@ -116,3 +116,8 @@ footer h4 {
     left: 0;
   }
 }
+
+.btn-trash{
+  width: 50px;
+  margin-left: 80px;
+}
