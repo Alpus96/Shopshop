@@ -70,7 +70,14 @@ class Page {
             const listName = l.split('_');
             l = listName[0];
             console.log(this);
-            this.itemlist(listName[1]);
+            console.log("this.itemlist",this.itemlist);
+            // itemlist is not (always at least a function)
+            // for the #itemlist page in turns out to be 
+            // a DOM element. You can't call a DOM element
+            // as if it were a function!!!
+            // SO: Commenting this out for now! Check your code!
+            
+            //this.itemlist(listName[1]);
         }
 
         $('header nav li').removeClass('active');
