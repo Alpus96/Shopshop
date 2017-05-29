@@ -1,27 +1,51 @@
 
 module.exports = function () {
 
-  this.Given(/^I am not logged in navigates to GroceryList page$/,function() {
-        return helpers.loadPage('http://localhost:3000');
+this.Given(/^I am not logged in navigates to GroceryList page$/,function() {
+    return helpers.loadPage('http://localhost:3000');
         /*.then(function() {
         return page.groceryList.performSearch(searchQuery);
     })
         //return;*/
 });
        
-  this.When(/^I click on option button valj-kategory button$/,function() {
-      driver.findElement(By.id("default")).click(); 
+this.When(/^I click on option button valj-kategory button$/,async function() {
+    await driver.findElement(By.id("default")).click(); 
        
 });
-  this.Then(/^I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'$/, function() {
-     var down_list = driver.find_element(By.id('default'));
-     let options = down_list.find_element(By.tag_name("option"));
-     //options.each { |option| option.click if option.text == 'Kött' }
-     let selected_option = options.map { |option| option.text if option.selected? }.join
-     expect(selected_option).to eql 'Kött'
-
-
+this.Then(/^I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'$/,async function() {
+   await driver.wait(until.elementsLocated(by.id('default')), 10000)
+   let elements = await driver.findElement(by.name('def'));
+    expect(elements.length).to.not.equal(0);
  });  
+
+this.Then(/^I am logged in navigates to GroceryList page$/, function() {
+
+     return helpers.loadPage('http://localhost:3000');
+});
+
+/*this.Then(/^I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'$/, async function() {
+    await driver.wait(until.elementsLocated(by.id('default')).click(),1000)
+    let elements = await driver.findElement(by.name('def'));
+    expect(elements.length).to.not.equal(0);
+});*/
+this.Then(/^I am logged in as a user$/, function() {
+  return helpers.loadPage('http://localhost:3000');
+  //check usename and password
+});
+
+this.Then(/^I click on plus button$/,async function() {
+   await driver.findElement(By.id('btnplus')).click();
+});
+
+this.Then(/^I should be able to add a list$/, function() {
+   //add method
+});
+this.Then(/^save the list.$/, function() {
+  
+});
+
+     
 
 };
 
