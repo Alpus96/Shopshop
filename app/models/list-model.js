@@ -10,7 +10,9 @@ const fs = require('fs');
 const GroceryList = require('../controllers/grocery-list.js');
 
 class ListModel {
+
     getUsersLists (userId, callback) {
+        console.log("Test12", userId);
         let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));
 
         if (jsonObj.index[userId]) {

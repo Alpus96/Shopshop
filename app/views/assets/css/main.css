@@ -1,5 +1,10 @@
 /* Main CSS file */
 
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
 .user-form > label {
     display: block;
     margin-top: 5px;
@@ -23,21 +28,12 @@
     width: 100%;
 }
 
-.bed-img {
-  height:200px !important;
-  /*width:100%;*/
-}
-
-footer h4, footer p {
-  text-align:center;
+#account {
+    margin-top: 70px;
 }
 
 main, footer {
   margin-top:40px;
-}
-
-footer h4 {
-  color:white;
 }
 
 .v-center {

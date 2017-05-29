@@ -1,47 +1,51 @@
-$(document).on("pageload",function(){
-
-addLists();
- 
+$(document).ready(function(){
+	getAllLists();
 });
 
 let varuListor = [];
-function getlist(){
-	 ajax.get('/categories', (error,response) => {
-	 	if (!error ) {
-			 	varuListor= response.data.replace(/[\[\]'"]+/g, '').split(',');
-			 	console.log(varuListor);
-			} 
-			else  {
-				console.log(error);
-				
-			}
-	 });
+let varaList = [];
+
+
+	function getAllLists(){
+		//Ajax.post(‘/lists’, , (error, response) => { JSON.parse(response.data) });
+					data = JSON.stringify( {id: 0, username: 'testUser', password: 'testPass123'});
+			 $.ajax({
+			            type: "post",
+			            url: '/lists',
+			            crossDomain: true,
+			            data:data,
+			            contentType: "application/json; charset=utf-8",
+			            dataType: "json",
+			            success: function (response) {
+			            	//	{error: true/false, data:{...}}
+			            	console.log(response);
+			            	for(let item in response.data){
+
+			            		let pvalue = response.data[item];
+			        
+			               		varuListor.push(pvalue);
+			                }
+			                document.cookie = "id=" + '0';
+							document.cookie = "username=" + 'testUser';
+							document.cookie = "password=" + 'testPass123';
+				               for(let vl in varuListor){
+	                  				let propertyValeu = varuListor[vl];
+	                            	console.log(propertyValeu.name);
+						        	$('#vl').append(
+						            ' <div class=""><div class="well-sm"><h3>Namn på listan:  <b>'  + propertyValeu.name + 
+						            ' <button type="button" class="btn btn-danger btn-lg">'+
+			  						'<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Ta bort lista'+
+									'</button></b></h3></div></div>'
+									 );
+					            }
+			 			
+			            },
+			            error: function (errormessage) {
+
+
+			            }
+			        });
+
 	}
-function addLists(){
-	
-	
 
-	console.log(varuLista);
-
-
- 	
- 	cookie = {id: 0, username: 'testUser', password: 'testPass123'};
- 	let userId = this.cookie.id;
-	 	if(userId !== undefined){
-
-	 		for(let vl in varuLista){
-                  let propertyValeu = varuLista[vl];
-                  console.log(propertyValeu);
-			        $('#vl').append(
-			            ' <div class=""><div class="well-sm"><h2> Namn:<b>' + propertyValeu.name + 
-			            '<button type="button" class="btn btn-default btn-lg">'+
-  						'<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Star'+
-						'</button></b></h2></div></div>'
-			        );
-            }
-	 	}
-	 	else{
-	 		console.log('Loggain')
-	 	}
-}
 

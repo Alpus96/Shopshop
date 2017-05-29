@@ -2,13 +2,16 @@
 *       TODO: Review code.
 *
 *       TODO: Improve comments.
-*
-*       TODO: Remove console logs.
 * */
 
 // Import GroceryListItem
 // so that it can be used in this file
-let GroceryItem = require('./grocery-items.js');
+
+
+if(typeof module !== 'undefined'){
+  GroceryItem = require('./grocery-items.js');
+}
+
 
 
 // Export the class GroceryList as a node module
@@ -45,8 +48,8 @@ let GroceryItem = require('./grocery-items.js');
     // Remove and use user.items instead
     getItemsInTheList(){
         return this.items;
-           
-        
+
+
     }
 
     //  TODO: Imprive function name.
@@ -63,7 +66,7 @@ let GroceryItem = require('./grocery-items.js');
         return this.items;
     }
 
-   
+
     getListSortedAlfabeticalOrder () {
          return this.items.sort(function(a,b){
             if(a.name > b.name){
@@ -166,3 +169,4 @@ let GroceryItem = require('./grocery-items.js');
 if(typeof module !== 'undefined'){
   module.exports = GroceryList;
 }
+

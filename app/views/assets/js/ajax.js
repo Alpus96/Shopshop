@@ -18,14 +18,18 @@ class Ajax {
         $.ajax({
             url: url,   //  Pass the input url parameter.
             type: "POST",
-            data: data, //  Pass the input data parameter.
+            crossDomain: true,
+            data: '{"some":"json"}',
+           // data: data, //  Pass the input data parameter.
             dataType: "json",
             success: function (result) {
+                console.log(result);
                 //  Returns the result as result through the callback function.
                 //  TODO: Add comments about what response could be.
                 callback(null, result);
             },
             error: function (xhr, ajaxOptions, thrownError) {
+                console.log(result);
                 //  If there was an error log it.
                 console.error(xhr.status);
                 console.error(ajaxOptions);
@@ -46,7 +50,7 @@ class Ajax {
     **/
     get (url, callback) {
         const request = new XMLHttpRequest();
-        request.open('GET', url);
+        request.open('get', url);
         request.responseType = 'json';
         request.send();
         request.onload = () => {
