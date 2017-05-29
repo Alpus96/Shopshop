@@ -1,8 +1,8 @@
-/*
+/**
 *       TODO: Write comments.
 *
 *       TODO: Review code.
-* */
+**/
 class Cookies {
     constructor() {
         this.read('');
@@ -23,7 +23,7 @@ class Cookies {
     }
 
     read (name){
-        if (this.cache) {
+        if (typeof this.cache[name] != 'undefined') {
             return this.cache[name];
         }
 

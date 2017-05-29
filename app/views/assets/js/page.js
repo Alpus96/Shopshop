@@ -1,6 +1,10 @@
 // Clientside javascript
 $(document).ready(() => {
-    new Page();
+    try {
+        new Page();
+    } catch (e) {
+        console.log(e);
+    }
 });
 
 const ajax = new Ajax();
@@ -50,6 +54,13 @@ class Page {
             ajax.get('/categories', (error, response) => {
                 this.categorySortList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
+
+            //  TODO: Get lists and save them to this.lists.
+        } else if (l.match('#itemlist')) {
+            const listName = l.split('_');
+            l = listName[0];
+            console.log(this);
+            this.itemlist(listName[1]);
         }
 
         $('header nav li').removeClass('active');
@@ -126,6 +137,15 @@ class Page {
         for(let op of opt){
             cat.append(op);
         }
+    }
+
+    itemlist (name) {
+        this.lists = {list1: null};
+        if (typeof this.lists[name] === 'undefined') {
+            location.hash = '#lists';
+        }
+        $('#name').text(name);
+
     }
 
 }
