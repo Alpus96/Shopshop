@@ -37,7 +37,7 @@ class Cookies {
            console.log(C);
            this.cache[C[0]] = C[1];
 
-           this.cache[C[0]] = typeof C[1] != 'undefined' ? JSON.parse(C[1]) : null;
+          // this.cache[C[0]] = typeof C[1] != 'undefined' ? JSON.parse(C[1]) : null;
 
         }
 
