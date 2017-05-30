@@ -11,10 +11,12 @@ Feature: As a user i should be able to have lists.
 			|   logged in   | 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt' |
 
 
+	
 	Scenario:
-	    Given I am logged in as a user
-	    When I click on plus button
-	    Then I should be able to submit the list name.
+	    Given that I have text box to add list name
+	    When  I enter list name 
+	    And I click on Lägatill button
+	    Then I should get a list with name it has been mentioned.   
 	    	
 
 	    

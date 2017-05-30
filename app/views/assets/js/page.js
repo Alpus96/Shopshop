@@ -8,7 +8,7 @@ $(document).ready(() => {
 });
 
 const ajax = new Ajax();
-const cookies = new Cookies();
+const cookies = new Cookies(1000*60*10);
 
 class Page {
     constructor() {
@@ -64,7 +64,7 @@ class Page {
             //$(l).show();
         } else if (l === '#lists') {
             ajax.get('/categories', (error, response) => {
-                this.categorySortList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+                this.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
 
             //  TODO: Get lists and save them to this.lists.
@@ -135,13 +135,13 @@ class Page {
         //  TODO: Add saving a cookie to send with request.
         this.crums = this.crums ? this.crums : [];
         for (let i in cookieData) {
-            console.log(i, cookieData[i], 1000*60*10);
-            //cookies.create(i, cookieData[i], 1000*60*10);
+            console.log(i, cookieData[i]);
+            //cookies.create(i, cookieData[i]);
             this.crums.push(i);
         }
     }
 
-    categorySortList (categories) {
+    categoryList (categories) {
         const def = $('#categories > #default');
         let cat = $('#categories');
         cat.empty();
@@ -149,7 +149,7 @@ class Page {
         let opt = [def];
 
         for(let item of categories){
-            console.log(item);
+            //console.log(item);
             opt.push("<option name=\"" + item +"\">" + item +"</option>");
         }
 
@@ -189,15 +189,19 @@ class Page {
                 // Maybe it would be better to rerender the whole list of lists
                 // after this has happened...
 
-                $("#list-of-lists").append(`
-                    <div class="row navbar navbar-default ">       
-                        <label for="listitemName" class ="control-label controlitemlabel" id = "listlabel" >${name}</label>
-                        <button type="button" class="btn btn-default btn-remove pull-right">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    </div>`
-                );
+                // Emulate that this takes som time (because later it will when we 
+                // change this to redrawing the list on server reponse)
 
+                setTimeout(function(){
+                    $("#list-of-lists").append(`
+                        <div class="row navbar navbar-default ">       
+                            <p class="list-name">${name}</p>
+                            <button type="button" class="btn btn-default btn-remove pull-right">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>`
+                    );
+                },500);
                 // Rest the input field to empty
                 $('#listname').val("");
                 //$('#addlist').hide(); // DON'T DO THIS AND SKIP LARGE BTN?
@@ -230,5 +234,9 @@ class Page {
         $('#name').text(name);
 
     }
+
+    addList (data) {}
+
+    addItem (data) {}
 
 }
