@@ -1,6 +1,7 @@
 $(document).ready(function(){
+	
 	getAllLists();
-	getList();
+	
 });
 
 let varuListor = [];
@@ -48,13 +49,6 @@ let varaList = [];
 			        });
 
 	}
-	function getList(){
-	 $(".onClickToItems").click(function(){
-	 	 console.log('click test');
-          let v= $(this).attr('b');
-          console.log('click test',v);
-          window.location.hash = '#itemlist';
-      });
-	}
+	
 
 
