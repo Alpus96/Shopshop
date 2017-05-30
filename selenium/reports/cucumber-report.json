@@ -13,24 +13,24 @@
             "name": "I am not logged in navigates to GroceryList page",
             "result": {
               "status": "passed",
-              "duration": 3881074174
+              "duration": 4135495391
             },
             "line": 4,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:4"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:11"
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "name": "I click on option button valj-kategory button",
+            "name": "I click on select list valj-kategory button",
             "result": {
               "status": "passed",
-              "duration": 61474856
+              "duration": 105009696
             },
             "line": 5,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:12"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:15"
             }
           },
           {
@@ -39,11 +39,11 @@
             "name": "I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'",
             "result": {
               "status": "passed",
-              "duration": 51255784
+              "duration": 256434227
             },
             "line": 6,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:16"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:22"
             }
           },
           {
@@ -51,7 +51,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 124239949
+              "duration": 108816407
             },
             "hidden": true,
             "match": {
@@ -74,24 +74,24 @@
             "name": "I am logged in navigates to GroceryList page",
             "result": {
               "status": "passed",
-              "duration": 3465491060
+              "duration": 3523590136
             },
             "line": 4,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:22"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:53"
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "name": "I click on option button valj-kategory button",
+            "name": "I click on select list valj-kategory button",
             "result": {
               "status": "passed",
-              "duration": 64447436
+              "duration": 115783859
             },
             "line": 5,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:12"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:15"
             }
           },
           {
@@ -100,11 +100,11 @@
             "name": "I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'",
             "result": {
               "status": "passed",
-              "duration": 50275306
+              "duration": 264585675
             },
             "line": 6,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:16"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:22"
             }
           },
           {
@@ -112,7 +112,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 53501326
+              "duration": 140836819
             },
             "hidden": true,
             "match": {
@@ -126,59 +126,59 @@
       {
         "id": "as-a-user-i-should-be-able-to-have-lists.;",
         "keyword": "Scenario",
-        "line": 14,
+        "line": 15,
         "name": "",
         "steps": [
           {
             "arguments": [],
             "keyword": "Given ",
-            "name": "I am logged in as a user",
+            "name": "that I have text box to add list name",
             "result": {
               "status": "passed",
-              "duration": 3093995320
+              "duration": 3448854082
             },
-            "line": 15,
+            "line": 16,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:32"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:63"
             }
           },
           {
             "arguments": [],
             "keyword": "When ",
-            "name": "I click on plus button",
+            "name": "I enter list name",
             "result": {
               "status": "passed",
-              "duration": 113560078
-            },
-            "line": 16,
-            "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:37"
-            }
-          },
-          {
-            "arguments": [],
-            "keyword": "Then ",
-            "name": "I should be able to add a list",
-            "result": {
-              "status": "passed",
-              "duration": 224852
+              "duration": 122613498
             },
             "line": 17,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:41"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:69"
             }
           },
           {
             "arguments": [],
             "keyword": "And ",
-            "name": "save the list.",
+            "name": "I click on Lägatill button",
             "result": {
               "status": "passed",
-              "duration": 326399
+              "duration": 81618173
             },
             "line": 18,
             "match": {
-              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:44"
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:73"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "name": "I should get a list with name it has been mentioned.",
+            "result": {
+              "status": "passed",
+              "duration": 3095284703
+            },
+            "line": 19,
+            "match": {
+              "location": "C:\\Users\\bhara\\Documents\\Shopshop\\selenium\\step-definitions\\lists.js:77"
             }
           },
           {
@@ -186,7 +186,7 @@
             "keyword": "After ",
             "result": {
               "status": "passed",
-              "duration": 93695800
+              "duration": 52864741
             },
             "hidden": true,
             "match": {

@@ -189,15 +189,19 @@ class Page {
                 // Maybe it would be better to rerender the whole list of lists
                 // after this has happened...
 
-                $("#list-of-lists").append(`
-                    <div class="row navbar navbar-default ">       
-                        <label for="listitemName" class ="control-label controlitemlabel" id = "listlabel" >${name}</label>
-                        <button type="button" class="btn btn-default btn-remove pull-right">
-                            <span class="glyphicon glyphicon-remove"></span>
-                        </button>
-                    </div>`
-                );
+                // Emulate that this takes som time (because later it will when we 
+                // change this to redrawing the list on server reponse)
 
+                setTimeout(function(){
+                    $("#list-of-lists").append(`
+                        <div class="row navbar navbar-default ">       
+                            <p class="list-name">${name}</p>
+                            <button type="button" class="btn btn-default btn-remove pull-right">
+                                <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                        </div>`
+                    );
+                },500);
                 // Rest the input field to empty
                 $('#listname').val("");
                 //$('#addlist').hide(); // DON'T DO THIS AND SKIP LARGE BTN?

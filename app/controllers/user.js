@@ -118,7 +118,7 @@ const bcrypt = require('bcryptjs');
 }
 
 
-};
+
 
 
 
