@@ -9,12 +9,12 @@ $(document).ready(function(){
 function getList(){
 	 $("#vl").on("click",".onClickToItems b",function(){
           let selectedList= $(this).text();
-          	data = JSON.stringify( {id: 0, username: 'testUser', password: 'testPass123'});
+          	data =  {id: 0, username: 'testUser', password: 'testPass123'};
 			 $.ajax({
 			            type: "post",
 			            url: '/lists',
 			            crossDomain: true,
-			            data:data,
+			            data:JSON.stringify({cookie: data}),
 			            contentType: "application/json; charset=utf-8",
 			            dataType: "json",
 			            success: function (response) {

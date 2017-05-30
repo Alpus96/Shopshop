@@ -16,7 +16,7 @@ let varaList = [];
 			            type: "post",
 			            url: '/lists',
 			            crossDomain: true,
-			            data: JSON.stringify(data),
+			            data: JSON.stringify({cookie: data}),
 			            contentType: "application/json; charset=utf-8",
 			            dataType: "json",
 			            success: function (response) {
@@ -28,7 +28,7 @@ let varaList = [];
 
 			               		varuListor.push(pvalue);
 			                }
-							
+
 							// NOTE: cookies.read('testUser');
 
 			                /*document.cookie = "id=" + '0';
@@ -37,12 +37,10 @@ let varaList = [];
 				               for(let vl in varuListor){
 	                  				let propertyValeu = varuListor[vl];
 	                            	console.log(propertyValeu.name);
-						        	$('#vl').append(
-						            ' <div class="well-sm"><div class="onClickToItems"><h3>Namn på listan:<b>'+propertyValeu.name+'<b>'+
-						            '</div><button type="button" class="btn btn-danger btn-lg">'+
-			  						'<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Ta bort lista'+
-									'</button></h3></div>'
-									 );
+						        	 $("#vl").append('<div class="row navbar navbar-default"><h3> <p class="list-name onClickToItems"><b>'+propertyValeu.name+'<b></p>'+
+                    				' <button type="button" class="btn btn-default btn-remove pull-right">'+
+                     				' <span class="glyphicon glyphicon-remove"></span></button></h3></div>'
+                   					 );
 					            }
 
 			            },
