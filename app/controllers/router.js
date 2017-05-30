@@ -27,7 +27,7 @@ class Router {
     }
 
     post (request, response) {
-        const user = new User(request.body ? request.body : null);
+        const user = new User(typrof request.body.cookie !== 'undefined' ? request.body.cookie : null);
 
         console.log('body: ', request.body);
         console.log('url: ', request.url);
