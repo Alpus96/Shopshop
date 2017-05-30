@@ -91,7 +91,7 @@ class Cookies {
         this.cache = {};
         for (let i = cookies.length - 1; i >= 0; i--) {
            const [cookieName, cookieJSON] = cookies[i].split('=');
-           const cookieValue = typeof cookieJSON !== 'undefined' && cookieJSON !== 'undefined' ? JSON.parse(cookieJSON) : null;
+           const cookieValue = typeof cookieJSON !== 'undefined' && cookieJSON !== 'undefined' && cookieJSON ? JSON.parse(cookieJSON) : null;
            this.cache[cookieName] = cookieValue;
         }
         return this.cache[name] ? this.cache[name].value : null;
