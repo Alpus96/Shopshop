@@ -46,6 +46,10 @@ class Page {
         $('#addItem').submit((formSubmit) => {
             formSubmit.preventDefault();
             Page.addtem($( this ).serializeArray());
+        }); 
+
+        $('#log').on('click', () => {
+            this.logBtn();
         });
 
         this.addEventHandlersForAddingListItems();
@@ -81,9 +85,26 @@ class Page {
             //this.itemlist(listName[1]);
         }
 
+        this.crums = this.crums ? this.crums : [];
+        if (this.crums.indexOf('loggedIn') != -1) {
+           $('#log').text('Logga ut');
+        } else {
+            $('#log').text('Logga in');
+        }
+
         $('header nav li').removeClass('active');
         $('header nav a[href = "' + l + '"]').parent().addClass('active');
-        $(l).show();
+        $(l).show()
+    }
+
+    logBtn () {
+        this.crums = this.crums ? this.crums : [];
+        if (this.crums.indexOf('loggedIn') != -1) {
+           //   hanle logout
+        } else {
+            //show login
+            location.hash = '#login';
+        }
     }
 
     register (data) {
