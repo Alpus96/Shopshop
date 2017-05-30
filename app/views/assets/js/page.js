@@ -168,8 +168,6 @@ class Page {
 
             $(".addBtn").click(function(){
 
-<<<<<<< HEAD
-
                 let data = $('#listname').val();//input text
                 
                  ajax.post('/savelist', data, (error, result) => {
@@ -181,11 +179,6 @@ class Page {
                 });
 
                 
-                
-=======
-                let name = $('#listname').val();//input text
-
->>>>>>> 38ab47f2f4d53c890070cee1ff7c4ce4a695bbbc
                 // Check that the name is not the same as that of another item
                 // ONCE we have connected this code to the real class!!!!
 
@@ -198,13 +191,12 @@ class Page {
                 // Emulate that this takes som time (because later it will when we
                 // change this to redrawing the list on server reponse)
 
-                setTimeout(function(){
-                    $("#vl").append('<div class="row navbar navbar-default "> <p class="list-name">''</p>'+
+               /* setTimeout(function(){
+                    $("#vl").append('<div class="row navbar navbar-default "> <p class="list-name"></p>'+
                     ' <button type="button" class="btn btn-default btn-remove pull-right">'+
-                     ' <span class="glyphicon glyphicon-remove"></span></button></div>'
-
+                     ' <span class="glyphicon glyphicon-remove"></span></button></div>'+
                     );
-                },500);
+                },500);*/
                 // Rest the input field to empty
                 $('#listname').val("");
                 //$('#addlist').hide(); // DON'T DO THIS AND SKIP LARGE BTN?
