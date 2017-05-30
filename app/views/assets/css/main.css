@@ -90,11 +90,27 @@ main, footer {
 	margin-top:6px;
 }
 
-.btn-sm{
+.btn-plus{
 	width:500px;
 	margin-left:300px;
 
 }
+
+
+#additemlist {
+  display:none;    
+}
+
+.btn-remove{
+  padding-top:50px;
+  padding-right:50px;
+}
+
+#listlabel{
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
 
 .kate{
   padding-left: 20px;
@@ -116,9 +132,9 @@ main, footer {
 .navbar-header {
  float: left !important;
 }
+
 h3.navnamn{
  margin-left:10px;
 
 }
-
 
