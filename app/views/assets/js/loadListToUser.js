@@ -16,7 +16,7 @@ let varaList = [];
 			            type: "post",
 			            url: '/lists',
 			            crossDomain: true,
-			            data: JSON.stringify(data),
+			            data: JSON.stringify({cookie: data}),
 			            contentType: "application/json; charset=utf-8",
 			            dataType: "json",
 			            success: function (response) {
@@ -28,7 +28,7 @@ let varaList = [];
 
 			               		varuListor.push(pvalue);
 			                }
-							
+
 							// NOTE: cookies.read('testUser');
 
 			                /*document.cookie = "id=" + '0';
