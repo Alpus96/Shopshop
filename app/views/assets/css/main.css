@@ -90,9 +90,56 @@ main, footer {
 	margin-top:6px;
 }
 
-.btn-sm{
+.btn-plus{
 	width:500px;
 	margin-left:300px;
 
 }
+
+
+#additemlist {
+  display:none;    
+}
+
+.btn-remove{
+  padding-top:50px;
+  padding-right:50px;
+}
+
+#listlabel{
+  margin-top: 30px;
+  margin-left: 10px;
+}
+
+
+.kate{
+  padding-left: 20px;
+}
+
+/* Force orientation lock to landscape on phones */
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+  html {
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    width: 100vh;
+    overflow-x: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+}
+
+.navbar-header {
+ float: left !important;
+}
+
+.onClickToItems{
+  
+}
+
+h3.navnamn{
+ margin-left:10px;
+
+}
+
 

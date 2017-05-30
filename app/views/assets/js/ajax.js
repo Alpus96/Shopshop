@@ -28,13 +28,15 @@ class Ajax {
 		};
 		request.send(JSON.stringify(data));	//  Pass the input data parameter converted to JSON.
 	}
-	
+
     /*post (url, data, callback) {
         //  Ajax json post request.
         $.ajax({
             url: url,   //  Pass the input url parameter.
             type: "POST",
-            data: data, //  Pass the input data parameter.
+            crossDomain: true,
+            data: '{"some":"json"}',
+           // data: data, //  Pass the input data parameter.
             dataType: "json",
             success: (result) => {
                 //  Returns the result as result through the callback function.
@@ -62,7 +64,11 @@ class Ajax {
     **/
     get (url, callback) {
         const request = new XMLHttpRequest();
+<<<<<<< HEAD
         request.open('GET', url, true);
+=======
+        request.open('get', url);
+>>>>>>> origin/master
         request.responseType = 'json';
         request.send();
         request.onload = () => {

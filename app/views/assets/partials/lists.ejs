@@ -1,5 +1,6 @@
 
 <div class="page container" id="lists">
+	
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
@@ -26,17 +27,23 @@
 		<div class="col-xs-1"></div>
 	</div>
 
+	<div id="vl"></div>
+	
+	
 
-
-
-	<div class="row" id="lists-container"></div>
-    <div class="row navbar navbar-default ">
-			<label for="listName" class ="control-label controlab" >Listans Namn:</label>
-			<input type="text" name="listName" class = "control-text controltext v-center">
-			<input type="submit" class = "control-input v-center " value="Lägg till">
+	<div id="list-of-lists">
+		
 	</div>
 
-	<button type="button" class="btn btn-default btn-sm" id = "btnplus">
-		<span class="glyphicon glyphicon-plus "></span>
-	</button>
+   
+	<div class="row" id="lists-container"></div>
+	    <div class="row navbar navbar-default flip " id = "addlist">	   
+			<label for="listName" class ="control-label controlab" >Listans Namn:</label>
+			<input type="text" name="listName" class = "control-text controltext v-center" id = "listname">
+			<button class="btn btn-default control-input v-center addBtn" id="addListBtn">Lägg till</button>
+		</div>
+	</div>
 </div>
+
+   
+

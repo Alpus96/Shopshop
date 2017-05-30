@@ -9,6 +9,7 @@ const ListModel = require('../models/list-model.js');
 const GroceryList = require('./grocery-list.js');
 const bcrypt = require('bcryptjs');
 
+
  class User {
     //  To validate logged in send cookie as an object:
     //  {id: <Number>, username: <String>, password: <String>}
@@ -59,7 +60,7 @@ const bcrypt = require('bcryptjs');
         }
     }
 
-    getSavedLists (callback) {
+    getSavedLists () {
         return ListModel.getUsersLists(this.cookie.id);
     }
 
@@ -113,8 +114,15 @@ const bcrypt = require('bcryptjs');
         }
     }
 
+
 }
+
+
+
+
+
 
 if(typeof module !== 'undefined'){
   module.exports = User;
 }
+

@@ -47,6 +47,8 @@ class Page {
             formSubmit.preventDefault();
             Page.addtem($( this ).serializeArray());
         });
+
+        this.addEventHandlersForAddingListItems();
     }
 
     switchPage () {
@@ -70,7 +72,14 @@ class Page {
             const listName = l.split('_');
             l = listName[0];
             console.log(this);
-            this.itemlist(listName[1]);
+            console.log("this.itemlist",this.itemlist);
+            // itemlist is not (always at least a function)
+            // for the #itemlist page in turns out to be 
+            // a DOM element. You can't call a DOM element
+            // as if it were a function!!!
+            // SO: Commenting this out for now! Check your code!
+            
+            //this.itemlist(listName[1]);
         }
 
         $('header nav li').removeClass('active');
@@ -147,6 +156,70 @@ class Page {
         for(let op of opt){
             cat.append(op);
         }
+    }
+   
+    
+
+    addList (name){  //Alex tell me which id shld I use as function parameter
+
+        // TODO: check that the name does not exist before continuing.
+
+        const id = ''; // TODO: auto generate an id and add it to a class variable to be used later.
+        const listrow = $('#listrow'); // TODO: add hidden element to copy.
+        listrow.attr('id', id);// set id for list.
+        listrow.children('#listlabel').text(name).attr('id', id + '_label'); // set id for list label.
+        $('list-of-lists').append(); // Add it to the page
+    }
+
+    //  n run a function
+    addEventHandlersForAddingListItems(){ 
+
+        $(function(){
+
+            $(".addBtn").click(function(){
+                
+                let name = $('#listname').val();//input text
+                
+                // Check that the name is not the same as that of another item
+                // ONCE we have connected this code to the real class!!!!
+
+                // Do we really want this to happen?
+                // Should be bound to our object-oriented classes
+                // And add a real lidt object.
+                // Maybe it would be better to rerender the whole list of lists
+                // after this has happened...
+
+                $("#list-of-lists").append(`
+                    <div class="row navbar navbar-default ">       
+                        <label for="listitemName" class ="control-label controlitemlabel" id = "listlabel" >${name}</label>
+                        <button type="button" class="btn btn-default btn-remove pull-right">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                    </div>`
+                );
+
+                // Rest the input field to empty
+                $('#listname').val("");
+                //$('#addlist').hide(); // DON'T DO THIS AND SKIP LARGE BTN?
+
+            });
+
+            $('#listname').keyup(function(e){
+                if(e.which === 13){
+                    // pressed enter so add list
+                    // by faking a click on the addBtn
+                    $('.addBtn').click();   
+                }
+            });
+
+            $(document).on("click",".btn-remove",function(){
+                $(this).closest(".row").remove();
+                // We have to remove the real item from our class as well
+                // Right now we are just playing around with the DOM
+            });
+
+        });
+     
     }
 
     itemlist (name) {
