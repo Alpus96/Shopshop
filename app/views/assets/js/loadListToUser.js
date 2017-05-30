@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	getAllLists();
+	getList();
 });
 
 let varuListor = [];
@@ -32,10 +33,10 @@ let varaList = [];
 	                  				let propertyValeu = varuListor[vl];
 	                            	console.log(propertyValeu.name);
 						        	$('#vl').append(
-						            ' <div class=""><div class="well-sm"><h3>Namn på listan:  <b>'  + propertyValeu.name + 
-						            ' <button type="button" class="btn btn-danger btn-lg">'+
+						            ' <div class="well-sm"><div class="onClickToItems"><h3>Namn på listan:  <b>'  + propertyValeu.name + 
+						            ' </div><button type="button" class="btn btn-danger btn-lg">'+
 			  						'<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Ta bort lista'+
-									'</button></b></h3></div></div>'
+									'</button></b></h3></div>'
 									 );
 					            }
 			 			
@@ -46,6 +47,14 @@ let varaList = [];
 			            }
 			        });
 
+	}
+	function getList(){
+	 $(".onClickToItems").click(function(){
+	 	 console.log('click test');
+          let v= $(this).attr('b');
+          console.log('click test',v);
+          window.location.hash = '#itemlist';
+      });
 	}
 
 
