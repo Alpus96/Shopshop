@@ -46,8 +46,8 @@ let varaList = [];
 					            }
 
 			            },
-			            error: function (errormessage) {
-
+			            error: function (xhr, opt, err) {
+			            	console.log(xhr, opt, err);
 
 			            }
 			        });
