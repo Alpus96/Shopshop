@@ -69,10 +69,8 @@ class Ajax {
         request.open('GET', url, true);
 
         request.open('get', url);
-        origin/master
 
         request.open('GET', url, true);
-        66ad0d344c79034403c673fa14b2c0f982cbfba2
         request.responseType = 'json';
         request.send();
         request.onload = () => {
