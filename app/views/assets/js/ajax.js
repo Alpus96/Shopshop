@@ -64,11 +64,11 @@ class Ajax {
     **/
     get (url, callback) {
         const request = new XMLHttpRequest();
-<<<<<<< HEAD
+
         request.open('GET', url, true);
-=======
+
         request.open('get', url);
->>>>>>> origin/master
+        origin/master
         request.responseType = 'json';
         request.send();
         request.onload = () => {
