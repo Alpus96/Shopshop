@@ -72,6 +72,7 @@ class Cookies {
     create (name, value, duration = this.duration) {
         duration = this.assertDuration(duration);
         const expires = setTimeout( () => { this.expired(name); }, duration );
+        if (typeof value !== 'object') { value = {value}; }
         document.cookie = name + '=' + JSON.stringify( value ? { value: value, expires: expires } : '' ) + '; expires=' + this.expireStamp(duration) + '; path=/';
         this.cache[name] = { value: value, expires:  expires};
     }
@@ -87,10 +88,12 @@ class Cookies {
     **/
     read (name) {
         if (this.cache && typeof this.cache[name] !== 'undefined' && typeof this.cache[name].expires !== 'undefined') { return this.cache[name].value; }
+
         const cookies = document.cookie.split('; ');
         this.cache = {};
         for (let i = cookies.length - 1; i >= 0; i--) {
            const [cookieName, cookieJSON] = cookies[i].split('=');
+           console.log(cookieName, cookieJSON);
            const cookieValue = typeof cookieJSON !== 'undefined' && cookieJSON !== 'undefined' && cookieJSON ? JSON.parse(cookieJSON) : null;
            this.cache[cookieName] = cookieValue;
         }
