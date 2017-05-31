@@ -19,4 +19,9 @@ Feature: As a user i should be able to have lists.
 	    Then I should get a list with name it has been mentioned.   
 	    	
 
-	    
+	Scenario:
+	    Given that I have entered listname 
+	    And I click on Lägatill button
+	    And I see listName wiith remove button
+	    When I click on remove button 
+	    Then I should not see the removed list on the page.   
