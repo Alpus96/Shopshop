@@ -31,7 +31,6 @@ class Router {
         console.log('url: ', request.url);
         const user = new User(typeof request.body.cookie !== 'undefined' ? request.body.cookie : null);
 
-
         if (request.url === '/savelist') {
             //  TODO: Save the sent lists.
             const res = user.addList(request.body.data);
@@ -46,13 +45,13 @@ class Router {
             response.end(JSON.stringify( { error: false, data: user.getSavedLists() } ) );
         } else if (request.url === '/removelist') {
             //  TODO: remove sent list.
-            const res = user.removeList(request.body.data)
+            const res = user.deleteList(request.body.data)
             //  TODO: Send JSON response with success status.
             response.writeHead(200, {"Content-Type": "application/json"});
             response.end(JSON.stringify( { error: res, data: '' } ) );
         } else if (request.url === '/login') {
             //  TODO: confirm cridentials.
-            const [res, data] = user.login(request.body.data);
+            const [res, data] = user.login(request.body);
             //  TODO: Send JSON response with success status.
             response.writeHead(200, {"Content-Type": "application/json"});
             response.end(JSON.stringify( { error: res, data: data } ) );

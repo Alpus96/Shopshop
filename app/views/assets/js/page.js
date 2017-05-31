@@ -8,7 +8,7 @@ $(document).ready(() => {
 });
 
 const ajax = new Ajax();
-const cookies = new Cookies(1000*60*10); // 10 min
+const cookies = new Cookies(1000*60*10);  //  10 min
 
 class Page {
     constructor() {
@@ -20,12 +20,12 @@ class Page {
 
         $('#register').submit((event) => {
             event.preventDefault();
-            Page.register($( this ).serializeArray());
+            Page.register($('').serializeArray());
         });
 
         $('#login').submit((event) => {
             event.preventDefault();
-            Page.login($( this ).serializeArray());
+            Page.login($('#login :input').serializeArray());
         });
 
         $('#logout').submit((formSubmit) => {
@@ -121,13 +121,16 @@ class Page {
     }
 
     login (data) {
+        data = {username: data[0].value, password: data[1].value};
         const errMsg = 'Fel användarnamn eller lösenord, vänligen försök igen.';
         if (this.validateInput(data)) {
             const Page = this;
             ajax.post('/login', data, (error, response) => {
                 if (!error && !response.error) {
-                    cookies.create('loggedIn', response.data);
+                    Page.crums = Page.crums ? Page.crums : [];
                     Page.crums.push('loggedIn');
+                    cookies.create('loggedIn', response.data);
+                    location.hash = '#lists';
                 } else {
                     Page.showMsg(errMsg);
                 }
@@ -145,7 +148,7 @@ class Page {
                 return false;
             }
         }
-        return input.length > 0 ? true : false;
+        return Object.keys(input).length > 0 ? true : false;
     }
 
     showMsg (msg) {
@@ -195,13 +198,13 @@ class Page {
 
                  ajax.post('/savelist', {cookie: cookie, data: data}, (error, result) => {
                         if (!error) {
-                            alert('Din lista har blivit skapad');
+                            location.reload();
                         } else {
                             alert('Oops, något gick vist fel, vänligen försök igen senare.');
                         }
                 });
 
-                
+
                 // Check that the name is not the same as that of another item
                 // ONCE we have connected this code to the real class!!!!
 
@@ -234,13 +237,18 @@ class Page {
                 }
             });
 
-            $(document).on("click",".delete",function(){
-                //$(this).closest(".row").remove();
+
+            $("#vl").on("click",".delete b",function(){
+                 let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+                    cookies.create('testUser', cookie);
+
                    let data= $(this).text();
-                
-                 ajax.post('/removelist', data, (error, result) => {
+
+                   console.log('test',data);
+
+                 ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
                         if (!error) {
-                            alert('Din lista har blivit skapad');
+                             location.reload();
                         } else {
                             alert('Oops, något gick vist fel, vänligen försök igen senare.');
                         }
