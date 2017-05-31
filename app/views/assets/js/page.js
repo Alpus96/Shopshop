@@ -174,7 +174,7 @@ class Page {
 
                  ajax.post('/savelist', {cookie: cookie, data: data}, (error, result) => {
                         if (!error) {
-                            alert('Din lista har blivit skapad');
+                            location.reload();
                         } else {
                             alert('Oops, något gick vist fel, vänligen försök igen senare.');
                         }
@@ -213,13 +213,17 @@ class Page {
                 }
             });
 
-            $(document).on("click",".delete",function(){
-                //$(this).closest(".row").remove();
+
+            $("#vl").on("click",".delete b",function(){
+                 let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+                    cookies.create('testUser', cookie);
+               
                    let data= $(this).text();
+                   console.log('test',data);
                 
-                 ajax.post('/removelist', data, (error, result) => {
+                 ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
                         if (!error) {
-                            alert('Din lista har blivit skapad');
+                             location.reload();
                         } else {
                             alert('Oops, något gick vist fel, vänligen försök igen senare.');
                         }

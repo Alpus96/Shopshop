@@ -31,15 +31,13 @@ let varaList = [];
 
 							// NOTE: cookies.read('testUser');
 
-			                /*document.cookie = "id=" + '0';
-							document.cookie = "username=" + 'testUser';
-							document.cookie = "password=" + 'testPass123';*/
+			                
 				               for(let vl in varuListor){
 	                  				let propertyValeu = varuListor[vl];
 	                            	console.log(propertyValeu.name);
 						        	 $("#vl").append('<div class="row navbar navbar-default"><h3> <p class="list-name onClickToItems"><b>'+propertyValeu.name+'<b></p>'+
-                    				' <button type="button" class="btn btn-default btn-remove pull-right">'+
-                     				' <span class="glyphicon glyphicon-remove"></span></button></h3></div>'
+                    				' <button type="button" class="btn btn-default btn-remove pull-right delete">'+
+                     				' <span class="glyphicon glyphicon-remove"><b>'+propertyValeu.name+'</b></span></button></h3></div>'
                    					 );
 					            }
 
