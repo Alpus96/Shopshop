@@ -165,12 +165,14 @@ class Page {
     addEventHandlersForAddingListItems(){
 
         $(function(){
+                let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+                    cookies.create('testUser', cookie);
 
-            $(".addBtn").click(function(){
+                $(".addBtn").click(function(){
 
                 let data = $('#listname').val();//input text
-                
-                 ajax.post('/savelist', data, (error, result) => {
+
+                 ajax.post('/savelist', {cookie: cookie, data: data}, (error, result) => {
                         if (!error) {
                             alert('Din lista har blivit skapad');
                         } else {
@@ -211,8 +213,8 @@ class Page {
                 }
             });
 
-            $(document).on("click",".onClickToItems b",function(){
-                $(this).closest(".row").remove();
+            $(document).on("click",".delete",function(){
+                //$(this).closest(".row").remove();
                    let data= $(this).text();
                 
                  ajax.post('/removelist', data, (error, result) => {

@@ -66,12 +66,15 @@ const bcrypt = require('bcryptjs');
 
     addList (name) {
         this.lists[name] = new GroceryList(name);
+        return {ok:this.lists[name]};
     }
 
-    saveLists () {
-        if (this.loggedIn) {
+    saveLists (lists) {
+        
+       if (this.loggedIn) {
             for (let save in this.lists) {
-                ListModel.saveList(this.cookie.id, this.lists[save]);
+
+                ListModel.saveList(this.cookie.id,this.lists[save]);
             }
         }
     }
