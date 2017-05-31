@@ -8,7 +8,7 @@ $(document).ready(() => {
 });
 
 const ajax = new Ajax();
-const cookies = new Cookies(1000*60*10); // 10 min
+const cookies = new Cookies(1000*60*10);  //  10 min
 
 class Page {
     constructor() {
@@ -222,7 +222,7 @@ class Page {
                     cookies.create('testUser', cookie);
 
                    let data= $(this).text();
-                   
+
                    console.log('test',data);
 
                  ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
