@@ -14,37 +14,10 @@
             10,
             11,
             12,
-            13,
-            14
+            13
         ]
     ],
     "lists": [
-        {
-            "name": "6tBvn",
-            "items": [
-                {
-                    "name": "Beaf",
-                    "quantity": 2,
-                    "category": "meat",
-                    "bought": false
-                },
-                {
-                    "name": "Beaf",
-                    "quantity": 2,
-                    "category": "meat",
-                    "bought": false
-                },
-                {
-                    "name": "Beaf",
-                    "quantity": 2,
-                    "category": "meat",
-                    "bought": false
-                }
-            ],
-            "categories": [
-                "meat"
-            ]
-        },
         {
             "name": "e4hNK",
             "items": [
