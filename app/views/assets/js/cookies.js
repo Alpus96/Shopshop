@@ -114,6 +114,8 @@ class Cookies {
         clearTimeout(oldCookie.expires);
         this.create(name, oldCookie.value, duration ? duration : this.duration);
     }
+
+    //  NOTE: Remove!!! Why is this here?
     getCookie(name) {
 
          var nameEQ = name + "=";
@@ -124,7 +126,7 @@ class Cookies {
             while (c.charAt(0)==' ') c = c.substring(1,c.length);
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
         }
-    return null;
+        return null;
     }
 
     /**
