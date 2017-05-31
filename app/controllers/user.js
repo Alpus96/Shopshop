@@ -48,9 +48,9 @@ const bcrypt = require('bcryptjs');
     login (cridentials) {
         const user = UserModel.getByUsername(cridentials.username);
         if (user) {
-            return bcrypt.compare(user.password, cridentials.password) ? user : false;
+            return bcrypt.compare(user.password, cridentials.password) ? [false, user] : [true, null];
         } else {
-            return false;
+            return [true, null];
         }
     }
 
@@ -70,7 +70,7 @@ const bcrypt = require('bcryptjs');
     }
 
     saveLists (lists) {
-        
+
        if (this.loggedIn) {
             for (let save in this.lists) {
 
@@ -128,4 +128,3 @@ const bcrypt = require('bcryptjs');
 if(typeof module !== 'undefined'){
   module.exports = User;
 }
-
