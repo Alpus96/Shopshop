@@ -70,12 +70,12 @@ function getList(){
 	                 let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
 	                    cookies.create('testUser', cookie);
 	               
-	                   let data= $('#vl .delete').first().text().trim();
-	                   console.log('test',data);
+	                   let data= $(this).first().text().trim();
+	                   alert('test',data);
 	                
 	                 ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
 	                        if (!error) {
-	                            // location.reload();
+	                             location.reload();
 	                        } else {
 	                            alert('Oops, något gick vist fel, vänligen försök igen senare.');
 	                        }
