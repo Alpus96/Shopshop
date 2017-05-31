@@ -68,7 +68,7 @@ class Page {
         } else if (l === '#lists') {
             const Page = this;
             ajax.get('/categories', (error, response) => {
-                Page.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+                //Page.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
 
             //  TODO: Get lists and save them to this.lists.
@@ -87,7 +87,7 @@ class Page {
         }
 
         this.crums = this.crums ? this.crums : [];
-        if (this.crums.indexOf('loggedIn') != -1) {
+        if (cookies.read('loggedIn')) {
            $('#log').text('Logga ut');
         } else {
             $('#log').text('Logga in');
@@ -100,8 +100,10 @@ class Page {
 
     logBtn () {
         this.crums = this.crums ? this.crums : [];
-        if (this.crums.indexOf('loggedIn') != -1) {
+        if (cookies.read('loggedIn')) {
            //   hanle logout
+           cookies.delete('loggedIn');
+           location.hash = '#login';
         } else {
             //show login
             location.hash = '#login';
@@ -128,8 +130,6 @@ class Page {
             const Page = this;
             ajax.post('/login', data, (error, response) => {
                 if (!error && !response.error) {
-                    Page.crums = Page.crums ? Page.crums : [];
-                    Page.crums.push('loggedIn');
                     cookies.create('loggedIn', response.data);
                     location.hash = '#lists';
                 } else {
