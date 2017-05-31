@@ -1,17 +1,162 @@
 {
     "index": [
         [
-            0
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
         ]
     ],
     "lists": [
         {
-            "name": "Nisse",
-            "items": []
+            "name": "J0SWc",
+            "items": [
+                {
+                    "name": "89MvO",
+                    "quantity": 1,
+                    "category": "Godis",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Godis"
+            ]
         },
         {
-            "name": "ss",
-            "items": []
+            "name": "Wpj8D",
+            "items": [
+                {
+                    "name": "jvmGV",
+                    "quantity": 1,
+                    "category": "Godis",
+                    "bought": false
+                },
+                {
+                    "name": "AdUZJ",
+                    "quantity": 1,
+                    "category": "Fisk",
+                    "bought": false
+                },
+                {
+                    "name": "E8Fcl",
+                    "quantity": 1,
+                    "category": "Grönsaker",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Godis",
+                "Fisk",
+                "Grönsaker"
+            ]
+        },
+        {
+            "name": "A86F7",
+            "items": [
+                {
+                    "name": "Xe2oy",
+                    "quantity": 1,
+                    "category": "Kött",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Kött"
+            ]
+        },
+        {
+            "name": "O5lnf",
+            "items": [
+                {
+                    "name": "MekeV",
+                    "quantity": 1,
+                    "category": "Godis",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Godis"
+            ]
+        },
+        {
+            "name": "QzKsW",
+            "items": [
+                {
+                    "name": "sPJdC",
+                    "quantity": 1,
+                    "category": "Kött",
+                    "bought": false
+                },
+                {
+                    "name": "ysWUn",
+                    "quantity": 1,
+                    "category": "Godis",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Kött",
+                "Godis"
+            ]
+        },
+        {
+            "name": "JxoyD",
+            "items": [
+                {
+                    "name": "oUvnN",
+                    "quantity": 1,
+                    "category": "Fisk",
+                    "bought": false
+                },
+                {
+                    "name": "1Lqv9",
+                    "quantity": 1,
+                    "category": "Grönsaker",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Fisk",
+                "Grönsaker"
+            ]
+        },
+        {
+            "name": "ULwgI",
+            "items": [
+                {
+                    "name": "TTDoe",
+                    "quantity": 1,
+                    "category": "Fisk",
+                    "bought": false
+                },
+                {
+                    "name": "biRvE",
+                    "quantity": 1,
+                    "category": "Fisk",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Fisk"
+            ]
+        },
+        {
+            "name": "W8B2u",
+            "items": [
+                {
+                    "name": "OjM6y",
+                    "quantity": 1,
+                    "category": "Fisk",
+                    "bought": false
+                }
+            ],
+            "categories": [
+                "Fisk"
+            ]
         }
     ]
 }

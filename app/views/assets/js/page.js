@@ -46,7 +46,7 @@ class Page {
         $('#addItem').submit((formSubmit) => {
             formSubmit.preventDefault();
             Page.addtem($( this ).serializeArray());
-        }); 
+        });
 
         $('#log').on('click', () => {
             this.logBtn();
@@ -66,8 +66,9 @@ class Page {
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
         } else if (l === '#lists') {
+            const Page = this;
             ajax.get('/categories', (error, response) => {
-                this.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+                Page.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
 
             //  TODO: Get lists and save them to this.lists.

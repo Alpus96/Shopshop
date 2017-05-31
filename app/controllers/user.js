@@ -25,6 +25,30 @@ const bcrypt = require('bcryptjs');
             'Grönsaker',
             'Frukt'
         ];
+
+        /*const tmp = this.cookie;
+        this.cookie = {id: 0};
+        for (let i = 0; i < 4; i++) {
+            const name = this.makeString();
+            this.addList(name);
+            for (let j = 0; j < Math.random()*4; j++) {
+                this.lists[name].addToList(this.makeString(), 1, this.categoryList[Math.floor(Math.random()*4)]);
+            }
+            console.log('+1');
+        }
+        this.saveLists();
+        this.cookie = tmp;*/
+    }
+
+    makeString () {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        for ( var i=0; i <= 4; i++ ) {
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        }
+
+        return text;
     }
 
     validateCookie (cookie) {
