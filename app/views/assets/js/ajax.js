@@ -33,6 +33,15 @@ class Ajax {
     **/
     get (url, callback) {
         const request = new XMLHttpRequest();
+
+        request.open('GET', url, true);
+
+        request.open('get', url);
+        
+
+        request.open('GET', url, true);
+        
+
         request.open('GET', url, true);
         request.responseType = 'json';
         request.onload = () => {
@@ -46,3 +55,4 @@ class Ajax {
     }
 
 }
+
