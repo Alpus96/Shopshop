@@ -12,7 +12,10 @@
             8,
             9,
             10,
-            11
+            11,
+            12,
+            13,
+            14
         ]
     ],
     "lists": [
@@ -37,13 +40,6 @@
                     "category": "meat",
                     "bought": false
                 }
-            ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
             ],
             "categories": [
                 "meat"
@@ -71,13 +67,6 @@
                     "bought": false
                 }
             ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
-            ],
             "categories": [
                 "meat"
             ]
@@ -103,13 +92,6 @@
                     "category": "meat",
                     "bought": false
                 }
-            ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
             ],
             "categories": [
                 "meat"
@@ -137,13 +119,6 @@
                     "bought": false
                 }
             ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
-            ],
             "categories": [
                 "meat"
             ]
@@ -163,13 +138,6 @@
                     "category": "meat",
                     "bought": false
                 }
-            ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
             ],
             "categories": [
                 "meat"
@@ -191,13 +159,6 @@
                     "bought": false
                 }
             ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
-            ],
             "categories": [
                 "meat"
             ]
@@ -217,13 +178,6 @@
                     "category": "meat",
                     "bought": false
                 }
-            ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
             ],
             "categories": [
                 "meat"
@@ -245,13 +199,6 @@
                     "bought": false
                 }
             ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
-            ],
             "categories": [
                 "meat"
             ]
@@ -265,13 +212,6 @@
                     "category": "meat",
                     "bought": false
                 }
-            ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
             ],
             "categories": [
                 "meat"
@@ -287,13 +227,6 @@
                     "bought": false
                 }
             ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
-            ],
             "categories": [
                 "meat"
             ]
@@ -307,13 +240,6 @@
                     "category": "meat",
                     "bought": false
                 }
-            ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
             ],
             "categories": [
                 "meat"
@@ -329,16 +255,21 @@
                     "bought": false
                 }
             ],
-            "categoryList": [
-                "Fisk",
-                "Kött",
-                "Godis",
-                "Grönsaker",
-                "Frukt"
-            ],
             "categories": [
                 "meat"
             ]
+        },
+        {
+            "name": "Björn",
+            "items": []
+        },
+        {
+            "name": "Hej",
+            "items": []
+        },
+        {
+            "name": "Nisse",
+            "items": []
         }
     ]
 }

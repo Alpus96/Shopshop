@@ -37,10 +37,9 @@ class ListModel {
 
         //  Not saving file since no chages are made.
     }
-
-    saveList (userId, list) {
+ saveList (userId, list) {
         let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));
-
+        console.log('SparaLista', userId,list)
         let found = false;
         const existingLists = jsonObj.index.length > 0 ? jsonObj.index[userId]: [];
         for (let i = 0; i < existingLists.length; i++) {
@@ -66,6 +65,7 @@ class ListModel {
 
         fs.writeFileSync(ListTable, JSON.stringify(jsonObj, null, 4), 'utf8');
     }
+   
 
     deleteList (userId, listName) {
         let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));

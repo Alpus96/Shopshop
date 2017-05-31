@@ -8,7 +8,7 @@ $(document).ready(() => {
 });
 
 const ajax = new Ajax();
-const cookies = new Cookies(1000*60*10);
+const cookies = new Cookies(1000*60*10); // 10 min
 
 class Page {
     constructor() {
@@ -61,7 +61,6 @@ class Page {
 
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
-            //$(l).show();
         } else if (l === '#lists') {
             ajax.get('/categories', (error, response) => {
                 this.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
@@ -74,11 +73,11 @@ class Page {
             console.log(this);
             console.log("this.itemlist",this.itemlist);
             // itemlist is not (always at least a function)
-            // for the #itemlist page in turns out to be 
+            // for the #itemlist page in turns out to be
             // a DOM element. You can't call a DOM element
             // as if it were a function!!!
             // SO: Commenting this out for now! Check your code!
-            
+
             //this.itemlist(listName[1]);
         }
 
@@ -89,11 +88,12 @@ class Page {
 
     register (data) {
         if (this.validateInput(data)) {
+            const Page = this;
             ajax.post('/register', data, (error, result) => {
                 if (!error) {
-                    this.showMsg('Du har blivigt registrerad!');
+                    Page.showMsg('Du har blivigt registrerad!');
                 } else {
-                    this.showMsg('Oops, något gick vist fel, vänligen försök igen senare.');
+                    Page.showMsg('Oops, något gick vist fel, vänligen försök igen senare.');
                 }
             });
         } else { this.showMsg('Vänligen använd endast A-Ö, a-ö och 0-9.'); }
@@ -102,11 +102,13 @@ class Page {
     login (data) {
         const errMsg = 'Fel användarnamn eller lösenord, vänligen försök igen.';
         if (this.validateInput(data)) {
-            const cookieData = ajax.post('/login', data, (error, response) => {
-                if (response.data) {
-                    this.loggedIn(response.data);
+            const Page = this;
+            ajax.post('/login', data, (error, response) => {
+                if (!error && !response.error) {
+                    cookies.create('loggedIn', response.data);
+                    Page.crums.push('loggedIn');
                 } else {
-                    this.showMsg(errMsg);
+                    Page.showMsg(errMsg);
                 }
             });
         } else { this.showMsg(errMsg); }
@@ -117,7 +119,6 @@ class Page {
     delete (data) {}
 
     validateInput (input) {
-        //  TODO: Add validating minimum length of inputs and that they only contain A-Ö, a-ö and 0-9.
         for (let val in input) {
             if (input[val].length < 6 || input[val].match(/\W/g)) {
                 return false;
@@ -127,18 +128,7 @@ class Page {
     }
 
     showMsg (msg) {
-        // NOTE: Modal needed in view first.
-        //  TODO: Add appanding message and title to a modal message.
-    }
-
-    loggedIn (cookieData) {
-        //  TODO: Add saving a cookie to send with request.
-        this.crums = this.crums ? this.crums : [];
-        for (let i in cookieData) {
-            console.log(i, cookieData[i]);
-            //cookies.create(i, cookieData[i]);
-            this.crums.push(i);
-        }
+        //  TODO:   Display a message.
     }
 
     categoryList (categories) {
@@ -157,8 +147,8 @@ class Page {
             cat.append(op);
         }
     }
-   
-    
+
+
 
     addList (name){  //Alex tell me which id shld I use as function parameter
 
@@ -172,13 +162,24 @@ class Page {
     }
 
     //  n run a function
-    addEventHandlersForAddingListItems(){ 
+    addEventHandlersForAddingListItems(){
 
         $(function(){
+                let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+                    cookies.create('testUser', cookie);
 
-            $(".addBtn").click(function(){
-                
-                let name = $('#listname').val();//input text
+                $(".addBtn").click(function(){
+
+                let data = $('#listname').val();//input text
+
+                 ajax.post('/savelist', {cookie: cookie, data: data}, (error, result) => {
+                        if (!error) {
+                            location.reload();
+                        } else {
+                            alert('Oops, något gick vist fel, vänligen försök igen senare.');
+                        }
+                });
+
                 
                 // Check that the name is not the same as that of another item
                 // ONCE we have connected this code to the real class!!!!
@@ -189,19 +190,15 @@ class Page {
                 // Maybe it would be better to rerender the whole list of lists
                 // after this has happened...
 
-                // Emulate that this takes som time (because later it will when we 
+                // Emulate that this takes som time (because later it will when we
                 // change this to redrawing the list on server reponse)
 
-                setTimeout(function(){
-                    $("#list-of-lists").append(`
-                        <div class="row navbar navbar-default ">       
-                            <p class="list-name">${name}</p>
-                            <button type="button" class="btn btn-default btn-remove pull-right">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                        </div>`
+               /* setTimeout(function(){
+                    $("#vl").append('<div class="row navbar navbar-default "> <p class="list-name"></p>'+
+                    ' <button type="button" class="btn btn-default btn-remove pull-right">'+
+                     ' <span class="glyphicon glyphicon-remove"></span></button></div>'+
                     );
-                },500);
+                },500);*/
                 // Rest the input field to empty
                 $('#listname').val("");
                 //$('#addlist').hide(); // DON'T DO THIS AND SKIP LARGE BTN?
@@ -212,18 +209,31 @@ class Page {
                 if(e.which === 13){
                     // pressed enter so add list
                     // by faking a click on the addBtn
-                    $('.addBtn').click();   
+                    $('.addBtn').click();
                 }
             });
 
-            $(document).on("click",".btn-remove",function(){
-                $(this).closest(".row").remove();
+
+            $("#vl").on("click",".delete b",function(){
+                 let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+                    cookies.create('testUser', cookie);
+               
+                   let data= $(this).text();
+                   console.log('test',data);
+                
+                 ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
+                        if (!error) {
+                             location.reload();
+                        } else {
+                            alert('Oops, något gick vist fel, vänligen försök igen senare.');
+                        }
+                });
                 // We have to remove the real item from our class as well
                 // Right now we are just playing around with the DOM
             });
 
         });
-     
+
     }
 
     itemlist (name) {
