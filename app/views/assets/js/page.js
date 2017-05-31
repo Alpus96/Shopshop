@@ -86,10 +86,8 @@ class Page {
             //this.itemlist(listName[1]);
         }
 
-        console.log('before:',this.crums);
         this.crums = this.crums ? this.crums : [];
-        console.log('after:',this.crums);
-        if (this.crums.indexOf('loggedIn') != -1) {
+        if (cookies.read('loggedIn')) {
            $('#log').text('Logga ut');
         } else {
             $('#log').text('Logga in');
@@ -102,8 +100,10 @@ class Page {
 
     logBtn () {
         this.crums = this.crums ? this.crums : [];
-        if (this.crums.indexOf('loggedIn') != -1) {
+        if (cookies.read('loggedIn')) {
            //   hanle logout
+           cookies.delete('loggedIn');
+           location.hash = '#login';
         } else {
             //show login
             location.hash = '#login';
@@ -130,11 +130,6 @@ class Page {
             const Page = this;
             ajax.post('/login', data, (error, response) => {
                 if (!error && !response.error) {
-                    console.log(Page.crums);
-                    Page.crums = Page.crums ? Page.crums : [];
-                    console.log(Page.crums);
-                    Page.crums.push('loggedIn');
-                    console.log(Page.crums);
                     cookies.create('loggedIn', response.data);
                     location.hash = '#lists';
                 } else {
