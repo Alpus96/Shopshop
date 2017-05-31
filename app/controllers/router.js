@@ -45,7 +45,7 @@ class Router {
             response.end(JSON.stringify( { error: false, data: user.getSavedLists() } ) );
         } else if (request.url === '/removelist') {
             //  TODO: remove sent list.
-            const res = user.removeList(request.body.data)
+            const res = user.deleteList(request.body.data)
             //  TODO: Send JSON response with success status.
             response.writeHead(200, {"Content-Type": "application/json"});
             response.end(JSON.stringify( { error: res, data: '' } ) );

@@ -64,12 +64,14 @@ function getList(){
       });
 	}
 	function deleteList(){
-		$("#vl").on("click",".delete b",function(){
+
+
+		$("#vl").on("click",".delete",function(){
 	                 let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
 	                    cookies.create('testUser', cookie);
 	               
-	                   let data= $(this).text();
-	                   console.log('test',data);
+	                   let data= $(this).first().text().trim();
+	                   alert('test',data);
 	                
 	                 ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
 	                        if (!error) {

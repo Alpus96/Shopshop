@@ -36,7 +36,7 @@ let varaList = [];
 	                  				let propertyValeu = varuListor[vl];
 	                            	console.log(propertyValeu.name);
 						        	 $("#vl").append('<div class="row navbar navbar-default"><h3> <p class="list-name onClickToItems"><b>'+propertyValeu.name+'<b></p>'+
-                    				' <button type="button" class="btn btn-default btn-remove pull-right delete">'+
+                    				' <button type="button" class="delete btn btn-default btn-remove pull-right">'+
                      				' <span class="glyphicon glyphicon-remove"><b>'+propertyValeu.name+'</b></span></button></h3></div>'
                    					 );
 					            }
