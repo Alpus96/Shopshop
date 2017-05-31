@@ -71,7 +71,7 @@ function getList(){
 	                    cookies.create('testUser', cookie);
 	               
 	                   let data= $(this).first().text().trim();
-	                   alert('test',data);
+	                  
 	                
 	                 ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
 	                        if (!error) {
