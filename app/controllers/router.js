@@ -27,16 +27,18 @@ class Router {
     }
 
     post (request, response) {
-        const user = new User(typeof request.body.cookie !== 'undefined' ? request.body.cookie : null);
-
         console.log('body: ', request.body);
         console.log('url: ', request.url);
+        const user = new User(typeof request.body.cookie !== 'undefined' ? request.body.cookie : null);
+
+
         if (request.url === '/savelist') {
             //  TODO: Save the sent lists.
-            const res = user.saveList(request.body.data);
+            const res = user.addList(request.body.data);
+            user.saveLists(res);
             //  TODO: Send JSON response with success status.
             response.writeHead(200, {"Content-Type": "application/json"});
-            response.end(JSON.stringify( { error: res, data: '' } ) );
+            response.end(JSON.stringify( { error: res, data: null } ) );
         } else if (request.url === '/lists') {
             //  TODO: Get lists.
             //  TODO: Send JSON response with all the lists.

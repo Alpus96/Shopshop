@@ -165,11 +165,22 @@ class Page {
     addEventHandlersForAddingListItems(){
 
         $(function(){
+                let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+                    cookies.create('testUser', cookie);
 
-            $(".addBtn").click(function(){
+                $(".addBtn").click(function(){
 
-                let name = $('#listname').val();//input text
+                let data = $('#listname').val();//input text
 
+                 ajax.post('/savelist', {cookie: cookie, data: data}, (error, result) => {
+                        if (!error) {
+                            alert('Din lista har blivit skapad');
+                        } else {
+                            alert('Oops, något gick vist fel, vänligen försök igen senare.');
+                        }
+                });
+
+                
                 // Check that the name is not the same as that of another item
                 // ONCE we have connected this code to the real class!!!!
 
@@ -182,16 +193,12 @@ class Page {
                 // Emulate that this takes som time (because later it will when we
                 // change this to redrawing the list on server reponse)
 
-                setTimeout(function(){
-                    $("#list-of-lists").append(`
-                        <div class="row navbar navbar-default ">
-                            <p class="list-name">${name}</p>
-                            <button type="button" class="btn btn-default btn-remove pull-right">
-                                <span class="glyphicon glyphicon-remove"></span>
-                            </button>
-                        </div>`
+               /* setTimeout(function(){
+                    $("#vl").append('<div class="row navbar navbar-default "> <p class="list-name"></p>'+
+                    ' <button type="button" class="btn btn-default btn-remove pull-right">'+
+                     ' <span class="glyphicon glyphicon-remove"></span></button></div>'+
                     );
-                },500);
+                },500);*/
                 // Rest the input field to empty
                 $('#listname').val("");
                 //$('#addlist').hide(); // DON'T DO THIS AND SKIP LARGE BTN?
@@ -206,8 +213,17 @@ class Page {
                 }
             });
 
-            $(document).on("click",".btn-remove",function(){
-                $(this).closest(".row").remove();
+            $(document).on("click",".delete",function(){
+                //$(this).closest(".row").remove();
+                   let data= $(this).text();
+                
+                 ajax.post('/removelist', data, (error, result) => {
+                        if (!error) {
+                            alert('Din lista har blivit skapad');
+                        } else {
+                            alert('Oops, något gick vist fel, vänligen försök igen senare.');
+                        }
+                });
                 // We have to remove the real item from our class as well
                 // Right now we are just playing around with the DOM
             });
