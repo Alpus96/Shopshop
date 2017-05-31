@@ -12,7 +12,7 @@ class Ajax {
 		const request = new XMLHttpRequest();
 		request.open('POST', url, true);
 		request.responseType = 'json';
-		request.setRequestHeader('Content-Type', 'Application/JSON');
+		request.setRequestHeader('Content-Type', 'application/json');
 		request.onload = () => {
 			callback(null, request.response);
 		};
