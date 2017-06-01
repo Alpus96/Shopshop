@@ -1,12 +1,17 @@
 {
     "index": [
         [
-            0
+            0,
+            1
         ]
     ],
     "lists": [
         {
-            "name": "Nisse",
+            "name": "Tuesday list",
+            "items": []
+        },
+        {
+            "name": "Monday list",
             "items": []
         }
     ]

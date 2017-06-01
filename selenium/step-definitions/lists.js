@@ -23,12 +23,8 @@ module.exports = function () {
 
   this.Then(/^I should see 'Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'$/,async function() {
     
-     // This actually tests 2 things: 
-     // 1) That the values are in the select list
-     // 2) And that the list is displayed after clicking it...
-
      // Array of things we expect to see / that should exist in the select list
-    let categories = ['Fisk', 'Kött', 'Godis', 'Grönsaker','Frukt'];
+    let categories = ['Fisk','Kött', 'Godis', 'Grönsaker','Frukt'];
 
      // Get the option elements
     let optionElements = await driver.findElements(By.css("#categories option"));
@@ -78,6 +74,7 @@ module.exports = function () {
 
   this.Then(/^I should get a list with name it has been mentioned.$/, async function() {
     await sleep(3000); // waiting because we will want to wait for ajax response in the app...
+    //await helpers.loadPage('http://localhost:3000');
     let lists = await driver.findElements(By.css(".list-name"));
     let found = false;
     for(list of lists){
@@ -94,7 +91,7 @@ module.exports = function () {
   
   });
 
-  this.Then(/^I see listName wiith remove button$/,async function() {
+  this.When(/^I see listName wiith remove button$/,async function() {
     await sleep(3000); // waiting because we will want to wait for ajax response in the app...
     await driver.findElement(by.css(".list-name"));
     await driver.findElement(By.css(".btn-remove"));
