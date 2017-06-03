@@ -9,11 +9,11 @@ const jsonPath = path.join(__dirname, 'database/UserTable.json');
 
  class UserModel {
     //  data = {username: '', password: ''}
-     saveUser (data) {
+    saveUser (data) {
         let editable = UserTable;
         editable.users.push(data);
         fs.writeFileSync(jsonPath, JSON.stringify(editable, null, 4), 'utf8');
-     }
+    }
 
     getById (userId) {
         return UserTable.users[userId];
