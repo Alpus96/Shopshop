@@ -40,7 +40,7 @@ const bcrypt = require('bcryptjs');
         this.cookie = tmp;*/
     }
 
-    makeString () {
+    /*makeString () {
         var text = "";
         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -49,7 +49,7 @@ const bcrypt = require('bcryptjs');
         }
 
         return text;
-    }
+    }*/
 
     validateCookie (cookie) {
         if (cookie.id >= 0 && cookie.username && cookie.password && Object.keys(cookie).length === 3) {

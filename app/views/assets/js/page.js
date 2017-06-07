@@ -1,11 +1,12 @@
 // Clientside javascript
 $(document).ready(() => {
     try {
-        new Page();
+        const page = new Page();
     } catch (e) {
         console.log(e);
     }
 });
+
 
 const ajax = new Ajax();
 const cookies = new Cookies(1000*60*10);  //  10 min
@@ -16,36 +17,36 @@ class Page {
         window.onhashchange = this.switchPage;
 
         // Add Listeners with functions.
-        const Page = this;
+        //const Page = this;
 
         $('#register').submit((event) => {
             event.preventDefault();
-            Page.register($('').serializeArray());
+            page.register($('').serializeArray());
         });
 
         $('#login').submit((event) => {
             event.preventDefault();
-            Page.login($('#login :input').serializeArray());
+            page.login($('#login :input').serializeArray());
         });
 
         $('#logout').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.logout($( this ).serializeArray());
+            page.logout($( this ).serializeArray());
         });
 
         $('#delete').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.delete($( this ).serializeArray());
+            page.delete($( this ).serializeArray());
         });
 
         $('#addList').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.addList($( this ).serializeArray());
+            page.addList($( this ).serializeArray());
         });
 
         $('#addItem').submit((formSubmit) => {
             formSubmit.preventDefault();
-            Page.addtem($( this ).serializeArray());
+            page.addtem($( this ).serializeArray());
         });
 
         $('#log').on('click', () => {
@@ -66,9 +67,8 @@ class Page {
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
         } else if (l === '#lists') {
-            const Page = this;
             ajax.get('/categories', (error, response) => {
-                //Page.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+                pg.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
 
             //  TODO: Get lists and save them to this.lists.
@@ -112,12 +112,11 @@ class Page {
 
     register (data) {
         if (this.validateInput(data)) {
-            const Page = this;
             ajax.post('/register', data, (error, result) => {
                 if (!error) {
-                    Page.showMsg('Du har blivigt registrerad!');
+                    page.showMsg('Du har blivigt registrerad!');
                 } else {
-                    Page.showMsg('Oops, något gick vist fel, vänligen försök igen senare.');
+                    page.showMsg('Oops, något gick vist fel, vänligen försök igen senare.');
                 }
             });
         } else { this.showMsg('Vänligen använd endast A-Ö, a-ö och 0-9.'); }
@@ -127,13 +126,12 @@ class Page {
         data = {username: data[0].value, password: data[1].value};
         const errMsg = 'Fel användarnamn eller lösenord, vänligen försök igen.';
         if (this.validateInput(data)) {
-            const Page = this;
             ajax.post('/login', data, (error, response) => {
                 if (!error && !response.error) {
                     cookies.create('loggedIn', response.data);
                     location.hash = '#lists';
                 } else {
-                    Page.showMsg(errMsg);
+                    page.showMsg(errMsg);
                 }
             });
         } else { this.showMsg(errMsg); }
