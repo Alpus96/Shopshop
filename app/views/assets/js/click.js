@@ -80,9 +80,29 @@ function getList(){
 	                            alert('Oops, något gick vist fel, vänligen försök igen senare.');
 	                        }
 	                });
-	                // We have to remove the real item from our class as well
-	                // Right now we are just playing around with the DOM
-	            });
+
+	    });
+	}
+
+	function addItemToList(){
+
+
+		$("#vl").on("click",".delete",function(){
+	                 let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
+	                    cookies.create('testUser', cookie);
+	               
+	                   let data= $(this).first().text().trim();
+	                  
+	                
+	                 ajax.post('/removelist',{cookie: cookie, data: data}, (error, result) => {
+	                        if (!error) {
+	                             location.reload();
+	                        } else {
+	                            alert('Oops, något gick vist fel, vänligen försök igen senare.');
+	                        }
+	                });
+
+	    });
 	}
 
 });

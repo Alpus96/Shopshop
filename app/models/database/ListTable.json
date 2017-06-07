@@ -9,24 +9,11 @@
             5,
             6,
             7,
-            8
+            8,
+            9
         ]
     ],
     "lists": [
-        {
-            "name": "J0SWc",
-            "items": [
-                {
-                    "name": "89MvO",
-                    "quantity": 1,
-                    "category": "Godis",
-                    "bought": false
-                }
-            ],
-            "categories": [
-                "Godis"
-            ]
-        },
         {
             "name": "Wpj8D",
             "items": [
@@ -126,26 +113,6 @@
             ]
         },
         {
-            "name": "ULwgI",
-            "items": [
-                {
-                    "name": "TTDoe",
-                    "quantity": 1,
-                    "category": "Fisk",
-                    "bought": false
-                },
-                {
-                    "name": "biRvE",
-                    "quantity": 1,
-                    "category": "Fisk",
-                    "bought": false
-                }
-            ],
-            "categories": [
-                "Fisk"
-            ]
-        },
-        {
             "name": "W8B2u",
             "items": [
                 {
@@ -161,6 +128,18 @@
         },
         {
             "name": "Mat",
+            "items": []
+        },
+        {
+            "name": "Monday list",
+            "items": []
+        },
+        {
+            "name": "varor",
+            "items": []
+        },
+        {
+            "name": "ny",
             "items": []
         }
     ]

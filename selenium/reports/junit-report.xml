@@ -1,41 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="0" skipped="0">
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="2">
         <properties>
-            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            <property name="URI" value="C:\Users\Björn\Desktop\Shopshop\selenium\features\lists.feature">
             </property>
         </properties>
-        <testcase name="Given I am not logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="4.135495391">
+        <testcase name="Given I am not logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="10.016106214">
+            <failure message="function timed out after 10000 milliseconds">function timed out after 10000 milliseconds</failure>
         </testcase>
-        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.105009696">
+        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
         </testcase>
-        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.256434227">
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
         </testcase>
     </testsuite>
-    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="0" skipped="0">
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="0">
         <properties>
-            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            <property name="URI" value="C:\Users\Björn\Desktop\Shopshop\selenium\features\lists.feature">
             </property>
         </properties>
-        <testcase name="Given I am logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.523590136">
+        <testcase name="Given I am logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="6.331829766">
         </testcase>
-        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.115783859">
+        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.188427542">
         </testcase>
-        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.264585675">
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.177972438">
+            <failure message="AssertionError: The following categories are missing Fisk, Kött, Godis, Grönsaker, Frukt">AssertionError: The following categories are missing Fisk, Kött, Godis, Grönsaker, Frukt
+    at World.&lt;anonymous&gt; (C:\Users\Björn\Desktop\Shopshop\selenium\step-definitions\lists.js:50:6)
+    at process._tickCallback (internal/process/next_tick.js:109:7)</failure>
         </testcase>
     </testsuite>
     <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="4" failures="0" skipped="0">
         <properties>
-            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            <property name="URI" value="C:\Users\Björn\Desktop\Shopshop\selenium\features\lists.feature">
             </property>
         </properties>
-        <testcase name="Given that I have text box to add list name" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.448854082">
+        <testcase name="Given that I have text box to add list name" classname="as-a-user-i-should-be-able-to-have-lists.;" time="6.3605815">
         </testcase>
-        <testcase name="When I enter list name" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.122613498">
+        <testcase name="When I enter list name" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.277593566">
         </testcase>
-        <testcase name="And I click on Lägatill button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.081618173">
+        <testcase name="And I click on Lägatill button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.156356827">
         </testcase>
-        <testcase name="Then I should get a list with name it has been mentioned." classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.095284703">
+        <testcase name="Then I should get a list with name it has been mentioned." classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.49465442">
+        </testcase>
+    </testsuite>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="5" failures="0" skipped="0">
+        <properties>
+            <property name="URI" value="C:\Users\Björn\Desktop\Shopshop\selenium\features\lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given that I have entered listname" classname="as-a-user-i-should-be-able-to-have-lists.;" time="6.468108103">
+        </testcase>
+        <testcase name="And I click on Lägatill button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.147906216">
+        </testcase>
+        <testcase name="And I see listName wiith remove button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.143688016">
+        </testcase>
+        <testcase name="When I click on remove button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.136587024">
+        </testcase>
+        <testcase name="Then I should not see the removed list on the page." classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.12614613">
         </testcase>
     </testsuite>
 </testsuites>

@@ -110,6 +110,17 @@ const bcrypt = require('bcryptjs');
         delete this.lists[name];
     }
 
+    addItemsToUserList(listName,itemName){
+        let listor = getSavedLists();
+        for(let list in listor){
+            let temp = listor[list];
+            if(temp.name === listName){
+                
+            }
+        }
+
+    }
+
     //  Remove and use list function instead.
     removeItemFromUserList(listName,itemName) {
         let itemSelector = this.lists[listName] ? this.lists[listName].items.indexOf(itemName) : null;
