@@ -1,30 +1,29 @@
 {
-    "name": "shopshop",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "dependencies": {
-        "bcryptjs": "^2.4.3",
-        "body-parser": "^1.17.1",
-        "cookie-parser": "^1.4.3",
-        "cucumber": "^2.2.0",
-        "ejs": "^2.5.6",
-        "express": "^4.15.2"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "node_modules/.bin/cucumber-js",
-        "start": "node server.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Alpus96/Shopshop.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Alpus96/Shopshop/issues"
-    },
-    "homepage": "https://github.com/Alpus96/Shopshop#readme"
-
+  "name": "shopshop",
+  "version": "1.0.0",
+  "description": "This README file contains information about the project file structure.",
+  "main": "server.js",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "cucumber": "^2.2.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "cucumber-js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alpus96/Shopshop.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Alpus96/Shopshop/issues"
+  },
+  "homepage": "https://github.com/Alpus96/Shopshop#readme"
 }

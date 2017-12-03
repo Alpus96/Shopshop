@@ -1,14 +1,16 @@
 
+
 <div class="page container" id="lists">
 	
 	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-10">
+		
 			<h1>Listor</h1>
 		</div>
 	</div>
 
-	<div class="row navbar navbar-inverse">
+	<div id="tableRow" class="row navbar navbar-inverse">
 		<div class="col-xs-2 v-center">
 			<h3 class="no-margin pull-left">Namn</h3>
 			<p class="tiny-text pull-right">abc</p>
@@ -20,6 +22,9 @@
 			<form class="" name="cat_sort" id="cat_sort">
 				<select class="form-control formcontrol" name="select_cat" id="categories">
 					<option name="def" id="default">- Välj kategori -</option>
+					<option value="Välj">- Soft Drinks  -</option>
+                    <option value="Frukt">- Frukt -</option>
+                    <option value="Gronsöker">-Gronsöker -</option>
 				</select>
 			</form>
 		</div>
@@ -31,16 +36,14 @@
 	
 	
 
-	<div id="list-of-lists">
-		
-	</div>
+	
 
    
 	<div class="row" id="lists-container"></div>
 	    <div class="row navbar navbar-default flip " id = "addlist">	   
 			<label for="listName" class ="control-label controlab" >Listans Namn:</label>
 			<input type="text" name="listName" class = "control-text controltext v-center" id = "listname">
-			<button class="btn btn-default control-input v-center addBtn" id="addListBtn">Lägg till</button>
+			<button class="btn btn-default control-input v-center addBtn" id="addListBtn" onclick="addText()">Lägg till</button>
 		</div>
 	</div>
 </div>

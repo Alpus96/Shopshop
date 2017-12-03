@@ -48,6 +48,10 @@ class Page {
             Page.addtem($( this ).serializeArray());
         });
 
+        $('#log').on('click', () => {
+            this.logBtn();
+        });
+
         this.addEventHandlersForAddingListItems();
     }
 
@@ -62,8 +66,9 @@ class Page {
         if (l === '#register' || l === '#login' || l === '#delete') {
             $('#account').show();
         } else if (l === '#lists') {
+            const Page = this;
             ajax.get('/categories', (error, response) => {
-                this.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
+                //Page.categoryList(!error ? response.data.replace(/[\[\]'"]+/g, '').split(',') : []);
             });
 
             //  TODO: Get lists and save them to this.lists.
@@ -81,9 +86,28 @@ class Page {
             //this.itemlist(listName[1]);
         }
 
+        this.crums = this.crums ? this.crums : [];
+        if (cookies.read('loggedIn')) {
+           $('#log').text('Logga ut');
+        } else {
+            $('#log').text('Logga in');
+        }
+
         $('header nav li').removeClass('active');
         $('header nav a[href = "' + l + '"]').parent().addClass('active');
-        $(l).show();
+        $(l).show()
+    }
+
+    logBtn () {
+        this.crums = this.crums ? this.crums : [];
+        if (cookies.read('loggedIn')) {
+           //   hanle logout
+           cookies.delete('loggedIn');
+           location.hash = '#login';
+        } else {
+            //show login
+            location.hash = '#login';
+        }
     }
 
     register (data) {
@@ -106,8 +130,6 @@ class Page {
             const Page = this;
             ajax.post('/login', data, (error, response) => {
                 if (!error && !response.error) {
-                    Page.crums = Page.crums ? Page.crums : [];
-                    Page.crums.push('loggedIn');
                     cookies.create('loggedIn', response.data);
                     location.hash = '#lists';
                 } else {

@@ -41,6 +41,7 @@ module.exports = function () {
        }
 
      }
+     
 
      // If we have categories left then they are not in the list or not displayed
      assert(checklist && categories.length === 0,"The following categories are missing " + categories.join(", "));

@@ -6,6 +6,6 @@ Feature: Item and list categories.
         Then the lists categories should be <categories>
 
         Examples:
-            |              categories             |
-            |                  Dairy                   |
+            |              categories |
+            |                  Dairy  |
             | Meat, Vegetables, Candy |

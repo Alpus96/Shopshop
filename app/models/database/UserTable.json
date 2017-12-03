@@ -9,66 +9,11 @@
             "password": "password"
         },
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
+        
         {
             "username": "accountTest",
             "password": "$2a$12$DfLsPHde4..303ynkWDq9u6IP9lvPkkZ/twegWsGEUHavPeO.Xxnm"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$P3lNQkmRzpxekzm73v0ugu.Pe.jn9t.DZ3lyHIwpQrQmo/K4s4A.m"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$X6Gs7PUGKlN1JLZruertBugVPRJL2bdRhKHABwKDqgHl5K1SBkaeC"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$12LqQm73kPAx4CvYuqRXgekq/0kM.zpp585REhapmXRLXCpuAKbiW"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$4IyvcJ/RbwGYKLzW/mFlJeroGRIRrFGgyU8ghnKbBIroZSzL.oXde"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$yRDjDuJLrptVOYzObp2QC.AokyxahN3qEPt2BXfbnE.cmGZfs7RBe"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$EK72zeGjk1nsEol5.ErrCuI0zE2auiRM.C6/wfc8.cufpdeUciTZy"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$aQ6lUNWHwlf9AhccWCBHV.72bx6piAho0KWox5VKMXfrUnXAtTCMG"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$wqIkGvhdUTmQ3Vr0pPvu7eKzon8M48Z4be/M9SPYoyWigiNhSYPY6"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$VixpBQeRg.d4qdSw5LKkXeY1Xzd8H9LjZkQc3ilMOrjy8ZMJLJt1C"
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$mcn1knMeGq.FfHuAuzMI7OXPDSpF8cT0vN/y7zPgyibWwafLMp/t."
-        },
-        {
-            "username": "accountTest",
-            "password": "$2a$12$FMkoo3AFoGsz.dUhADiAZeAdn8gxhHE0BnP5sCyctd5tUaw6i70nC"
         }
+        
     ]
 }

@@ -13,6 +13,8 @@ class ListModel {
 
     getUsersLists (userId, callback) {
         console.log("Test12", userId);
+        console.log(fs.readFileSync(ListTable, 'utf8')); 
+        console.log(JSON.parse(fs.readFileSync(ListTable, '')));
         let jsonObj = JSON.parse(fs.readFileSync(ListTable, 'utf8'));
 
         if (jsonObj.index[userId]) {

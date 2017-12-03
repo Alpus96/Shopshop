@@ -21,6 +21,7 @@ function getList(){
 			            success: function (response) {
 			            	//	{error: true/false, data:{...}}
 			            	console.log(response);
+			            	console.log("Response is printed successfuly");
 			            	for(let item in response.data){
 
 			            		let pvalue = response.data[item];
@@ -47,10 +48,7 @@ function getList(){
 									    	);
 	                  					}
 				               			console.log(propertyValeu);
-				               			
 				               		}
-	                            	
-						        	
 					            }
 			 			
 			            },
@@ -63,9 +61,8 @@ function getList(){
           window.location.hash = '#itemlist';
       });
 	}
+
 	function deleteList(){
-
-
 		$("#vl").on("click",".delete",function(){
 	                 let  cookie = {id: 0, username: 'testUser', password: 'testPass123'};
 	                    cookies.create('testUser', cookie);

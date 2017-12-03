@@ -1,41 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="0" skipped="0">
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="1">
         <properties>
-            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            <property name="URI" value="C:\Users\bhara\Documents\Shopshop\selenium\features\lists.feature">
             </property>
         </properties>
-        <testcase name="Given I am not logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="4.135495391">
+        <testcase name="Given I am not logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="5.858680621">
         </testcase>
-        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.105009696">
+        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.02623013">
+            <failure message="NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;categories&quot;]&quot;}">NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;categories&quot;]&quot;}
+  (Session info: chrome=58.0.3029.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64)
+    at Object.checkLegacyResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\error.js:505:15)
+    at parseHttpResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at doSend.then.response (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:440:13)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+From: Task: WebDriver.findElement(By(css selector, *[id=&quot;categories&quot;]))
+    at thenableWebDriverProxy.schedule (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:815:17)
+    at thenableWebDriverProxy.findElement (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1016:17)
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\lists.js:19:18)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+From: Task: WebElement.click()
+    at thenableWebDriverProxy.schedule (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:815:17)
+    at WebElementPromise.schedule_ (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1914:25)
+    at WebElementPromise.click (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1995:17)
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\lists.js:19:51)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)</failure>
         </testcase>
-        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.256434227">
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
         </testcase>
     </testsuite>
-    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="0" skipped="0">
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="3" failures="1" skipped="1">
         <properties>
-            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            <property name="URI" value="C:\Users\bhara\Documents\Shopshop\selenium\features\lists.feature">
             </property>
         </properties>
-        <testcase name="Given I am logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.523590136">
+        <testcase name="Given I am logged in navigates to GroceryList page" classname="as-a-user-i-should-be-able-to-have-lists.;" time="5.188573464">
         </testcase>
-        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.115783859">
+        <testcase name="When I click on select list valj-kategory button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.026792476">
+            <failure message="NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;categories&quot;]&quot;}">NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;categories&quot;]&quot;}
+  (Session info: chrome=58.0.3029.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64)
+    at Object.checkLegacyResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\error.js:505:15)
+    at parseHttpResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at doSend.then.response (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:440:13)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+From: Task: WebDriver.findElement(By(css selector, *[id=&quot;categories&quot;]))
+    at thenableWebDriverProxy.schedule (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:815:17)
+    at thenableWebDriverProxy.findElement (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1016:17)
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\lists.js:19:18)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+From: Task: WebElement.click()
+    at thenableWebDriverProxy.schedule (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:815:17)
+    at WebElementPromise.schedule_ (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1914:25)
+    at WebElementPromise.click (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1995:17)
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\lists.js:19:51)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)</failure>
         </testcase>
-        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.264585675">
+        <testcase name="Then I should see &apos;Fisk&apos;, &apos;Kött&apos;, &apos;Godis&apos;, &apos;Grönsaker&apos;,&apos;Frukt&apos;" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
         </testcase>
     </testsuite>
-    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="4" failures="0" skipped="0">
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="4" failures="1" skipped="3">
         <properties>
-            <property name="URI" value="C:/Users/bhara/Documents/Shopshop/selenium/features/lists.feature">
+            <property name="URI" value="C:\Users\bhara\Documents\Shopshop\selenium\features\lists.feature">
             </property>
         </properties>
-        <testcase name="Given that I have text box to add list name" classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.448854082">
+        <testcase name="Given that I have text box to add list name" classname="as-a-user-i-should-be-able-to-have-lists.;" time="4.877730821">
+            <failure message="NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;addlist&quot;]&quot;}">NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;addlist&quot;]&quot;}
+  (Session info: chrome=58.0.3029.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64)
+    at Object.checkLegacyResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\error.js:505:15)
+    at parseHttpResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at doSend.then.response (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:440:13)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+From: Task: WebDriver.findElement(By(css selector, *[id=&quot;addlist&quot;]))
+    at thenableWebDriverProxy.schedule (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:815:17)
+    at thenableWebDriverProxy.findElement (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1016:17)
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\lists.js:63:19)
+    at process._tickCallback (internal/process/next_tick.js:109:7)</failure>
         </testcase>
-        <testcase name="When I enter list name" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.122613498">
+        <testcase name="When I enter list name" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
         </testcase>
-        <testcase name="And I click on Lägatill button" classname="as-a-user-i-should-be-able-to-have-lists.;" time="0.081618173">
+        <testcase name="And I click on Lägatill button" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
         </testcase>
-        <testcase name="Then I should get a list with name it has been mentioned." classname="as-a-user-i-should-be-able-to-have-lists.;" time="3.095284703">
+        <testcase name="Then I should get a list with name it has been mentioned." classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+    </testsuite>
+    <testsuite name="as-a-user-i-should-be-able-to-have-lists.;" tests="5" failures="1" skipped="4">
+        <properties>
+            <property name="URI" value="C:\Users\bhara\Documents\Shopshop\selenium\features\lists.feature">
+            </property>
+        </properties>
+        <testcase name="Given that I have entered listname" classname="as-a-user-i-should-be-able-to-have-lists.;" time="4.924609441">
+            <failure message="NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;listname&quot;]&quot;}">NoSuchElementError: no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;*[id=&quot;listname&quot;]&quot;}
+  (Session info: chrome=58.0.3029.110)
+  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.14393 x86_64)
+    at Object.checkLegacyResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\error.js:505:15)
+    at parseHttpResponse (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:509:13)
+    at doSend.then.response (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\http.js:440:13)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+From: Task: WebDriver.findElement(By(css selector, *[id=&quot;listname&quot;]))
+    at thenableWebDriverProxy.schedule (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:815:17)
+    at thenableWebDriverProxy.findElement (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1016:17)
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\lists.js:90:18)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+From: Task: WebElement.sendKeys()
+    at thenableWebDriverProxy.schedule (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:815:17)
+    at WebElementPromise.schedule_ (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:1914:25)
+    at WebElementPromise.sendKeys (C:\Users\bhara\Documents\Shopshop\selenium\node_modules\selenium-webdriver\lib\webdriver.js:2077:19)
+    at World.&lt;anonymous&gt; (C:\Users\bhara\Documents\Shopshop\selenium\step-definitions\lists.js:90:49)
+    at process._tickCallback (internal/process/next_tick.js:109:7)</failure>
+        </testcase>
+        <testcase name="And I click on Lägatill button" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="And I see listName wiith remove button" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="When I click on remove button" classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
+        </testcase>
+        <testcase name="Then I should not see the removed list on the page." classname="as-a-user-i-should-be-able-to-have-lists.;">
+            <skipped message="">
+            </skipped>
         </testcase>
     </testsuite>
 </testsuites>
